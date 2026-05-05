@@ -17,11 +17,11 @@ export default function ChangePasswordForm() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h2 className="text-2xl font-black text-white mb-3">변경 완료!</h2>
-        <p className="text-slate-400 mb-8">{state.message}</p>
+        <h2 className="text-2xl font-black text-slate-900 mb-3">변경 완료!</h2>
+        <p className="text-slate-500 mb-8">{state.message}</p>
         <Link
           href="/login"
-          className="rounded-full bg-white px-8 py-3 text-sm font-black text-black hover:bg-emerald-400 transition-colors"
+          className="rounded-full bg-slate-900 px-8 py-3 text-sm font-black text-white hover:bg-emerald-600 transition-colors"
         >
           로그인하기
         </Link>
@@ -40,8 +40,8 @@ export default function ChangePasswordForm() {
 
       {/* 이메일 */}
       <div>
-        <label htmlFor="email" className="block text-xs font-bold uppercase tracking-[0.15em] text-slate-400 mb-2">
-          이메일 <span className="text-emerald-400">*</span>
+        <label htmlFor="email" className="block text-xs font-bold uppercase tracking-[0.15em] text-slate-500 mb-2">
+          이메일 <span className="text-emerald-600">*</span>
         </label>
         <input
           id="email"
@@ -49,7 +49,7 @@ export default function ChangePasswordForm() {
           type="email"
           autoComplete="email"
           placeholder="가입한 이메일 주소"
-          className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-slate-600 focus:border-emerald-500/50 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 transition-all"
+          className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-300 focus:border-emerald-500/50 focus:outline-none focus:ring-2 focus:ring-emerald-500/10 transition-all shadow-sm"
         />
         {state.errors?.email && (
           <p className="mt-2 text-xs text-red-400">{state.errors.email[0]}</p>
@@ -58,8 +58,8 @@ export default function ChangePasswordForm() {
 
       {/* 현재 비밀번호 */}
       <div>
-        <label htmlFor="currentPassword" className="block text-xs font-bold uppercase tracking-[0.15em] text-slate-400 mb-2">
-          현재 비밀번호 <span className="text-emerald-400">*</span>
+        <label htmlFor="currentPassword" className="block text-xs font-bold uppercase tracking-[0.15em] text-slate-500 mb-2">
+          현재 비밀번호 <span className="text-emerald-600">*</span>
         </label>
         <input
           id="currentPassword"
@@ -67,7 +67,7 @@ export default function ChangePasswordForm() {
           type="password"
           autoComplete="current-password"
           placeholder="현재 비밀번호 입력"
-          className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-slate-600 focus:border-emerald-500/50 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 transition-all"
+          className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-300 focus:border-emerald-500/50 focus:outline-none focus:ring-2 focus:ring-emerald-500/10 transition-all shadow-sm"
         />
         {state.errors?.currentPassword && (
           <p className="mt-2 text-xs text-red-400">{state.errors.currentPassword[0]}</p>
@@ -75,12 +75,12 @@ export default function ChangePasswordForm() {
       </div>
 
       {/* 구분선 */}
-      <div className="border-t border-white/5" />
+      <div className="border-t border-slate-100" />
 
       {/* 새 비밀번호 */}
       <div>
-        <label htmlFor="newPassword" className="block text-xs font-bold uppercase tracking-[0.15em] text-slate-400 mb-2">
-          새 비밀번호 <span className="text-emerald-400">*</span>
+        <label htmlFor="newPassword" className="block text-xs font-bold uppercase tracking-[0.15em] text-slate-500 mb-2">
+          새 비밀번호 <span className="text-emerald-600">*</span>
         </label>
         <input
           id="newPassword"
@@ -88,7 +88,7 @@ export default function ChangePasswordForm() {
           type="password"
           autoComplete="new-password"
           placeholder="8자 이상 입력"
-          className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-slate-600 focus:border-emerald-500/50 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 transition-all"
+          className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-300 focus:border-emerald-500/50 focus:outline-none focus:ring-2 focus:ring-emerald-500/10 transition-all shadow-sm"
         />
         {state.errors?.newPassword && (
           <p className="mt-2 text-xs text-red-400">{state.errors.newPassword[0]}</p>
@@ -97,8 +97,8 @@ export default function ChangePasswordForm() {
 
       {/* 새 비밀번호 확인 */}
       <div>
-        <label htmlFor="confirm" className="block text-xs font-bold uppercase tracking-[0.15em] text-slate-400 mb-2">
-          새 비밀번호 확인 <span className="text-emerald-400">*</span>
+        <label htmlFor="confirm" className="block text-xs font-bold uppercase tracking-[0.15em] text-slate-500 mb-2">
+          새 비밀번호 확인 <span className="text-emerald-600">*</span>
         </label>
         <input
           id="confirm"
@@ -106,7 +106,7 @@ export default function ChangePasswordForm() {
           type="password"
           autoComplete="new-password"
           placeholder="새 비밀번호 재입력"
-          className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-slate-600 focus:border-emerald-500/50 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 transition-all"
+          className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-300 focus:border-emerald-500/50 focus:outline-none focus:ring-2 focus:ring-emerald-500/10 transition-all shadow-sm"
         />
         {state.errors?.confirm && (
           <p className="mt-2 text-xs text-red-400">{state.errors.confirm[0]}</p>
@@ -117,13 +117,13 @@ export default function ChangePasswordForm() {
       <button
         type="submit"
         disabled={isPending}
-        className="w-full rounded-full bg-white py-4 text-sm font-black text-black hover:bg-emerald-400 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full rounded-full bg-slate-900 py-4 text-sm font-black text-white hover:bg-emerald-600 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-slate-200"
       >
         {isPending ? '변경 중...' : '비밀번호 변경'}
       </button>
 
       <p className="text-center text-xs text-slate-500">
-        <Link href="/login" className="text-emerald-400 hover:underline">
+        <Link href="/login" className="text-emerald-600 hover:underline">
           로그인 페이지로 돌아가기
         </Link>
       </p>

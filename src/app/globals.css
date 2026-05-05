@@ -4,7 +4,7 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0f172a;
 }
 
 @theme inline {
@@ -33,15 +33,61 @@
   --animate-loading-progress: loading-progress 3s ease-in-out infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* 기본적으로 라이트 테마를 사용하며, 필요한 경우에만 다크 모드 지원을 추가할 수 있습니다. 
+   현재는 사용자 요청에 따라 라이트 모드를 기본으로 합니다. */
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Tiptap Editor Styles */
+.tiptap p.is-editor-empty:first-child::before {
+  color: #94a3b8;
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+.tiptap img {
+  display: block;
+  margin: 1.5rem 0;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tiptap img:hover {
+  filter: brightness(1.1);
+}
+
+.tiptap img.ProseMirror-selectednode {
+  outline: 3px solid #10b981;
+}
+
+.tiptap blockquote {
+  border-left: 3px solid #10b981;
+  padding-left: 1rem;
+  font-style: italic;
+  color: #475569;
+}
+
+.tiptap code {
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.3rem;
+  font-size: 0.875rem;
+}
+
+.tiptap pre {
+  background-color: #f1f5f9;
+  color: #334155;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+}
+
+.tiptap a {
+  cursor: pointer;
 }

@@ -10,7 +10,7 @@ export default function LoginForm() {
 
       <p className="text-center text-xs text-slate-500">
         계정이 없으신가요?{' '}
-        <Link href="/signup" className="text-emerald-400 hover:underline">
+        <Link href="/signup" className="text-emerald-600 hover:underline">
           회원가입
         </Link>
       </p>

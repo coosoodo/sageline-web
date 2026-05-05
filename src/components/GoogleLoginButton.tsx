@@ -18,7 +18,7 @@ export default function GoogleLoginButton({ label = 'Google로 계속하기' }: 
     <button
       type="button"
       onClick={handleGoogleLogin}
-      className="w-full flex items-center justify-center gap-3 rounded-full border border-white/10 bg-white/5 px-6 py-4 text-sm font-bold text-white hover:bg-white/10 transition-all"
+      className="w-full flex items-center justify-center gap-3 rounded-full border border-slate-200 bg-white px-6 py-4 text-sm font-bold text-slate-900 hover:bg-slate-50 hover:border-slate-300 transition-all shadow-sm"
     >
       {/* Google SVG 아이콘 */}
       <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
