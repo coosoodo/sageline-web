@@ -1,7 +1,10 @@
 // src/app/page.tsx (서버 컴포넌트)
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { redirect } from 'next/navigation';
+
 import { createSupabaseServerClient } from '@/lib/supabase-server';
+import { ChevronRight } from 'lucide-react';
 import LogoutButton from '@/components/LogoutButton';
 
 export const metadata: Metadata = {
@@ -98,15 +101,16 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
             </div>
           </a>
           <div className="hidden md:flex items-center space-x-12 text-xs font-bold uppercase tracking-[0.2em] text-slate-400">
-            {[['Vision', '#vision'], ['Business', '#business'], ['Technology', '#technology']].map(([item, href]) => (
-              <a
+            {[['Vision', '#vision'], ['Business', '#business'], ['Technology', '#technology'], ['Manual', '/manual']].map(([item, href]) => (
+              <Link
                 key={item}
                 href={href}
                 className="hover:text-emerald-400 transition-all duration-300"
               >
                 {item}
-              </a>
+              </Link>
             ))}
+
             <a
               href="https://cafe.naver.com/sageline"
               target="_blank"
@@ -205,7 +209,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
                 코딩 없이 조건식 편집기만으로 나만의 매매 전략을 설계하고,
                 장 시작부터 마감까지 자동으로 실행합니다.
               </p>
-              <ul className="space-y-2">
+              <ul className="space-y-2 mb-8">
                 {['조건검색식 기반 종목 자동 선정', '분할매수·익절·손절·트레일링스탑', '다중 전략 병렬 실행', '자동 스케줄러로 무인 운영'].map(f => (
                   <li key={f} className="flex items-center gap-3 text-xs text-slate-400">
                     <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 flex-shrink-0" />
@@ -213,6 +217,12 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
                   </li>
                 ))}
               </ul>
+              <Link 
+                href="/manual" 
+                className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.15em] text-emerald-400 hover:text-white transition-colors group/link"
+              >
+                사용자 설명서 보기 <ChevronRight size={14} className="group-hover/link:translate-x-1 transition-transform" />
+              </Link>
             </div>
 
             <div className="rounded-3xl border border-white/5 bg-white/[0.02] p-10 hover:border-cyan-500/20 transition-all duration-300">
@@ -464,6 +474,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
           </div>
           <div className="mt-20 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-center gap-3 text-[10px] text-slate-600 font-medium tracking-widest">
             <span>COPYRIGHT © 2026 SAGELINE. ALL RIGHTS RESERVED.</span>
+
             <span className="hidden sm:inline text-slate-700">|</span>
             <a href="/terms" className="hover:text-slate-400 transition-colors underline underline-offset-2">이용약관</a>
             <span className="hidden sm:inline text-slate-700">|</span>

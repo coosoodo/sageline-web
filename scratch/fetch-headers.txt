@@ -1,0 +1,119 @@
+<h1 id="1-시작하기-전에" class="scroll-mt-32">1. 시작하기 전에</h
+<h2 id="11-이-문서에-대하여" class="scroll-mt-32">1.1 이 문서에 대하여</h
+<h3 id="이-문서가-다루는-내용" class="scroll-mt-32">이 문서가 다루는 내용</h
+<h3 id="적용-버전" class="scroll-mt-32">적용 버전</h
+<h3 id="표기-약속" class="scroll-mt-32">표기 약속</h
+<h3 id="관련-문서-및-참고-자료" class="scroll-mt-32">관련 문서 및 참고 자료</h
+<h3 id="문서-개정-이력" class="scroll-mt-32">문서 개정 이력</h
+<h2 id="12-부엉이-ats-란" class="scroll-mt-32">1.2 부엉이 ATS 란?</h
+<h3 id="프로그램-탄생-배경" class="scroll-mt-32">프로그램 탄생 배경</h
+<h3 id="지원-증권사-및-필수-조건" class="scroll-mt-32">지원 증권사 및 필수 조건</h
+<h3 id="핵심-기능-요약" class="scroll-mt-32">핵심 기능 요약</h
+<h2 id="13-주요-기능-한눈에-보기" class="scroll-mt-32">1.3 주요 기능 한눈에 보기</h
+<h2 id="14-화면-구성-미리보기" class="scroll-mt-32">1.4 화면 구성 미리보기</h
+<h1 id="2-설치-및-초기-설정" class="scroll-mt-32">2. 설치 및 초기 설정</h
+<h2 id="21-시스템-요구-사항" class="scroll-mt-32">2.1 시스템 요구 사항</h
+<h3 id="하드웨어-요구-사항" class="scroll-mt-32">하드웨어 요구 사항</h
+<h3 id="운영체제-요구-사항" class="scroll-mt-32">운영체제 요구 사항</h
+<h3 id="필수-소프트웨어" class="scroll-mt-32">필수 소프트웨어</h
+<h2 id="22-프로그램-설치" class="scroll-mt-32">2.2 프로그램 설치</h
+<h2 id="23-필수-초기-설정" class="scroll-mt-32">2.3 필수 초기 설정</h
+<h3 id="231-키움-api-앱키-등록" class="scroll-mt-32">2.3.1 키움 API 앱키 등록</h
+<h1 id="3-로그인" class="scroll-mt-32">3. 로그인</h
+<h2 id="31-로그인-화면-안내" class="scroll-mt-32">3.1 로그인 화면 안내</h
+<h2 id="32-자동-로그인-설정-방법" class="scroll-mt-32">3.2 자동 로그인 설정 방법</h
+<h1 id="4-메인-화면-안내" class="scroll-mt-32">4. 메인 화면 안내</h
+<h2 id="41-메인-화면-전체-구성" class="scroll-mt-32">4.1 메인 화면 전체 구성</h
+<h2 id="42-메뉴-및-탭-설명" class="scroll-mt-32">4.2 메뉴 및 탭 설명</h
+<h3 id="421-메뉴바-상세-설명" class="scroll-mt-32">4.2.1 메뉴바 상세 설명</h
+<h3 id="422-탭-패널-상세-설명" class="scroll-mt-32">4.2.2 탭 패널 상세 설명</h
+<h2 id="43-상태-표시-영역-읽는-방법-연결-상태-로그인-상태" class="scroll-mt-32">4.3 상태 표시 영역 읽는 방법 (연결 상태, 로그인 상태)</h
+<h2 id="44-테마-변경-방법" class="scroll-mt-32">4.4 테마 변경 방법</h
+<h1 id="5-자동-매매-전략-설정" class="scroll-mt-32">5. 자동 매매 전략 설정</h
+<h2 id="51-자동-매매-전략이란" class="scroll-mt-32">5.1 자동 매매 전략이란?</h
+<h3 id="1-개요" class="scroll-mt-32">1. 개요</h
+<h3 id="2-전략의-2계층-구조" class="scroll-mt-32">2. 전략의 2계층 구조</h
+<h3 id="3-주요-설정-항목-가이드" class="scroll-mt-32">3. 주요 설정 항목 가이드</h
+<h3 id="4-종목-선정-방식-3가지" class="scroll-mt-32">4. 종목 선정 방식 (3가지)</h
+<h3 id="5-한눈에-보는-전략-실행-흐름" class="scroll-mt-32">5. 한눈에 보는 전략 실행 흐름</h
+<h2 id="52-매매-전략-목록-확인-방법" class="scroll-mt-32">5.2 매매 전략 목록 확인 방법</h
+<h3 id="521-매매-전략-목록-화면-열기" class="scroll-mt-32">5.2.1 매매 전략 목록 화면 열기</h
+<h3 id="522-목록-구성-요소" class="scroll-mt-32">5.2.2 목록 구성 요소</h
+<h3 id="523-전략-상태-표시-정상--오류" class="scroll-mt-32">5.2.3 전략 상태 표시 (정상 / 오류)</h
+<h3 id="524-실행-중인-전략-구별" class="scroll-mt-32">5.2.4 실행 중인 전략 구별</h
+<h3 id="525-전략-상세-정보-확인" class="scroll-mt-32">5.2.5 전략 상세 정보 확인</h
+<h3 id="526-목록에서-가능한-작업" class="scroll-mt-32">5.2.6 목록에서 가능한 작업</h
+<h3 id="527-전략-순서-변경" class="scroll-mt-32">5.2.7 전략 순서 변경</h
+<h3 id="528-오류-상태-전략-처리-방법" class="scroll-mt-32">5.2.8 오류 상태 전략 처리 방법</h
+<h2 id="53-새-매매-전략-만들기" class="scroll-mt-32">5.3 새 매매 전략 만들기</h
+<h3 id="531-전략-이름-및-계좌-설정" class="scroll-mt-32">5.3.1 전략 이름 및 계좌 설정</h
+<h3 id="기본-매수-금액" class="scroll-mt-32">기본 매수 금액</h
+<h3 id="-자동-실행-시간대-설정" class="scroll-mt-32">③ 자동 실행 시간대 설정</h
+<h3 id="자동-실행-시간-ab" class="scroll-mt-32">자동 실행 시간 (A/B)</h
+<h3 id="-지정-일시-자동-완료" class="scroll-mt-32">④ 지정 일시 자동 완료</h
+<h3 id="-지정-일시-일괄-매도" class="scroll-mt-32">⑤ 지정 일시 일괄 매도</h
+<h2 id="532-종목-선정-방식-선택" class="scroll-mt-32">5.3.2 종목 선정 방식 선택</h
+<h3 id="-조건검색식-기반-자동-선정" class="scroll-mt-32">① 조건검색식 기반 자동 선정</h
+<h3 id="-사용자-지정-종목" class="scroll-mt-32">② 사용자 지정 종목</h
+<h2 id="533-매수-조건-설정-조건-표현식-편집기" class="scroll-mt-32">5.3.3 매수 조건 설정 (조건 표현식 편집기)</h
+<h3 id="개요" class="scroll-mt-32">개요</h
+<h3 id="주문-전략-편집기-열기" class="scroll-mt-32">주문 전략 편집기 열기</h
+<h3 id="편집기-화면-구성" class="scroll-mt-32">편집기 화면 구성</h
+<h3 id="-시스템조건식-편집기" class="scroll-mt-32">⑥ 시스템조건식 편집기</h
+<h3 id="시스템조건식-작성-방법" class="scroll-mt-32">시스템조건식 작성 방법</h
+<h3 id="사용-가능한-피연산자-목록" class="scroll-mt-32">사용 가능한 피연산자 목록</h
+<h3 id="시스템조건식-작성-예시" class="scroll-mt-32">시스템조건식 작성 예시</h
+<h2 id="534-매도-조건-설정" class="scroll-mt-32">5.3.4 매도 조건 설정</h
+<h3 id="개요-2" class="scroll-mt-32">개요</h
+<h3 id="매도-전략-유형별-구성-예시" class="scroll-mt-32">매도 전략 유형별 구성 예시</h
+<h2 id="535-주문-금액-설정-금액-표현식-편집기" class="scroll-mt-32">5.3.5 주문 금액 설정 (금액 표현식 편집기)</h
+<h3 id="개요-3" class="scroll-mt-32">개요</h
+<h3 id="금액-표현식-편집기-열기" class="scroll-mt-32">금액 표현식 편집기 열기</h
+<h3 id="수식-예시" class="scroll-mt-32">수식 예시</h
+<h3 id="매매-전략에-계산식-연결하기" class="scroll-mt-32">매매 전략에 계산식 연결하기</h
+<h2 id="536-주문-전략-설정-주문전략상세-편집" class="scroll-mt-32">5.3.6 주문 전략 설정 (주문전략상세 편집)</h
+<h3 id="설정-흐름-예시" class="scroll-mt-32">설정 흐름 예시</h
+<h3 id="주의-사항" class="scroll-mt-32">주의 사항</h
+<h2 id="537-거래-제외-종목-기준-설정" class="scroll-mt-32">5.3.7 거래 제외 종목 기준 설정</h
+<h3 id="개요-4" class="scroll-mt-32">개요</h
+<h3 id="권장-설정-예시" class="scroll-mt-32">권장 설정 예시</h
+<h2 id="538-보유-수-제한-및-재매수-제한-설정" class="scroll-mt-32">5.3.8 보유 수 제한 및 재매수 제한 설정</h
+<h3 id="개요-5" class="scroll-mt-32">개요</h
+<h2 id="54-매매-전략-수정-및-삭제" class="scroll-mt-32">5.4 매매 전략 수정 및 삭제</h
+<h3 id="개요-6" class="scroll-mt-32">개요</h
+<h2 id="541-매매-전략-수정" class="scroll-mt-32">5.4.1 매매 전략 수정</h
+<h2 id="542-매매-전략-삭제" class="scroll-mt-32">5.4.2 매매 전략 삭제</h
+<h2 id="543-전략-순서-변경" class="scroll-mt-32">5.4.3 전략 순서 변경</h
+<h2 id="544-수정-시-주의-메시지-정리" class="scroll-mt-32">5.4.4 수정 시 주의 메시지 정리</h
+<h2 id="55-전략-가져오기--내보내기" class="scroll-mt-32">5.5 전략 가져오기 / 내보내기</h
+<h3 id="개요-7" class="scroll-mt-32">개요</h
+<h2 id="551-전략-내보내기-export" class="scroll-mt-32">5.5.1 전략 내보내기 (Export)</h
+<h2 id="552-전략-가져오기-import" class="scroll-mt-32">5.5.2 전략 가져오기 (Import)</h
+<h1 id="6-자동-매매-실행-및-모니터링" class="scroll-mt-32">6. 자동 매매 실행 및 모니터링</h
+<h2 id="61-자동-매매-시작하기" class="scroll-mt-32">6.1 자동 매매 시작하기</h
+<h3 id="611-개요" class="scroll-mt-32">6.1.1 개요</h
+<h3 id="612-실행-흐름" class="scroll-mt-32">6.1.2 실행 흐름</h
+<h3 id="613-실행-전-자동-검증-항목" class="scroll-mt-32">6.1.3 실행 전 자동 검증 항목</h
+<h3 id="614-장중-실행-중지-시-주의사항" class="scroll-mt-32">6.1.4 장중 실행 중지 시 주의사항</h
+<h3 id="615-스케줄러를-이용한-자동-시작" class="scroll-mt-32">6.1.5 스케줄러를 이용한 자동 시작</h
+<h2 id="62-자동-매매-스위치-대시보드" class="scroll-mt-32">6.2 자동 매매 스위치 대시보드</h
+<h3 id="621-대시보드-위치-및-역할" class="scroll-mt-32">6.2.1 대시보드 위치 및 역할</h
+<h3 id="622-화면-구성" class="scroll-mt-32">6.2.2 화면 구성</h
+<h3 id="623-전략-onoff-방법" class="scroll-mt-32">6.2.3 전략 ON/OFF 방법</h
+<h3 id="624-대시보드-자동-갱신-조건" class="scroll-mt-32">6.2.4 대시보드 자동 갱신 조건</h
+<h3 id="625-대시보드에서-전략이-보이지-않을-때-확인-사항" class="scroll-mt-32">6.2.5 대시보드에서 전략이 보이지 않을 때 확인 사항</h
+<h2 id="63-자동-매매-현황-모니터링" class="scroll-mt-32">6.3 자동 매매 현황 모니터링</h
+<h3 id="631-개요" class="scroll-mt-32">6.3.1 개요</h
+<h2 id="64-자동-매매-중지-방법" class="scroll-mt-32">6.4 자동 매매 중지 방법</h
+<h2 id="65-자동-매매-이력-조회" class="scroll-mt-32">6.5 자동 매매 이력 조회</h
+<h3 id="651-개요" class="scroll-mt-32">6.5.1 개요</h
+<h1 id="7-스케줄러" class="scroll-mt-32">7. 스케줄러</h
+<h2 id="71-스케줄러-화면-안내" class="scroll-mt-32">7.1 스케줄러 화면 안내</h
+<h2 id="72-자동-시작-스케줄-설정-방법" class="scroll-mt-32">7.2 자동 시작 스케줄 설정 방법</h
+<h2 id="73-자동-종료-스케줄-설정-방법" class="scroll-mt-32">7.3 자동 종료 스케줄 설정 방법</h
+<h2 id="74-설정한-스케줄-확인-및-수정" class="scroll-mt-32">7.4 설정한 스케줄 확인 및 수정</h
+<h1 id="8-로그-확인" class="scroll-mt-32">8. 로그 확인</h
+<h2 id="81-로그-대시보드-화면-안내" class="scroll-mt-32">8.1 로그 대시보드 화면 안내</h
+<h2 id="82-실시간-로그-보는-방법" class="scroll-mt-32">8.2 실시간 로그 보는 방법</h
+<h2 id="83-로그-매니저에서-과거-로그-조회" class="scroll-mt-32">8.3 로그 매니저에서 과거 로그 조회</h
+<h2 id="84-로그-파일-업로드-방법-문의-시-활용" class="scroll-mt-32">8.4 로그 파일 업로드 방법 (문의 시 활용)</h

@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
 
 :root {
   --background: #ffffff;
@@ -10,6 +12,25 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  
+  @keyframes infinite-scroll {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0%); }
+  }
+  --animate-infinite-scroll: infinite-scroll 2s linear infinite;
+
+  @keyframes bounce-slow {
+    0%, 100% { transform: translateY(-10%); animation-timing-function: cubic-bezier(0.8, 0, 1, 1); }
+    50% { transform: translateY(0); animation-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+  }
+  --animate-bounce-slow: bounce-slow 3s infinite;
+
+  @keyframes loading-progress {
+    0% { transform: scaleX(0); }
+    50% { transform: scaleX(0.7); }
+    100% { transform: scaleX(1); }
+  }
+  --animate-loading-progress: loading-progress 3s ease-in-out infinite;
 }
 
 @media (prefers-color-scheme: dark) {
