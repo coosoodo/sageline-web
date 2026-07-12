@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import SignupForm from './SignupForm';
 
 export const metadata: Metadata = {
@@ -15,14 +16,14 @@ export default function SignupPage() {
       {/* 네비게이션 */}
       <header className="border-b border-slate-100 bg-white/80 backdrop-blur-xl">
         <nav className="container mx-auto flex h-20 max-w-7xl items-center justify-between px-8">
-          <a href="/" className="flex items-center space-x-3">
+          <Link href="/" className="flex items-center space-x-3">
             <div className="h-10 w-10 rounded-2xl bg-gradient-to-br from-teal-500 to-navy-600 p-[2px]">
               <div className="flex h-full w-full items-center justify-center rounded-[14px] bg-white">
                 <div className="h-4 w-4 rounded-full bg-teal-500" />
               </div>
             </div>
             <span className="text-2xl font-black tracking-tighter text-slate-900">SAGE LINE</span>
-          </a>
+          </Link>
         </nav>
       </header>
 
