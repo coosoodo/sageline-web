@@ -62,7 +62,7 @@ export default async function ManualPage() {
           {/* 사이드바 목차 */}
           <aside className="lg:w-64 flex-shrink-0 lg:sticky lg:top-32 h-fit">
             <div className="rounded-2xl border border-slate-200 bg-white p-2 shadow-sm">
-              <ManualToC content={processedContent} toc={toc} />
+              <ManualToC toc={toc} />
             </div>
           </aside>
 

@@ -1,56 +1,65 @@
 "use client";
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import { ChevronRight, ChevronDown, ChevronsDownUp, ChevronsUpDown } from 'lucide-react';
 
 import { ToCItem } from '@/lib/manual-utils';
 
 interface ManualToCProps {
-  content: string;
   toc: ToCItem[];
 }
 
-export default function ManualToC({ content, toc }: ManualToCProps) {
+export default function ManualToC({ toc }: ManualToCProps) {
   const [activeId, setActiveId] = useState<string>('');
-  const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set());
+  // 기본으로 1단계 항목만 펼친다
+  const [expandedIds, setExpandedIds] = useState<Set<string>>(
+    () => new Set(toc.filter((item) => item.level === 1).map((item) => item.id)),
+  );
 
   useEffect(() => {
-    // Initial expansion: only expand level 1 by default for a cleaner look
-    const initialExpanded = new Set<string>();
-    toc.forEach(item => {
-      if (item.level === 1) initialExpanded.add(item.id);
-    });
-    setExpandedIds(initialExpanded);
+    const itemById = new Map(toc.map((item) => [item.id, item]));
+    let rafId = 0;
 
-    const handleScroll = () => {
-      const headings = toc.map(item => document.getElementById(item.id));
+    const updateActive = () => {
+      rafId = 0;
       const scrollPosition = window.scrollY + 120;
 
-      for (let i = headings.length - 1; i >= 0; i--) {
-        const heading = headings[i];
+      for (let i = toc.length - 1; i >= 0; i--) {
+        const heading = document.getElementById(toc[i].id);
         if (heading && scrollPosition >= heading.offsetTop) {
           const currentId = toc[i].id;
           setActiveId(currentId);
-          
+
           // Auto-expand parents of active item
           setExpandedIds(prev => {
+            let parent = itemById.get(currentId)?.parentId;
+            let changed = false;
             const next = new Set(prev);
-            let parent = toc.find(it => it.id === currentId)?.parentId;
             while (parent) {
-              if (!next.has(parent)) next.add(parent);
-              const parentObj = toc.find(it => it.id === parent);
-              parent = parentObj?.parentId;
+              if (!next.has(parent)) {
+                next.add(parent);
+                changed = true;
+              }
+              parent = itemById.get(parent)?.parentId;
             }
-            return next;
+            return changed ? next : prev;
           });
           break;
         }
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    // 스크롤마다 실행하지 않고 프레임당 1회로 스로틀
+    const handleScroll = () => {
+      if (!rafId) rafId = window.requestAnimationFrame(updateActive);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (rafId) window.cancelAnimationFrame(rafId);
+    };
   }, [toc]);
 
   const toggleExpand = (id: string, e: React.MouseEvent) => {
