@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { createSupabaseServerClient } from '@/lib/supabase-server';
 import LogoutButton from '@/components/LogoutButton';
+import MobileNav from '@/components/MobileNav';
 
 export default async function Header() {
   const supabase = await createSupabaseServerClient();
@@ -44,9 +45,9 @@ export default async function Header() {
         
         <div className="hidden md:flex items-center space-x-10 text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
           {[
-            ['Vision', '/#vision'], 
-            ['Business', '/#business'], 
-            ['Technology', '/#technology'], 
+            ['Products', '/#products'],
+            ['Vision', '/#vision'],
+            ['Technology', '/#technology'],
             ['Manual', '/manual'],
             ['Community', '/boards/free']
           ].map(([item, href]) => (
@@ -65,9 +66,10 @@ export default async function Header() {
           ) : (
             <>
               <Link href="/login" className="px-5 py-2 text-xs font-black uppercase tracking-[0.15em] text-slate-500 hover:text-slate-900 transition-all duration-300">로그인</Link>
-              <Link href="/signup" className="rounded-full border border-emerald-500/30 bg-emerald-500/5 px-5 py-2 text-xs font-black uppercase tracking-[0.15em] text-emerald-600 hover:bg-emerald-500/10 transition-all duration-300">회원가입</Link>
+              <Link href="/signup" className="hidden sm:block rounded-full border border-emerald-500/30 bg-emerald-500/5 px-5 py-2 text-xs font-black uppercase tracking-[0.15em] text-emerald-600 hover:bg-emerald-500/10 transition-all duration-300">회원가입</Link>
             </>
           )}
+          <MobileNav />
         </div>
       </nav>
     </header>

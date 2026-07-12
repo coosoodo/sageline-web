@@ -10,7 +10,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-geist-sans), var(--font-noto-sans-kr), system-ui, sans-serif;
   --font-mono: var(--font-geist-mono);
   
   @keyframes infinite-scroll {
@@ -39,7 +39,12 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), var(--font-noto-sans-kr), system-ui, sans-serif;
+  word-break: keep-all;
+}
+
+::selection {
+  background-color: rgba(16, 185, 129, 0.25);
 }
 
 /* Tiptap Editor Styles */

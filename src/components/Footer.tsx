@@ -19,6 +19,13 @@ export default function Footer() {
           </div>
           
           <div className="flex flex-col gap-3 text-sm">
+            <div className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 mb-2">Products</div>
+            <Link href="/#products" className="text-slate-500 hover:text-emerald-600 transition-colors">부엉이 트레이더</Link>
+            <Link href="/#products" className="text-slate-500 hover:text-emerald-600 transition-colors">부엉이 트레이더 라이트</Link>
+            <Link href="/manual" className="text-slate-500 hover:text-emerald-600 transition-colors">사용자 설명서</Link>
+          </div>
+
+          <div className="flex flex-col gap-3 text-sm">
             <div className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 mb-2">Contact</div>
             <a href="mailto:sageline2024@gmail.com" className="text-slate-500 hover:text-emerald-600 transition-colors">
               sageline2024@gmail.com
