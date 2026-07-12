@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { BookOpen, Loader2 } from 'lucide-react';
+import { Loader2 } from 'lucide-react';
 import logoMark from '@/images/SageLine_Mark.png';
 
 export default function ManualLoading() {
