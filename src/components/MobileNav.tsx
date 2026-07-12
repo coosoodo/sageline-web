@@ -3,14 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
-
-const NAV_ITEMS: [string, string][] = [
-  ['Products', '/#products'],
-  ['Vision', '/#vision'],
-  ['Technology', '/#technology'],
-  ['Manual', '/manual'],
-  ['Community', '/boards/free'],
-];
+import { MAIN_NAV as NAV_ITEMS } from '@/lib/nav';
 
 export default function MobileNav() {
   const [open, setOpen] = useState(false);

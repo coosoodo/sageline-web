@@ -1,0 +1,7 @@
+// 헤더·모바일 내비게이션 공용 항목 (label, href)
+export const MAIN_NAV: [string, string][] = [
+  ['Products', '/#products'],
+  ['Vision', '/#vision'],
+  ['Technology', '/#technology'],
+  ['Community', '/boards/free'],
+];

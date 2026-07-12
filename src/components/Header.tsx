@@ -4,6 +4,7 @@ import { createSupabaseServerClient } from '@/lib/supabase-server';
 import Image from 'next/image';
 import LogoutButton from '@/components/LogoutButton';
 import MobileNav from '@/components/MobileNav';
+import { MAIN_NAV } from '@/lib/nav';
 import logoMark from '@/images/SageLine_Mark.png';
 
 export default async function Header() {
@@ -26,13 +27,7 @@ export default async function Header() {
         </Link>
         
         <div className="hidden md:flex items-center space-x-10 text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
-          {[
-            ['Products', '/#products'],
-            ['Vision', '/#vision'],
-            ['Technology', '/#technology'],
-            ['Manual', '/manual'],
-            ['Community', '/boards/free']
-          ].map(([item, href]) => (
+          {MAIN_NAV.map(([item, href]) => (
             <Link key={item} href={href} className="hover:text-teal-600 transition-all duration-300">
               {item}
             </Link>

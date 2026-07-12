@@ -5,20 +5,31 @@ import type { Metadata } from 'next';
 import { BookOpen, ChevronRight, ArrowRight } from 'lucide-react';
 
 import ManualHeader from '@/components/ManualHeader';
-import { parseManual, getChapters } from '@/lib/manual-utils';
+import { parseManual, getPages, getManualNav } from '@/lib/manual-utils';
 
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
   title: '사용자 설명서 | 부엉이 트레이더',
   description: '부엉이 트레이더(부엉이 ATS)의 설치부터 자동 매매 전략 설정까지 전체 사용법을 안내합니다.',
+  // 아직 공개 전 — 검색 노출 및 내비게이션 링크에서 숨김
+  robots: { index: false, follow: false },
 };
 
 export default async function ManualIndexPage() {
   const manualPath = path.join(process.cwd(), 'src/content/manual.md');
   const raw = fs.readFileSync(manualPath, 'utf8');
   const { meta } = parseManual(raw);
-  const chapters = getChapters(raw);
+  const nav = getManualNav(raw);
+  const pages = getPages(raw);
+
+  // 절이 없는 장의 h2 미리보기 텍스트
+  const previewByChapter = new Map<string, string[]>();
+  for (const p of pages) {
+    if (!p.isSection) previewByChapter.set(p.chapterSlug, p.sections);
+  }
+
+  const firstHref = pages[0] ? `/manual/${pages[0].slug}` : '/manual';
 
   return (
     <div className="flex min-h-screen flex-col bg-white text-slate-600">
@@ -41,54 +52,78 @@ export default async function ManualIndexPage() {
               부엉이 트레이더의 설치부터 고급 전략 설정까지 모든 과정을 장별로 안내합니다.
               처음 사용하시는 경우 <span className="text-teal-700 font-medium">1장부터</span> 순서대로 읽어보세요.
             </p>
-            {chapters[0] && (
-              <Link
-                href={`/manual/${chapters[0].slug}`}
-                className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-7 py-3.5 text-sm font-black uppercase tracking-[0.15em] text-white hover:bg-slate-800 transition-all"
-              >
-                설명서 시작하기
-                <ArrowRight size={16} />
-              </Link>
-            )}
+            <Link
+              href={firstHref}
+              className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-7 py-3.5 text-sm font-black uppercase tracking-[0.15em] text-white hover:bg-slate-800 transition-all"
+            >
+              설명서 시작하기
+              <ArrowRight size={16} />
+            </Link>
           </div>
         </div>
 
         {/* 장 카드 그리드 */}
         <div className="grid sm:grid-cols-2 gap-6">
-          {chapters.map((ch) => (
-            <Link
-              key={ch.slug}
-              href={`/manual/${ch.slug}`}
-              className="group flex flex-col rounded-3xl border border-slate-100 bg-slate-50/50 p-8 hover:border-teal-500/30 hover:shadow-xl hover:shadow-teal-500/5 transition-all duration-300"
-            >
-              <div className="flex items-start gap-4 mb-4">
-                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-500/10 to-navy-500/10 text-lg font-black text-teal-600">
-                  {ch.slug}
+          {nav.map((ch) => {
+            const shortTitle = ch.title.replace(/^\s*\d+[.\s]*/, '').trim() || ch.title;
+            const hasSections = ch.sections.length > 0;
+            const preview = previewByChapter.get(ch.slug) ?? [];
+
+            return (
+              <div
+                key={ch.slug}
+                className="group flex flex-col rounded-3xl border border-slate-100 bg-slate-50/50 p-8 hover:border-teal-500/30 hover:shadow-xl hover:shadow-teal-500/5 transition-all duration-300"
+              >
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-500/10 to-navy-500/10 text-lg font-black text-teal-600">
+                    {ch.slug}
+                  </div>
+                  <Link href={ch.href} className="pt-1.5">
+                    <h2 className="text-xl font-black text-slate-900 group-hover:text-teal-700 transition-colors">
+                      {shortTitle}
+                    </h2>
+                  </Link>
                 </div>
-                <h2 className="text-xl font-black text-slate-900 pt-1.5 group-hover:text-teal-700 transition-colors">
-                  {ch.shortTitle}
-                </h2>
+
+                {hasSections ? (
+                  <ul className="flex-grow space-y-1 mb-5">
+                    {ch.sections.map((s) => (
+                      <li key={s.slug}>
+                        <Link
+                          href={`/manual/${s.slug}`}
+                          className="flex items-center gap-2 rounded-lg px-3 py-1.5 text-sm text-slate-600 font-medium hover:bg-teal-50 hover:text-teal-700 transition-colors"
+                        >
+                          <ChevronRight size={13} className="flex-shrink-0 text-teal-400" />
+                          <span className="truncate">{s.title}</span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  preview.length > 0 && (
+                    <ul className="flex-grow space-y-1.5 mb-5 pl-1">
+                      {preview.slice(0, 4).map((s) => (
+                        <li key={s} className="flex items-center gap-2 text-sm text-slate-500 font-light">
+                          <span className="h-1 w-1 flex-shrink-0 rounded-full bg-teal-400" />
+                          <span className="truncate">{s}</span>
+                        </li>
+                      ))}
+                      {preview.length > 4 && (
+                        <li className="text-xs text-slate-400 pl-3">외 {preview.length - 4}개 항목</li>
+                      )}
+                    </ul>
+                  )
+                )}
+
+                <Link
+                  href={ch.href}
+                  className="mt-auto inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-[0.15em] text-teal-600 hover:gap-2.5 transition-all"
+                >
+                  읽기 <ChevronRight size={14} />
+                </Link>
               </div>
-
-              {ch.sections.length > 0 && (
-                <ul className="flex-grow space-y-1.5 mb-5 pl-1">
-                  {ch.sections.slice(0, 4).map((s) => (
-                    <li key={s} className="flex items-center gap-2 text-sm text-slate-500 font-light">
-                      <span className="h-1 w-1 flex-shrink-0 rounded-full bg-teal-400" />
-                      <span className="truncate">{s}</span>
-                    </li>
-                  ))}
-                  {ch.sections.length > 4 && (
-                    <li className="text-xs text-slate-400 pl-3">외 {ch.sections.length - 4}개 항목</li>
-                  )}
-                </ul>
-              )}
-
-              <span className="mt-auto inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-[0.15em] text-teal-600 group-hover:gap-2.5 transition-all">
-                읽기 <ChevronRight size={14} />
-              </span>
-            </Link>
-          ))}
+            );
+          })}
         </div>
       </div>
     </div>

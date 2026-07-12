@@ -8,7 +8,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import ManualHeader from '@/components/ManualHeader';
 import ManualSidebar from '@/components/ManualSidebar';
 import ManualRenderer from '@/components/ManualRenderer';
-import { parseManual, getChapters } from '@/lib/manual-utils';
+import { parseManual, getPages, getManualNav } from '@/lib/manual-utils';
 
 export const dynamic = 'force-static';
 export const dynamicParams = false;
@@ -19,7 +19,7 @@ function readManual() {
 }
 
 export function generateStaticParams() {
-  return getChapters(readManual()).map((c) => ({ chapter: c.slug }));
+  return getPages(readManual()).map((p) => ({ chapter: p.slug }));
 }
 
 export async function generateMetadata({
@@ -28,11 +28,12 @@ export async function generateMetadata({
   params: Promise<{ chapter: string }>;
 }): Promise<Metadata> {
   const { chapter } = await params;
-  const ch = getChapters(readManual()).find((c) => c.slug === chapter);
-  if (!ch) return { title: '사용자 설명서' };
+  const page = getPages(readManual()).find((p) => p.slug === chapter);
+  if (!page) return { title: '사용자 설명서' };
   return {
-    title: `${ch.title} | 부엉이 트레이더 설명서`,
-    description: `부엉이 트레이더 사용자 설명서 — ${ch.shortTitle}`,
+    title: `${page.title} | 부엉이 트레이더 설명서`,
+    description: `부엉이 트레이더 사용자 설명서 — ${page.shortTitle}`,
+    robots: { index: false, follow: false },
   };
 }
 
@@ -44,15 +45,15 @@ export default async function ManualChapterPage({
   const { chapter } = await params;
   const raw = readManual();
   const { meta } = parseManual(raw);
-  const chapters = getChapters(raw);
+  const pages = getPages(raw);
+  const nav = getManualNav(raw);
 
-  const index = chapters.findIndex((c) => c.slug === chapter);
+  const index = pages.findIndex((p) => p.slug === chapter);
   if (index === -1) notFound();
 
-  const current = chapters[index];
-  const prev = chapters[index - 1];
-  const next = chapters[index + 1];
-  const chapterLinks = chapters.map((c) => ({ slug: c.slug, title: c.title }));
+  const current = pages[index];
+  const prev = pages[index - 1];
+  const next = pages[index + 1];
 
   return (
     <div className="flex min-h-screen flex-col bg-white text-slate-600">
@@ -60,19 +61,22 @@ export default async function ManualChapterPage({
 
       <div className="container mx-auto max-w-7xl px-8 py-12 flex-grow">
         <div className="flex flex-col lg:flex-row gap-12">
-          {/* 사이드바 */}
           <aside className="lg:w-64 flex-shrink-0 lg:sticky lg:top-32 h-fit">
             <div className="rounded-2xl border border-slate-200 bg-white p-2 shadow-sm">
-              <ManualSidebar chapters={chapterLinks} currentSlug={current.slug} toc={current.toc} />
+              <ManualSidebar
+                nav={nav}
+                currentSlug={current.slug}
+                currentChapterSlug={current.chapterSlug}
+                toc={current.toc}
+              />
             </div>
           </aside>
 
-          {/* 본문 */}
           <main className="flex-grow min-w-0">
-            {/* 장 히어로 */}
+            {/* 히어로 */}
             <div className="mb-12 p-8 rounded-3xl border border-slate-100 bg-gradient-to-br from-teal-50 via-navy-50 to-transparent">
               <div className="text-xs font-black uppercase tracking-[0.2em] text-teal-600 mb-3">
-                Chapter {current.slug} / {chapters.length}
+                {current.isSection ? current.chapterTitle : `Chapter ${current.slug} / ${nav.length}`}
               </div>
               <h1 className="text-4xl lg:text-5xl font-black text-slate-900 leading-tight">
                 {current.title}
@@ -81,7 +85,7 @@ export default async function ManualChapterPage({
 
             <ManualRenderer content={current.content} toc={current.toc} />
 
-            {/* 이전 / 다음 장 */}
+            {/* 이전 / 다음 */}
             <nav className="mt-20 pt-8 border-t border-slate-100 grid grid-cols-1 sm:grid-cols-2 gap-4">
               {prev ? (
                 <Link

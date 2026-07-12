@@ -19,6 +19,7 @@ const notoSansKr = Noto_Sans_KR({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://sageline.co.kr"),
   title: {
     default: "SAGE LINE | 현명한 선택, 명확한 길",
     template: "%s | SAGE LINE",

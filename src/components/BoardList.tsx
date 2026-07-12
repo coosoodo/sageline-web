@@ -6,7 +6,7 @@ interface Post {
   title: string;
   author_name: string | null;
   created_at: string;
-  view_count: number;
+  view_count: number | null;
   is_announcement: boolean;
 }
 
@@ -74,7 +74,7 @@ export default function BoardList({ posts, category }: BoardListProps) {
                   {formatDate(post.created_at)}
                 </td>
                 <td className="px-8 py-5 text-sm text-slate-500 text-center font-light">
-                  {post.view_count.toLocaleString()}
+                  {(post.view_count ?? 0).toLocaleString()}
                 </td>
               </tr>
             ))

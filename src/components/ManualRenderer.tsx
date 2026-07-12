@@ -49,6 +49,7 @@ export default function ManualRenderer({ content, toc }: ManualRendererProps) {
       prose-pre:bg-slate-50 prose-pre:border prose-pre:border-slate-200 prose-pre:rounded-2xl prose-pre:p-8 prose-pre:my-12
       prose-blockquote:border-l-4 prose-blockquote:border-teal-500 prose-blockquote:bg-teal-50 prose-blockquote:py-4 prose-blockquote:px-8 prose-blockquote:rounded-r-2xl prose-blockquote:italic prose-blockquote:my-10
       prose-hr:border-slate-100 prose-hr:my-20
+      [&>*]:[content-visibility:auto] [&>*]:[contain-intrinsic-size:auto_320px]
     ">
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}

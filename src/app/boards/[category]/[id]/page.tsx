@@ -73,7 +73,7 @@ export default async function PostDetailPage({ params }: Props) {
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-slate-300" />
-                    <span>조회수: <span className="text-slate-900 font-medium">{post.view_count.toLocaleString()}</span></span>
+                    <span>조회수: <span className="text-slate-900 font-medium">{(post.view_count ?? 0).toLocaleString()}</span></span>
                   </div>
                 </div>
 

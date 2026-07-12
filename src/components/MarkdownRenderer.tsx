@@ -10,7 +10,7 @@ interface MarkdownRendererProps {
 
 export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
   return (
-    <div className="prose prose-invert prose-teal max-w-none prose-headings:scroll-mt-24 prose-img:rounded-3xl prose-img:border prose-img:border-white/10 prose-table:border prose-table:border-white/10 prose-th:bg-white/5 prose-th:px-4 prose-th:py-2 prose-td:px-4 prose-td:py-2">
+    <div className="prose prose-slate prose-teal max-w-none prose-headings:scroll-mt-24 prose-img:rounded-3xl prose-img:border prose-img:border-slate-200 prose-a:text-teal-600 prose-strong:text-slate-900 prose-table:border prose-table:border-slate-200 prose-th:bg-slate-50 prose-th:px-4 prose-th:py-2 prose-td:border prose-td:border-slate-100 prose-td:px-4 prose-td:py-2">
       <ReactMarkdown 
         remarkPlugins={[remarkGfm]} 
         rehypePlugins={[rehypeRaw]}
