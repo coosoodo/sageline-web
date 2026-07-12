@@ -44,7 +44,7 @@ export default function BoardActions({ category, postId, isAuthor }: BoardAction
     <div className="flex gap-3">
       <Link 
         href={`/boards/${category}/${postId}/edit`}
-        className="p-2.5 rounded-full border border-white/5 bg-white/5 text-slate-400 hover:text-emerald-400 hover:border-emerald-500/30 transition-all"
+        className="p-2.5 rounded-full border border-white/5 bg-white/5 text-slate-400 hover:text-teal-400 hover:border-teal-500/30 transition-all"
         title="수정하기"
       >
         <Edit2 size={18} />

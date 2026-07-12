@@ -73,7 +73,7 @@ export default function BoardForm({ category, initialData, isEdit = false }: Boa
         link: {
           openOnClick: false,
           HTMLAttributes: {
-            class: 'text-emerald-600 underline decoration-emerald-500/30 underline-offset-4 hover:text-emerald-700 transition-colors',
+            class: 'text-teal-600 underline decoration-teal-500/30 underline-offset-4 hover:text-teal-700 transition-colors',
           },
         },
       }),
@@ -274,7 +274,7 @@ export default function BoardForm({ category, initialData, isEdit = false }: Boa
           onChange={(e) => setTitle(e.target.value)}
           required
           placeholder="제목을 입력하세요"
-          className="w-full rounded-2xl border border-slate-200 bg-white px-6 py-4 text-slate-900 placeholder:text-slate-300 focus:border-emerald-500/50 focus:outline-none transition-all shadow-sm"
+          className="w-full rounded-2xl border border-slate-200 bg-white px-6 py-4 text-slate-900 placeholder:text-slate-300 focus:border-teal-500/50 focus:outline-none transition-all shadow-sm"
         />
       </div>
 
@@ -282,7 +282,7 @@ export default function BoardForm({ category, initialData, isEdit = false }: Boa
         <label className="text-xs font-black uppercase tracking-[0.2em] text-slate-500 ml-1">
           내용 (이미지를 붙여넣어 즉시 확인할 수 있습니다)
         </label>
-        <div className="w-full rounded-2xl border border-slate-200 bg-white overflow-hidden focus-within:border-emerald-500/50 transition-all shadow-sm">
+        <div className="w-full rounded-2xl border border-slate-200 bg-white overflow-hidden focus-within:border-teal-500/50 transition-all shadow-sm">
           <EditorToolbar editor={editor} onImageUpload={handleToolbarImageUpload} />
           <EditorContent editor={editor} />
         </div>
@@ -302,7 +302,7 @@ export default function BoardForm({ category, initialData, isEdit = false }: Boa
             type="checkbox"
             checked={isAnnouncement}
             onChange={(e) => setIsAnnouncement(e.target.checked)}
-            className="h-4 w-4 rounded border-slate-300 bg-white text-emerald-600 focus:ring-emerald-500/20"
+            className="h-4 w-4 rounded border-slate-300 bg-white text-teal-600 focus:ring-teal-500/20"
           />
           <label htmlFor="is_announcement" className="text-sm text-slate-500 font-light">공지사항으로 등록</label>
         </div>
@@ -318,7 +318,7 @@ export default function BoardForm({ category, initialData, isEdit = false }: Boa
           <button
             type="submit"
             disabled={isLoading}
-            className="px-8 py-3 rounded-full bg-emerald-500 text-xs font-black uppercase tracking-[0.2em] text-white hover:bg-emerald-400 disabled:opacity-50 transition-all shadow-lg shadow-emerald-500/20"
+            className="px-8 py-3 rounded-full bg-teal-500 text-xs font-black uppercase tracking-[0.2em] text-white hover:bg-teal-400 disabled:opacity-50 transition-all shadow-lg shadow-teal-500/20"
           >
             {isLoading ? '저장 중...' : (isEdit ? '수정하기' : '등록하기')}
           </button>

@@ -8,8 +8,8 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-start gap-12">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="text-2xl font-black tracking-[0.08em] text-slate-900">
-                SAGE<span className="bg-gradient-to-r from-emerald-500 to-cyan-500 bg-clip-text text-transparent"> LINE</span>
+              <div className="text-2xl font-black tracking-[0.08em] text-navy-700">
+                SAGE<span className="text-teal-500"> LINE</span>
               </div>
             </div>
             <p className="text-slate-500 max-w-sm text-sm font-light leading-relaxed">
@@ -20,14 +20,14 @@ export default function Footer() {
           
           <div className="flex flex-col gap-3 text-sm">
             <div className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 mb-2">Products</div>
-            <Link href="/#products" className="text-slate-500 hover:text-emerald-600 transition-colors">부엉이 트레이더</Link>
-            <Link href="/#products" className="text-slate-500 hover:text-emerald-600 transition-colors">부엉이 트레이더 라이트</Link>
-            <Link href="/manual" className="text-slate-500 hover:text-emerald-600 transition-colors">사용자 설명서</Link>
+            <Link href="/#products" className="text-slate-500 hover:text-teal-600 transition-colors">부엉이 트레이더</Link>
+            <Link href="/#products" className="text-slate-500 hover:text-teal-600 transition-colors">부엉이 트레이더 라이트</Link>
+            <Link href="/manual" className="text-slate-500 hover:text-teal-600 transition-colors">사용자 설명서</Link>
           </div>
 
           <div className="flex flex-col gap-3 text-sm">
             <div className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 mb-2">Contact</div>
-            <a href="mailto:sageline2024@gmail.com" className="text-slate-500 hover:text-emerald-600 transition-colors">
+            <a href="mailto:sageline2024@gmail.com" className="text-slate-500 hover:text-teal-600 transition-colors">
               sageline2024@gmail.com
             </a>
             <div className="text-slate-500">010-8067-4532 (담당자 최재혁)</div>

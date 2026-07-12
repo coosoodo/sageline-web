@@ -42,7 +42,7 @@ export default function EditorToolbar({ editor, onImageUpload }: EditorToolbarPr
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleBold().run()}
-          className={`p-2 rounded-lg transition-all ${editor.isActive('bold') ? 'bg-emerald-100 text-emerald-600' : 'text-slate-500 hover:text-slate-900 hover:bg-slate-100'}`}
+          className={`p-2 rounded-lg transition-all ${editor.isActive('bold') ? 'bg-teal-100 text-teal-600' : 'text-slate-500 hover:text-slate-900 hover:bg-slate-100'}`}
           title="굵게"
         >
           <Bold size={18} />
@@ -50,7 +50,7 @@ export default function EditorToolbar({ editor, onImageUpload }: EditorToolbarPr
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleItalic().run()}
-          className={`p-2 rounded-lg transition-all ${editor.isActive('italic') ? 'bg-emerald-100 text-emerald-600' : 'text-slate-500 hover:text-slate-900 hover:bg-slate-100'}`}
+          className={`p-2 rounded-lg transition-all ${editor.isActive('italic') ? 'bg-teal-100 text-teal-600' : 'text-slate-500 hover:text-slate-900 hover:bg-slate-100'}`}
           title="기울임"
         >
           <Italic size={18} />
@@ -61,7 +61,7 @@ export default function EditorToolbar({ editor, onImageUpload }: EditorToolbarPr
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
-          className={`p-2 rounded-lg transition-all ${editor.isActive('heading', { level: 1 }) ? 'bg-emerald-100 text-emerald-600' : 'text-slate-500 hover:text-slate-900 hover:bg-slate-100'}`}
+          className={`p-2 rounded-lg transition-all ${editor.isActive('heading', { level: 1 }) ? 'bg-teal-100 text-teal-600' : 'text-slate-500 hover:text-slate-900 hover:bg-slate-100'}`}
           title="제목 1"
         >
           <Heading1 size={18} />
@@ -69,7 +69,7 @@ export default function EditorToolbar({ editor, onImageUpload }: EditorToolbarPr
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
-          className={`p-2 rounded-lg transition-all ${editor.isActive('heading', { level: 2 }) ? 'bg-emerald-100 text-emerald-600' : 'text-slate-500 hover:text-slate-900 hover:bg-slate-100'}`}
+          className={`p-2 rounded-lg transition-all ${editor.isActive('heading', { level: 2 }) ? 'bg-teal-100 text-teal-600' : 'text-slate-500 hover:text-slate-900 hover:bg-slate-100'}`}
           title="제목 2"
         >
           <Heading2 size={18} />
@@ -80,7 +80,7 @@ export default function EditorToolbar({ editor, onImageUpload }: EditorToolbarPr
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleBulletList().run()}
-          className={`p-2 rounded-lg transition-all ${editor.isActive('bulletList') ? 'bg-emerald-100 text-emerald-600' : 'text-slate-500 hover:text-slate-900 hover:bg-slate-100'}`}
+          className={`p-2 rounded-lg transition-all ${editor.isActive('bulletList') ? 'bg-teal-100 text-teal-600' : 'text-slate-500 hover:text-slate-900 hover:bg-slate-100'}`}
           title="글머리 기호"
         >
           <List size={18} />
@@ -88,7 +88,7 @@ export default function EditorToolbar({ editor, onImageUpload }: EditorToolbarPr
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleOrderedList().run()}
-          className={`p-2 rounded-lg transition-all ${editor.isActive('orderedList') ? 'bg-emerald-100 text-emerald-600' : 'text-slate-500 hover:text-slate-900 hover:bg-slate-100'}`}
+          className={`p-2 rounded-lg transition-all ${editor.isActive('orderedList') ? 'bg-teal-100 text-teal-600' : 'text-slate-500 hover:text-slate-900 hover:bg-slate-100'}`}
           title="번호 매기기"
         >
           <ListOrdered size={18} />
@@ -99,7 +99,7 @@ export default function EditorToolbar({ editor, onImageUpload }: EditorToolbarPr
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleBlockquote().run()}
-          className={`p-2 rounded-lg transition-all ${editor.isActive('blockquote') ? 'bg-emerald-100 text-emerald-600' : 'text-slate-500 hover:text-slate-900 hover:bg-slate-100'}`}
+          className={`p-2 rounded-lg transition-all ${editor.isActive('blockquote') ? 'bg-teal-100 text-teal-600' : 'text-slate-500 hover:text-slate-900 hover:bg-slate-100'}`}
           title="인용구"
         >
           <Quote size={18} />
@@ -107,7 +107,7 @@ export default function EditorToolbar({ editor, onImageUpload }: EditorToolbarPr
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleCodeBlock().run()}
-          className={`p-2 rounded-lg transition-all ${editor.isActive('codeBlock') ? 'bg-emerald-100 text-emerald-600' : 'text-slate-500 hover:text-slate-900 hover:bg-slate-100'}`}
+          className={`p-2 rounded-lg transition-all ${editor.isActive('codeBlock') ? 'bg-teal-100 text-teal-600' : 'text-slate-500 hover:text-slate-900 hover:bg-slate-100'}`}
           title="코드 블록"
         >
           <Code size={18} />
@@ -118,7 +118,7 @@ export default function EditorToolbar({ editor, onImageUpload }: EditorToolbarPr
         <button
           type="button"
           onClick={addLink}
-          className={`p-2 rounded-lg transition-all ${editor.isActive('link') ? 'bg-emerald-100 text-emerald-600' : 'text-slate-500 hover:text-slate-900 hover:bg-slate-100'}`}
+          className={`p-2 rounded-lg transition-all ${editor.isActive('link') ? 'bg-teal-100 text-teal-600' : 'text-slate-500 hover:text-slate-900 hover:bg-slate-100'}`}
           title="링크"
         >
           <LinkIcon size={18} />

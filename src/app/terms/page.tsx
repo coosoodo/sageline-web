@@ -11,7 +11,7 @@ export default function TermsPage() {
     <div className="min-h-screen bg-[#050a14] text-slate-300">
       <header className="border-b border-white/5 bg-[#050a14]/90 backdrop-blur-xl">
         <div className="container mx-auto flex h-16 max-w-4xl items-center justify-between px-8">
-          <Link href="/" className="text-emerald-400 hover:text-emerald-300 transition-colors text-sm font-medium">
+          <Link href="/" className="text-teal-400 hover:text-teal-300 transition-colors text-sm font-medium">
             ← 홈으로
           </Link>
           <span className="text-xs text-slate-500 tracking-widest font-medium">SAGE LINE</span>
@@ -156,7 +156,7 @@ export default function TermsPage() {
             <div className="mt-4 p-4 bg-white/5 rounded-lg border border-white/10 space-y-1">
               <p><span className="text-slate-300 font-medium">회사명:</span> 세이지라인</p>
               <p><span className="text-slate-300 font-medium">담당자:</span> 최재혁</p>
-              <p><span className="text-slate-300 font-medium">이메일:</span> <a href="mailto:sageline2024@gmail.com" className="text-emerald-400 hover:underline">sageline2024@gmail.com</a></p>
+              <p><span className="text-slate-300 font-medium">이메일:</span> <a href="mailto:sageline2024@gmail.com" className="text-teal-400 hover:underline">sageline2024@gmail.com</a></p>
               <p><span className="text-slate-300 font-medium">전화:</span> 010-8067-4532</p>
             </div>
           </section>

@@ -27,7 +27,7 @@ export default function BoardsLayout({
                 <Link
                   key={board.id}
                   href={`/boards/${board.id}`}
-                  className="group flex items-center justify-between rounded-2xl px-4 py-3 text-sm font-bold text-slate-500 hover:bg-slate-50 hover:text-emerald-600 transition-all duration-300"
+                  className="group flex items-center justify-between rounded-2xl px-4 py-3 text-sm font-bold text-slate-500 hover:bg-slate-50 hover:text-teal-600 transition-all duration-300"
                 >
                   <span>{board.name}</span>
                   <span className="opacity-0 group-hover:opacity-100 transition-opacity">→</span>

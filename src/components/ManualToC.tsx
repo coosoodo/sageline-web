@@ -95,7 +95,7 @@ export default function ManualToC({ content, toc }: ManualToCProps) {
     <nav className="space-y-1 py-6">
       <div className="flex items-center justify-between mb-8 px-4">
         <div className="flex items-center gap-2">
-          <div className="h-4 w-1 bg-gradient-to-b from-emerald-400 to-cyan-400 rounded-full"></div>
+          <div className="h-4 w-1 bg-gradient-to-b from-teal-400 to-navy-400 rounded-full"></div>
           <h3 className="text-sm font-black uppercase tracking-[0.2em] text-slate-900">
             설명서 목차
           </h3>
@@ -104,14 +104,14 @@ export default function ManualToC({ content, toc }: ManualToCProps) {
           <button
             onClick={handleExpandAll}
             title="모두 펼치기"
-            className="p-1.5 text-slate-400 hover:text-emerald-600 hover:bg-emerald-50 rounded-md transition-all duration-200"
+            className="p-1.5 text-slate-400 hover:text-teal-600 hover:bg-teal-50 rounded-md transition-all duration-200"
           >
             <ChevronsUpDown size={14} />
           </button>
           <button
             onClick={handleCollapseAll}
             title="모두 접기"
-            className="p-1.5 text-slate-400 hover:text-emerald-600 hover:bg-emerald-50 rounded-md transition-all duration-200"
+            className="p-1.5 text-slate-400 hover:text-teal-600 hover:bg-teal-50 rounded-md transition-all duration-200"
           >
             <ChevronsDownUp size={14} />
           </button>
@@ -134,7 +134,7 @@ export default function ManualToC({ content, toc }: ManualToCProps) {
                   group flex items-center py-2 px-3 text-sm transition-all duration-300 rounded-lg mb-0.5
                   ${item.level === 1 ? 'font-black' : item.level === 2 ? 'pl-7 font-bold' : 'pl-10 text-xs font-medium'}
                   ${active 
-                    ? 'text-emerald-700 bg-emerald-50 shadow-[inset_0_0_10px_rgba(16,185,129,0.05)]' 
+                    ? 'text-teal-700 bg-teal-50 shadow-[inset_0_0_10px_rgba(16,185,129,0.05)]' 
                     : 'text-slate-500 hover:text-slate-900 hover:bg-slate-50'
                   }
                 `}
@@ -150,7 +150,7 @@ export default function ManualToC({ content, toc }: ManualToCProps) {
                 }}
               >
                 {active && (
-                  <span className="absolute left-1.5 w-1 h-1 bg-emerald-600 rounded-full shadow-[0_0_8px_rgba(5,150,105,0.4)]"></span>
+                  <span className="absolute left-1.5 w-1 h-1 bg-teal-600 rounded-full shadow-[0_0_8px_rgba(5,150,105,0.4)]"></span>
                 )}
                 
                 <span className="flex-grow truncate mr-2">
@@ -160,7 +160,7 @@ export default function ManualToC({ content, toc }: ManualToCProps) {
                 {canExpand && (
                   <button
                     onClick={(e) => toggleExpand(item.id, e)}
-                    className="p-1 hover:bg-emerald-100 rounded transition-colors text-slate-400 hover:text-emerald-600"
+                    className="p-1 hover:bg-teal-100 rounded transition-colors text-slate-400 hover:text-teal-600"
                   >
                     {isExpanded ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
                   </button>

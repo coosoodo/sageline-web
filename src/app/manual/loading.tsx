@@ -1,4 +1,6 @@
+import Image from 'next/image';
 import { BookOpen, Loader2 } from 'lucide-react';
+import logoMark from '@/images/SageLine_Mark.png';
 
 export default function ManualLoading() {
   return (
@@ -7,53 +9,28 @@ export default function ManualLoading() {
       <div className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#050a14]/60 backdrop-blur-md">
         <div className="relative mb-8">
           {/* 외부 광채 효과 */}
-          <div className="absolute inset-0 bg-emerald-500/20 blur-[60px] animate-pulse" />
+          <div className="absolute inset-0 bg-teal-500/20 blur-[60px] animate-pulse" />
           
           <div className="relative">
-            <div className="h-24 w-24 flex-shrink-0 animate-bounce-slow">
-              <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full">
-                <path d="M6 36 C6 36 8 40 20 40 C32 40 34 36 34 36 L32 20 C32 12 27 7 20 7 C13 7 8 12 8 20 Z" fill="url(#lBody)"/>
-                <path d="M11 12 L7 1 L15 10 Z" fill="url(#lGrad)"/>
-                <ellipse cx="20" cy="20" rx="11" ry="10" fill="url(#lFace)"/>
-                <circle cx="14.5" cy="19" r="5.5" fill="#0d1f2d" stroke="url(#lGrad)" strokeWidth="1"/>
-                <circle cx="14.5" cy="19" r="4" fill="url(#lEye)"/>
-                <circle cx="14.5" cy="19" r="2" fill="#050a14"/>
-                <circle cx="25.5" cy="19" r="5.5" fill="#0d1f2d" stroke="url(#lGrad)" strokeWidth="1"/>
-                <circle cx="25.5" cy="19" r="4" fill="url(#lEye)"/>
-                <circle cx="25.5" cy="19" r="2" fill="#050a14"/>
-                <path d="M20 24 L17.5 28 L20 26.5 L22.5 28 Z" fill="url(#lGrad)"/>
-                <defs>
-                  <linearGradient id="lGrad" x1="7" y1="1" x2="33" y2="40" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stopColor="#34d399"/><stop offset="100%" stopColor="#22d3ee"/>
-                  </linearGradient>
-                  <linearGradient id="lBody" x1="6" y1="7" x2="34" y2="40" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stopColor="#34d399" stopOpacity="0.18"/><stop offset="100%" stopColor="#22d3ee" stopOpacity="0.26"/>
-                  </linearGradient>
-                  <radialGradient id="lFace" cx="50%" cy="50%" r="55%">
-                    <stop offset="0%" stopColor="#1a3a4a" stopOpacity="0.6"/><stop offset="100%" stopColor="#082030" stopOpacity="0.3"/>
-                  </radialGradient>
-                  <radialGradient id="lEye" cx="40%" cy="35%" r="60%">
-                    <stop offset="0%" stopColor="#6ee7b7"/><stop offset="60%" stopColor="#0891b2"/><stop offset="100%" stopColor="#065f80"/>
-                  </radialGradient>
-                </defs>
-              </svg>
+            <div className="relative h-24 w-24 flex-shrink-0 animate-bounce-slow">
+              <Image src={logoMark} alt="SAGE LINE 로고" fill sizes="96px" className="object-contain rounded-2xl" />
             </div>
             <div className="absolute -bottom-2 -right-2">
-              <Loader2 className="w-8 h-8 text-emerald-400 animate-spin" />
+              <Loader2 className="w-8 h-8 text-teal-400 animate-spin" />
             </div>
           </div>
         </div>
 
         <div className="text-center space-y-4">
           <h2 className="text-2xl font-black text-white tracking-tight">
-            사용자 설명서를 <span className="bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent italic">불러오는 중</span>입니다
+            사용자 설명서를 <span className="bg-gradient-to-r from-teal-300 to-teal-500 bg-clip-text text-transparent italic">불러오는 중</span>입니다
           </h2>
           <p className="text-slate-500 font-medium tracking-widest uppercase text-[10px]">
             잠시만 기다려 주세요. 대용량 문서를 최적화하고 있습니다.
           </p>
           
           <div className="mt-8 w-64 h-1 bg-white/5 rounded-full overflow-hidden mx-auto">
-            <div className="h-full bg-gradient-to-r from-emerald-500 to-cyan-500 animate-loading-progress w-full origin-left" />
+            <div className="h-full bg-gradient-to-r from-teal-400 to-teal-600 animate-loading-progress w-full origin-left" />
           </div>
         </div>
       </div>

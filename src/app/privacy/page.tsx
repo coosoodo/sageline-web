@@ -11,7 +11,7 @@ export default function PrivacyPage() {
     <div className="min-h-screen bg-[#050a14] text-slate-300">
       <header className="border-b border-white/5 bg-[#050a14]/90 backdrop-blur-xl">
         <div className="container mx-auto flex h-16 max-w-4xl items-center justify-between px-8">
-          <Link href="/" className="text-emerald-400 hover:text-emerald-300 transition-colors text-sm font-medium">
+          <Link href="/" className="text-teal-400 hover:text-teal-300 transition-colors text-sm font-medium">
             ← 홈으로
           </Link>
           <span className="text-xs text-slate-500 tracking-widest font-medium">SAGE LINE</span>
@@ -130,7 +130,7 @@ export default function PrivacyPage() {
             <div className="mt-4 p-4 bg-white/5 rounded-lg border border-white/10 space-y-1">
               <p><span className="text-slate-300 font-medium">성명:</span> 최재혁</p>
               <p><span className="text-slate-300 font-medium">직책:</span> 개인정보 보호책임자</p>
-              <p><span className="text-slate-300 font-medium">연락처:</span> <a href="mailto:sageline2024@gmail.com" className="text-emerald-400 hover:underline">sageline2024@gmail.com</a></p>
+              <p><span className="text-slate-300 font-medium">연락처:</span> <a href="mailto:sageline2024@gmail.com" className="text-teal-400 hover:underline">sageline2024@gmail.com</a></p>
               <p><span className="text-slate-300 font-medium">전화:</span> 010-8067-4532</p>
             </div>
             <p className="mt-3">정보주체께서는 회사의 서비스를 이용하시면서 발생한 모든 개인정보 보호 관련 문의, 불만처리, 피해구제 등에 관한 사항을 개인정보 보호책임자에게 문의하실 수 있습니다.</p>
@@ -145,10 +145,10 @@ export default function PrivacyPage() {
             <h2 className="text-lg font-semibold text-slate-200 mb-4">제11조 (권익침해 구제방법)</h2>
             <p>정보주체는 아래의 기관에 대해 개인정보 침해에 대한 피해구제, 상담 등을 문의하실 수 있습니다.</p>
             <ul className="mt-3 list-disc list-inside space-y-1">
-              <li>개인정보 침해신고센터: (국번없이) 118 &nbsp;|&nbsp; <a href="https://privacy.kisa.or.kr" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:underline">privacy.kisa.or.kr</a></li>
-              <li>개인정보 분쟁조정위원회: (국번없이) 1833-6972 &nbsp;|&nbsp; <a href="https://www.kopico.go.kr" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:underline">www.kopico.go.kr</a></li>
-              <li>대검찰청 사이버수사과: (국번없이) 1301 &nbsp;|&nbsp; <a href="https://www.spo.go.kr" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:underline">www.spo.go.kr</a></li>
-              <li>경찰청 사이버수사국: (국번없이) 182 &nbsp;|&nbsp; <a href="https://ecrm.cyber.go.kr" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:underline">ecrm.cyber.go.kr</a></li>
+              <li>개인정보 침해신고센터: (국번없이) 118 &nbsp;|&nbsp; <a href="https://privacy.kisa.or.kr" target="_blank" rel="noopener noreferrer" className="text-teal-400 hover:underline">privacy.kisa.or.kr</a></li>
+              <li>개인정보 분쟁조정위원회: (국번없이) 1833-6972 &nbsp;|&nbsp; <a href="https://www.kopico.go.kr" target="_blank" rel="noopener noreferrer" className="text-teal-400 hover:underline">www.kopico.go.kr</a></li>
+              <li>대검찰청 사이버수사과: (국번없이) 1301 &nbsp;|&nbsp; <a href="https://www.spo.go.kr" target="_blank" rel="noopener noreferrer" className="text-teal-400 hover:underline">www.spo.go.kr</a></li>
+              <li>경찰청 사이버수사국: (국번없이) 182 &nbsp;|&nbsp; <a href="https://ecrm.cyber.go.kr" target="_blank" rel="noopener noreferrer" className="text-teal-400 hover:underline">ecrm.cyber.go.kr</a></li>
             </ul>
           </section>
 

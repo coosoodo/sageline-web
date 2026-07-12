@@ -48,11 +48,11 @@ export default function BoardList({ posts, category }: BoardListProps) {
             posts.map((post, index) => (
               <tr 
                 key={post.id} 
-                className={`group hover:bg-slate-50 transition-colors ${post.is_announcement ? 'bg-emerald-50/30' : ''}`}
+                className={`group hover:bg-slate-50 transition-colors ${post.is_announcement ? 'bg-teal-50/30' : ''}`}
               >
                 <td className="px-8 py-5 text-sm font-medium text-slate-500 text-center">
                   {post.is_announcement ? (
-                    <span className="inline-flex items-center rounded-full bg-emerald-100 px-2.5 py-0.5 text-[10px] font-black text-emerald-700 border border-emerald-200">
+                    <span className="inline-flex items-center rounded-full bg-teal-100 px-2.5 py-0.5 text-[10px] font-black text-teal-700 border border-teal-200">
                       공지
                     </span>
                   ) : (
@@ -62,7 +62,7 @@ export default function BoardList({ posts, category }: BoardListProps) {
                 <td className="px-8 py-5">
                   <Link 
                     href={`/boards/${category}/${post.id}`}
-                    className="text-sm font-bold text-slate-900 group-hover:text-emerald-600 transition-colors"
+                    className="text-sm font-bold text-slate-900 group-hover:text-teal-600 transition-colors"
                   >
                     {post.title}
                   </Link>

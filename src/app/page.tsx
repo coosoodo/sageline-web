@@ -1,9 +1,12 @@
 // src/app/page.tsx (서버 컴포넌트)
+import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 
 import { createSupabaseServerClient } from '@/lib/supabase-server';
+import Reveal from '@/components/Reveal';
+import HeroMockup from '@/components/HeroMockup';
 import {
   ChevronRight,
   Bot,
@@ -50,31 +53,8 @@ const COMPARISON: { label: string; full: string | boolean; lite: string | boolea
   { label: '권장 사용자', full: '파워 트레이더', lite: '입문 · 실전 겸용' },
 ];
 
-const TECHNOLOGIES = [
-  {
-    icon: Workflow,
-    title: '전략 자동화 엔진',
-    desc: '키움 조건검색식 신호를 실시간으로 받아 매수·매도 주문까지 사람의 개입 없이 실행합니다. 코딩 없이 편집기만으로 전략을 완성합니다.',
-  },
-  {
-    icon: ShieldCheck,
-    title: '리스크 관리',
-    desc: '손절 · 익절 · 트레일링 스탑 · 이익보존 · 분할매매까지, 계좌를 지키는 매도 전략을 시스템이 24시간 대신 지켜봅니다.',
-  },
-  {
-    icon: Bot,
-    title: 'AI 시장 분석',
-    desc: 'Google Gemini와 실시간 뉴스 데이터를 결합해 시장의 맥락을 읽고, 데이터에 근거한 종목 인사이트를 제공합니다.',
-  },
-  {
-    icon: BellRing,
-    title: '실시간 알림',
-    desc: '체결, 신호 포착, 전략 상태 변화를 Discord와 Telegram으로 즉시 전달합니다. 자리를 비워도 매매 현황을 놓치지 않습니다.',
-  },
-];
-
 function ComparisonCell({ value }: { value: string | boolean }) {
-  if (value === true) return <Check size={16} className="mx-auto text-emerald-500" />;
+  if (value === true) return <Check size={16} className="mx-auto text-teal-500" />;
   if (value === false) return <Minus size={16} className="mx-auto text-slate-300" />;
   return <span className="text-xs font-medium text-slate-600">{value}</span>;
 }
@@ -87,26 +67,26 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
   await supabase.auth.getUser();
 
   return (
-    <div className="flex flex-col text-slate-600 selection:bg-emerald-500/30">
+    <div className="flex flex-col text-slate-600 selection:bg-teal-500/30">
 
       <main className="flex-grow">
         {/* 1. Hero 섹션 */}
         <section className="relative flex flex-col items-center justify-center overflow-hidden px-6 pt-40 pb-28 lg:pt-52 lg:pb-36">
-          <div className="absolute top-0 left-1/2 -z-10 h-[600px] w-[800px] -translate-x-1/2 rounded-full bg-emerald-600/10 blur-[140px]" />
-          <div className="absolute bottom-0 right-0 -z-10 h-[400px] w-[500px] rounded-full bg-cyan-500/5 blur-[120px]" />
+          <div className="absolute top-0 left-1/2 -z-10 h-[600px] w-[800px] -translate-x-1/2 rounded-full bg-teal-600/10 blur-[140px]" />
+          <div className="absolute bottom-0 right-0 -z-10 h-[400px] w-[500px] rounded-full bg-navy-500/5 blur-[120px]" />
 
           <div className="container mx-auto max-w-5xl text-center">
-            <div className="inline-flex items-center space-x-2 rounded-full border border-emerald-500/20 bg-emerald-500/5 px-4 py-2 text-[10px] font-black uppercase tracking-[0.3em] text-emerald-500 mb-10">
+            <div className="inline-flex items-center space-x-2 rounded-full border border-teal-500/20 bg-teal-500/5 px-4 py-2 text-[10px] font-black uppercase tracking-[0.3em] text-teal-500 mb-10">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
               </span>
               <span>Data-Driven Strategy Partner</span>
             </div>
 
             <h1 className="text-5xl md:text-8xl font-black tracking-[-0.04em] text-slate-900 leading-[1.05]">
               현명한 선택,<br />
-              <span className="bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-navy-600 via-navy-500 to-teal-500 bg-clip-text text-transparent">
                 명확한 길.
               </span>
             </h1>
@@ -115,7 +95,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
               <span className="text-slate-900 font-semibold italic">SAGELINE</span>은
               기관의 영역이었던 알고리즘 자동매매를<br className="hidden md:block" />
               개인 투자자의 책상 위로 가져왔습니다.
-              <span className="text-emerald-600 font-medium"> 부엉이 트레이더</span>와 함께 시작하세요.
+              <span className="text-teal-600 font-medium"> 부엉이 트레이더</span>와 함께 시작하세요.
             </p>
 
             <div className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -128,40 +108,44 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
               </Link>
               <Link
                 href="/manual"
-                className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-8 py-4 text-sm font-black uppercase tracking-[0.15em] text-slate-600 hover:border-emerald-500/40 hover:text-emerald-600 transition-all duration-300"
+                className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-8 py-4 text-sm font-black uppercase tracking-[0.15em] text-slate-600 hover:border-teal-500/40 hover:text-teal-600 transition-all duration-300"
               >
                 사용자 설명서
               </Link>
             </div>
+
+            <Reveal delay={200} className="mt-24">
+              <HeroMockup />
+            </Reveal>
           </div>
         </section>
 
         {/* 2. Products 섹션 */}
         <section id="products" className="container mx-auto max-w-7xl px-6 md:px-8 py-24 border-t border-slate-100 scroll-mt-20">
-          <div className="text-center mb-20">
-            <div className="inline-flex items-center space-x-2 rounded-full border border-emerald-500/20 bg-emerald-500/5 px-4 py-2 text-[10px] font-black uppercase tracking-[0.3em] text-emerald-600 mb-8">
+          <Reveal className="text-center mb-20">
+            <div className="inline-flex items-center space-x-2 rounded-full border border-teal-500/20 bg-teal-500/5 px-4 py-2 text-[10px] font-black uppercase tracking-[0.3em] text-teal-600 mb-8">
               <span>Our Products</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-6">
-              누구나 쓸 수 있는 <span className="bg-gradient-to-r from-emerald-500 to-cyan-500 bg-clip-text text-transparent">퀀트 투자</span>
+              누구나 쓸 수 있는 <span className="bg-gradient-to-r from-teal-500 to-navy-500 bg-clip-text text-transparent">퀀트 투자</span>
             </h2>
             <p className="text-lg text-slate-500 max-w-2xl mx-auto font-light">
               키움증권 REST API 기반의 주식 자동매매 프로그램. <br className="hidden md:block" />
               투자 스타일에 맞는 부엉이를 선택하세요.
             </p>
-          </div>
+          </Reveal>
 
           <div className="grid md:grid-cols-2 gap-8 mb-20">
             {/* 부엉이 트레이더 (풀) */}
-            <div className="group relative rounded-3xl border border-slate-100 bg-slate-50/50 p-10 hover:border-emerald-500/30 hover:shadow-2xl hover:shadow-emerald-500/5 transition-all duration-300">
-              <div className="absolute top-8 right-8 rounded-full bg-emerald-500/10 px-3 py-1 text-[10px] font-black uppercase tracking-widest text-emerald-600">
+            <Reveal className="group relative h-full rounded-3xl border border-slate-100 bg-slate-50/50 p-10 hover:border-teal-500/30 hover:shadow-2xl hover:shadow-teal-500/5 transition-all duration-300">
+              <div className="absolute top-8 right-8 rounded-full bg-teal-500/10 px-3 py-1 text-[10px] font-black uppercase tracking-widest text-teal-600">
                 All-in-One
               </div>
               <div className="flex items-center gap-4 mb-8">
-                <div className="h-14 w-14 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-3xl">🦉</div>
+                <div className="h-14 w-14 rounded-2xl bg-teal-500/10 flex items-center justify-center text-3xl">🦉</div>
                 <div>
                   <h3 className="text-2xl font-black text-slate-900">부엉이 트레이더</h3>
-                  <p className="text-xs text-emerald-600 font-bold uppercase tracking-widest mt-1">Owl Trader</p>
+                  <p className="text-xs text-teal-600 font-bold uppercase tracking-widest mt-1">Owl Trader</p>
                 </div>
               </div>
               <p className="text-sm text-slate-500 leading-relaxed font-light mb-8">
@@ -171,29 +155,29 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
               <ul className="space-y-3 mb-8">
                 {FULL_FEATURES.map((f) => (
                   <li key={f} className="flex items-start gap-3 text-sm text-slate-600">
-                    <Check size={15} className="mt-0.5 flex-shrink-0 text-emerald-500" />
+                    <Check size={15} className="mt-0.5 flex-shrink-0 text-teal-500" />
                     <span>{f}</span>
                   </li>
                 ))}
               </ul>
               <Link
                 href="/manual"
-                className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.15em] text-emerald-600 hover:text-emerald-700 transition-colors group/link"
+                className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.15em] text-teal-600 hover:text-teal-700 transition-colors group/link"
               >
                 사용자 설명서 보기 <ChevronRight size={14} className="group-hover/link:translate-x-1 transition-transform" />
               </Link>
-            </div>
+            </Reveal>
 
             {/* 부엉이 트레이더 라이트 */}
-            <div className="group relative rounded-3xl border border-slate-100 bg-slate-50/50 p-10 hover:border-cyan-500/30 hover:shadow-2xl hover:shadow-cyan-500/5 transition-all duration-300">
-              <div className="absolute top-8 right-8 rounded-full bg-cyan-500/10 px-3 py-1 text-[10px] font-black uppercase tracking-widest text-cyan-600">
+            <Reveal delay={150} className="group relative h-full rounded-3xl border border-slate-100 bg-slate-50/50 p-10 hover:border-navy-500/30 hover:shadow-2xl hover:shadow-navy-500/5 transition-all duration-300">
+              <div className="absolute top-8 right-8 rounded-full bg-navy-500/10 px-3 py-1 text-[10px] font-black uppercase tracking-widest text-navy-600">
                 Light &amp; Fast
               </div>
               <div className="flex items-center gap-4 mb-8">
-                <div className="h-14 w-14 rounded-2xl bg-cyan-500/10 flex items-center justify-center text-3xl">🪶</div>
+                <div className="h-14 w-14 rounded-2xl bg-navy-500/10 flex items-center justify-center text-3xl">🪶</div>
                 <div>
                   <h3 className="text-2xl font-black text-slate-900">부엉이 트레이더 라이트</h3>
-                  <p className="text-xs text-cyan-600 font-bold uppercase tracking-widest mt-1">Owl Trader Lite</p>
+                  <p className="text-xs text-navy-600 font-bold uppercase tracking-widest mt-1">Owl Trader Lite</p>
                 </div>
               </div>
               <p className="text-sm text-slate-500 leading-relaxed font-light mb-8">
@@ -203,29 +187,29 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
               <ul className="space-y-3 mb-8">
                 {LITE_FEATURES.map((f) => (
                   <li key={f} className="flex items-start gap-3 text-sm text-slate-600">
-                    <Check size={15} className="mt-0.5 flex-shrink-0 text-cyan-500" />
+                    <Check size={15} className="mt-0.5 flex-shrink-0 text-navy-500" />
                     <span>{f}</span>
                   </li>
                 ))}
               </ul>
               <Link
                 href="/boards/free"
-                className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.15em] text-cyan-600 hover:text-cyan-700 transition-colors group/link"
+                className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.15em] text-navy-600 hover:text-navy-700 transition-colors group/link"
               >
                 커뮤니티에서 알아보기 <ChevronRight size={14} className="group-hover/link:translate-x-1 transition-transform" />
               </Link>
-            </div>
+            </Reveal>
           </div>
 
           {/* 제품 비교 테이블 */}
-          <div className="rounded-3xl border border-slate-100 overflow-hidden">
+          <Reveal className="rounded-3xl border border-slate-100 overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full text-left min-w-[560px]">
                 <thead>
                   <tr className="border-b border-slate-100 bg-slate-50/70">
                     <th className="px-8 py-5 text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">기능 비교</th>
-                    <th className="px-6 py-5 text-center text-sm font-black text-emerald-600">부엉이 트레이더</th>
-                    <th className="px-6 py-5 text-center text-sm font-black text-cyan-600">라이트</th>
+                    <th className="px-6 py-5 text-center text-sm font-black text-teal-600">부엉이 트레이더</th>
+                    <th className="px-6 py-5 text-center text-sm font-black text-navy-600">라이트</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -239,76 +223,157 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
                 </tbody>
               </table>
             </div>
-          </div>
+          </Reveal>
         </section>
 
         {/* 3. Technology 섹션 */}
         <section id="technology" className="container mx-auto max-w-7xl px-6 md:px-8 py-24 border-t border-slate-100 scroll-mt-20">
-          <div className="text-center mb-20">
-            <div className="inline-flex items-center space-x-2 rounded-full border border-cyan-500/20 bg-cyan-500/5 px-4 py-2 text-[10px] font-black uppercase tracking-[0.3em] text-cyan-600 mb-8">
+          <Reveal className="text-center mb-20">
+            <div className="inline-flex items-center space-x-2 rounded-full border border-navy-500/20 bg-navy-500/5 px-4 py-2 text-[10px] font-black uppercase tracking-[0.3em] text-navy-600 mb-8">
               <span>Core Technology</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-6">
-              감정을 배제하고, <span className="bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent">시스템이 매매합니다</span>
+              감정을 배제하고, <span className="bg-gradient-to-r from-navy-500 to-blue-500 bg-clip-text text-transparent">시스템이 매매합니다</span>
             </h2>
             <p className="text-lg text-slate-500 max-w-2xl mx-auto font-light">
               실시간 시장 데이터와 AI 분석을 결합한 자동매매 시스템의 핵심 기술입니다.
             </p>
-          </div>
+          </Reveal>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {TECHNOLOGIES.map(({ icon: Icon, title, desc }) => (
-              <div
-                key={title}
-                className="rounded-3xl border border-slate-100 bg-white p-8 hover:border-emerald-500/30 hover:shadow-xl hover:shadow-emerald-500/5 transition-all duration-300"
-              >
-                <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-500/10 to-cyan-500/10 text-emerald-600">
-                  <Icon size={22} />
-                </div>
-                <h3 className="text-lg font-black text-slate-900 mb-3">{title}</h3>
-                <p className="text-sm text-slate-500 leading-relaxed font-light">{desc}</p>
+          {/* 벤토 그리드 */}
+          <div className="grid md:grid-cols-3 gap-6">
+            {/* 전략 자동화 엔진 — 대형 카드 */}
+            <Reveal className="md:col-span-2 md:row-span-2 rounded-3xl border border-slate-100 bg-white p-10 hover:border-teal-500/30 hover:shadow-xl hover:shadow-teal-500/5 transition-all duration-300">
+              <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-500/10 to-navy-500/10 text-teal-600">
+                <Workflow size={22} />
               </div>
-            ))}
+              <h3 className="text-2xl font-black text-slate-900 mb-4">전략 자동화 엔진</h3>
+              <p className="text-sm text-slate-500 leading-relaxed font-light mb-10 max-w-lg">
+                키움 조건검색식 신호를 실시간으로 받아 매수·매도 주문까지 사람의 개입 없이 실행합니다.
+                코딩 없이 편집기만으로 전략을 완성합니다.
+              </p>
+              <div className="flex flex-wrap items-center gap-2" aria-hidden="true">
+                {['조건검색 신호', '전략 필터', '자동 주문', '체결 알림'].map((step, i, arr) => (
+                  <React.Fragment key={step}>
+                    <span className="rounded-full border border-teal-500/20 bg-teal-500/5 px-4 py-2 text-xs font-black text-teal-700">
+                      {step}
+                    </span>
+                    {i < arr.length - 1 && <ChevronRight size={14} className="text-slate-300" />}
+                  </React.Fragment>
+                ))}
+              </div>
+              <div className="mt-10 grid grid-cols-3 gap-3">
+                <div className="rounded-2xl bg-slate-50 px-5 py-4">
+                  <p className="text-2xl font-black text-slate-900">24시간</p>
+                  <p className="mt-1 text-xs text-slate-500">시장 감시</p>
+                </div>
+                <div className="rounded-2xl bg-slate-50 px-5 py-4">
+                  <p className="text-2xl font-black text-slate-900">0줄</p>
+                  <p className="mt-1 text-xs text-slate-500">필요한 코딩</p>
+                </div>
+                <div className="rounded-2xl bg-slate-50 px-5 py-4">
+                  <p className="text-2xl font-black text-slate-900">실시간</p>
+                  <p className="mt-1 text-xs text-slate-500">신호 → 주문</p>
+                </div>
+              </div>
+            </Reveal>
+
+            {/* 리스크 관리 */}
+            <Reveal delay={100} className="rounded-3xl border border-slate-100 bg-white p-8 hover:border-teal-500/30 hover:shadow-xl hover:shadow-teal-500/5 transition-all duration-300">
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-500/10 to-navy-500/10 text-teal-600">
+                <ShieldCheck size={22} />
+              </div>
+              <h3 className="text-lg font-black text-slate-900 mb-3">리스크 관리</h3>
+              <p className="text-sm text-slate-500 leading-relaxed font-light mb-5">
+                계좌를 지키는 매도 전략을 시스템이 대신 지켜봅니다.
+              </p>
+              <div className="flex flex-wrap gap-1.5">
+                {['손절', '익절', '트레일링 스탑', '분할매매', '이익보존'].map((t) => (
+                  <span key={t} className="rounded-md bg-slate-100 px-2 py-1 text-[11px] font-bold text-slate-600">{t}</span>
+                ))}
+              </div>
+            </Reveal>
+
+            {/* AI 시장 분석 */}
+            <Reveal delay={200} className="rounded-3xl border border-slate-100 bg-white p-8 hover:border-navy-500/30 hover:shadow-xl hover:shadow-navy-500/5 transition-all duration-300">
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-navy-500/10 to-blue-500/10 text-navy-600">
+                <Bot size={22} />
+              </div>
+              <h3 className="text-lg font-black text-slate-900 mb-3">AI 시장 분석</h3>
+              <p className="text-sm text-slate-500 leading-relaxed font-light">
+                Google Gemini와 실시간 뉴스 데이터를 결합해 시장의 맥락을 읽고, 데이터에 근거한 종목 인사이트를 제공합니다.
+              </p>
+            </Reveal>
+
+            {/* 실시간 알림 — 와이드 카드 */}
+            <Reveal delay={100} className="md:col-span-3 rounded-3xl border border-slate-100 bg-white p-8 md:p-10 hover:border-teal-500/30 hover:shadow-xl hover:shadow-teal-500/5 transition-all duration-300">
+              <div className="flex flex-col md:flex-row md:items-center gap-8">
+                <div className="md:max-w-sm flex-shrink-0">
+                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-500/10 to-navy-500/10 text-teal-600">
+                    <BellRing size={22} />
+                  </div>
+                  <h3 className="text-lg font-black text-slate-900 mb-3">실시간 알림</h3>
+                  <p className="text-sm text-slate-500 leading-relaxed font-light">
+                    체결, 신호 포착, 전략 상태 변화를 Discord와 Telegram으로 즉시 전달합니다.
+                    자리를 비워도 매매 현황을 놓치지 않습니다.
+                  </p>
+                </div>
+                <div className="flex-grow space-y-2" aria-hidden="true">
+                  <div className="flex items-center gap-3 rounded-xl bg-slate-50 px-4 py-3 text-xs">
+                    <span className="rounded-md bg-[#5865F2]/10 px-2 py-1 font-black text-[#5865F2]">Discord</span>
+                    <span className="font-bold text-slate-600">[체결] 매수 주문 체결 — 10주 · 09:32:05</span>
+                  </div>
+                  <div className="flex items-center gap-3 rounded-xl bg-slate-50 px-4 py-3 text-xs">
+                    <span className="rounded-md bg-[#229ED9]/10 px-2 py-1 font-black text-[#229ED9]">Telegram</span>
+                    <span className="font-bold text-slate-600">[신호] 조건검색식 &lsquo;거래량 급증&rsquo; 신규 편입 감지</span>
+                  </div>
+                  <div className="flex items-center gap-3 rounded-xl bg-slate-50 px-4 py-3 text-xs">
+                    <span className="rounded-md bg-teal-500/10 px-2 py-1 font-black text-teal-600">전략</span>
+                    <span className="font-bold text-slate-600">[익절] 목표 수익률 도달 — 전량 매도 완료 (+3.2%)</span>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
           </div>
         </section>
 
         {/* 4. Vision 섹션 */}
         <section id="vision" className="container mx-auto max-w-7xl px-6 md:px-8 py-24 border-t border-slate-100 scroll-mt-20">
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="rounded-3xl bg-gradient-to-br from-emerald-500/[0.07] to-transparent border border-slate-100 p-12">
-              <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-500/10 text-emerald-600">
+            <Reveal className="rounded-3xl bg-gradient-to-br from-teal-500/[0.07] to-transparent border border-slate-100 p-12">
+              <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-teal-500/10 text-teal-600">
                 <LineChart size={22} />
               </div>
-              <p className="text-[10px] font-black uppercase tracking-[0.3em] text-emerald-600 mb-4">Sage — 지혜</p>
+              <p className="text-[10px] font-black uppercase tracking-[0.3em] text-teal-600 mb-4">Sage — 지혜</p>
               <h2 className="text-3xl font-black text-slate-900 mb-5 tracking-tight">지혜로운 데이터 분석</h2>
               <p className="text-base leading-relaxed text-slate-500 font-light">
                 정보의 홍수 속에서 현상을 꿰뚫어 보는 통찰력을 제공합니다.
                 뉴스와 시세, 수급의 흐름을 데이터로 읽어 소음이 아닌 신호에 집중합니다.
               </p>
-            </div>
-            <div className="rounded-3xl bg-gradient-to-br from-cyan-500/[0.07] to-transparent border border-slate-100 p-12">
-              <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-500/10 text-cyan-600">
+            </Reveal>
+            <Reveal delay={150} className="rounded-3xl bg-gradient-to-br from-navy-500/[0.07] to-transparent border border-slate-100 p-12">
+              <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-navy-500/10 text-navy-600">
                 <Zap size={22} />
               </div>
-              <p className="text-[10px] font-black uppercase tracking-[0.3em] text-cyan-600 mb-4">Line — 원칙</p>
+              <p className="text-[10px] font-black uppercase tracking-[0.3em] text-navy-600 mb-4">Line — 원칙</p>
               <h2 className="text-3xl font-black text-slate-900 mb-5 tracking-tight">흔들리지 않는 매매 원칙</h2>
               <p className="text-base leading-relaxed text-slate-500 font-light">
                 공포와 탐욕 대신 미리 정한 원칙이 매매합니다.
                 진입부터 청산까지, 전략이 그린 명확한 선을 시스템이 끝까지 지킵니다.
               </p>
-            </div>
+            </Reveal>
           </div>
         </section>
 
         {/* 5. CTA 섹션 */}
         <section className="border-t border-slate-100">
           <div className="container mx-auto max-w-5xl px-6 md:px-8 py-28 text-center">
-            <div className="relative overflow-hidden rounded-[2.5rem] bg-slate-900 px-8 py-20">
-              <div className="absolute top-0 left-1/2 -z-0 h-[300px] w-[600px] -translate-x-1/2 rounded-full bg-emerald-500/20 blur-[100px]" />
+            <Reveal className="relative overflow-hidden rounded-[2.5rem] bg-slate-900 px-8 py-20">
+              <div className="absolute top-0 left-1/2 -z-0 h-[300px] w-[600px] -translate-x-1/2 rounded-full bg-teal-500/20 blur-[100px]" />
               <div className="relative z-10">
                 <div className="text-5xl mb-8">🦉</div>
                 <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight mb-6">
-                  부엉이는 밤에도 <span className="bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">시장을 지켜봅니다</span>
+                  부엉이는 밤에도 <span className="bg-gradient-to-r from-teal-300 to-teal-500 bg-clip-text text-transparent">시장을 지켜봅니다</span>
                 </h2>
                 <p className="text-base md:text-lg text-slate-400 max-w-xl mx-auto font-light mb-12">
                   네이버 카페에서 최신 소식과 다운로드 안내를 확인하고, <br className="hidden md:block" />
@@ -332,7 +397,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
                   </Link>
                 </div>
               </div>
-            </div>
+            </Reveal>
           </div>
         </section>
       </main>

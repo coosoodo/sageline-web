@@ -43,7 +43,7 @@ export default async function PostDetailPage({ params }: Props) {
           
           <Link 
             href={`/boards/${category}`}
-            className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-slate-500 hover:text-emerald-400 transition-colors mb-8 group"
+            className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-slate-500 hover:text-teal-400 transition-colors mb-8 group"
           >
             <ChevronLeft size={14} className="group-hover:-translate-x-1 transition-transform" /> 목록으로 돌아가기
           </Link>
@@ -53,11 +53,11 @@ export default async function PostDetailPage({ params }: Props) {
             <div className="p-10 border-b border-slate-200 bg-slate-50/30">
               <div className="flex items-center gap-3 mb-6">
                 {post.is_announcement && (
-                  <span className="inline-flex items-center rounded-full bg-emerald-100 px-3 py-1 text-[10px] font-black text-emerald-700 border border-emerald-200 uppercase tracking-widest">
+                  <span className="inline-flex items-center rounded-full bg-teal-100 px-3 py-1 text-[10px] font-black text-teal-700 border border-teal-200 uppercase tracking-widest">
                     공지사항
                   </span>
                 )}
-                <span className="text-xs font-bold text-emerald-600 uppercase tracking-[0.2em]">{category}</span>
+                <span className="text-xs font-bold text-teal-600 uppercase tracking-[0.2em]">{category}</span>
               </div>
               <h1 className="text-3xl md:text-4xl font-black text-slate-900 leading-tight mb-8">{post.title}</h1>
               

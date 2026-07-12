@@ -35,7 +35,7 @@ export default function MobileNav() {
                 key={label}
                 href={href}
                 onClick={() => setOpen(false)}
-                className="border-b border-slate-100 py-4 text-sm font-bold uppercase tracking-[0.2em] text-slate-600 last:border-b-0 hover:text-emerald-600 transition-colors"
+                className="border-b border-slate-100 py-4 text-sm font-bold uppercase tracking-[0.2em] text-slate-600 last:border-b-0 hover:text-teal-600 transition-colors"
               >
                 {label}
               </Link>

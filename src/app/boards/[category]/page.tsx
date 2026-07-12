@@ -32,11 +32,11 @@ export default async function BoardPage({ params }: Props) {
           {/* 게시판 도구 (검색, 글쓰기 등) */}
           <div className="flex justify-between items-center mb-8">
             <div className="text-sm text-slate-500 font-light">
-              총 <span className="text-emerald-400 font-bold">{(posts || []).length}</span>개의 게시글
+              총 <span className="text-teal-400 font-bold">{(posts || []).length}</span>개의 게시글
             </div>
             <Link 
               href={`/boards/${category}/write`}
-              className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-6 py-2.5 text-xs font-black uppercase tracking-[0.15em] text-emerald-400 hover:bg-emerald-500/20 transition-all duration-300 shadow-lg shadow-emerald-500/10"
+              className="inline-flex items-center gap-2 rounded-full border border-teal-500/30 bg-teal-500/10 px-6 py-2.5 text-xs font-black uppercase tracking-[0.15em] text-teal-400 hover:bg-teal-500/20 transition-all duration-300 shadow-lg shadow-teal-500/10"
             >
               글쓰기 <ChevronRight size={14} />
             </Link>

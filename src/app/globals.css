@@ -1,6 +1,20 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+/* 브랜드 컬러: 회사 로고의 네이비/틸 */
+@theme {
+  --color-navy-50: #f0f5fa;
+  --color-navy-100: #dae5f0;
+  --color-navy-200: #b6cadf;
+  --color-navy-300: #8aa9c7;
+  --color-navy-400: #5c83a8;
+  --color-navy-500: #38618b;
+  --color-navy-600: #274b70;
+  --color-navy-700: #1e3a5f;
+  --color-navy-800: #172c49;
+  --color-navy-900: #101f33;
+}
+
 
 :root {
   --background: #ffffff;
@@ -68,11 +82,11 @@ body {
 }
 
 .tiptap img.ProseMirror-selectednode {
-  outline: 3px solid #10b981;
+  outline: 3px solid #14b8a6;
 }
 
 .tiptap blockquote {
-  border-left: 3px solid #10b981;
+  border-left: 3px solid #14b8a6;
   padding-left: 1rem;
   font-style: italic;
   color: #475569;
