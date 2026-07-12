@@ -10,7 +10,7 @@ import { parseManual, getPages, getManualNav } from '@/lib/manual-utils';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: '사용자 설명서 | 부엉이 트레이더',
+  title: { absolute: '부엉이 트레이더 사용자 설명서 | SAGE LINE' },
   description: '부엉이 트레이더(부엉이 ATS)의 설치부터 자동 매매 전략 설정까지 전체 사용법을 안내합니다.',
   // 아직 공개 전 — 검색 노출 및 내비게이션 링크에서 숨김
   robots: { index: false, follow: false },

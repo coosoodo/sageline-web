@@ -13,15 +13,15 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-slate-500 max-w-sm text-sm font-light leading-relaxed">
-              데이터로 세상을 읽고, 전략으로 미래를 씁니다. <br />
-              귀사의 가장 현명한 비즈니스 파트너가 되겠습니다.
+              데이터로 시장을 읽고, 원칙으로 매매합니다. <br />
+              개인 투자자를 위한 가장 현명한 자동매매 파트너, 세이지라인입니다.
             </p>
           </div>
           
           <div className="flex flex-col gap-3 text-sm">
             <div className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 mb-2">Products</div>
-            <Link href="/#products" className="text-slate-500 hover:text-teal-600 transition-colors">부엉이 트레이더</Link>
-            <Link href="/#products" className="text-slate-500 hover:text-teal-600 transition-colors">부엉이 트레이더 라이트</Link>
+            <Link href="/#owl-trader" className="text-slate-500 hover:text-teal-600 transition-colors">부엉이 트레이더</Link>
+            <Link href="/#owl-trader-lite" className="text-slate-500 hover:text-teal-600 transition-colors">부엉이 트레이더 라이트</Link>
             <Link href="/boards/free" className="text-slate-500 hover:text-teal-600 transition-colors">커뮤니티</Link>
           </div>
 
@@ -30,7 +30,7 @@ export default function Footer() {
             <a href="mailto:sageline2024@gmail.com" className="text-slate-500 hover:text-teal-600 transition-colors">
               sageline2024@gmail.com
             </a>
-            <div className="text-slate-500">010-8067-4532 (담당자 최재혁)</div>
+            <div className="text-slate-500">010-8067-4532 (고객지원)</div>
             <a href="https://cafe.naver.com/sageline" target="_blank" rel="noopener noreferrer" className="mt-2 inline-flex items-center gap-2 rounded-full border border-[#03C75A]/40 bg-[#03C75A]/10 px-5 py-2 text-xs font-black tracking-wide text-[#03C75A] hover:bg-[#03C75A]/25 transition-all">
               네이버 카페 바로가기
             </a>

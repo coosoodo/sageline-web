@@ -3,7 +3,7 @@ import Link from 'next/link';
 import LoginForm from './LoginForm';
 
 export const metadata: Metadata = {
-  title: '로그인 | SAGE LINE',
+  title: '로그인',
   description: 'SAGE LINE 로그인 페이지입니다.',
 };
 

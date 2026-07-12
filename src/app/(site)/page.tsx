@@ -20,7 +20,7 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'SAGE LINE | 현명한 선택, 명확한 길',
+  title: { absolute: 'SAGE LINE | 현명한 선택, 명확한 길' },
   description:
     '키움증권 REST API 기반 주식 자동매매 프로그램 부엉이 트레이더 — 데이터 기반의 통찰력과 전략적 기술로 개인 투자자의 성공을 설계하는 파트너, 세이지라인입니다.',
 };
@@ -137,7 +137,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
 
           <div className="grid md:grid-cols-2 gap-8 mb-20">
             {/* 부엉이 트레이더 (풀) */}
-            <Reveal className="group relative h-full rounded-3xl border border-slate-100 bg-slate-50/50 p-10 hover:border-teal-500/30 hover:shadow-2xl hover:shadow-teal-500/5 transition-all duration-300">
+            <Reveal id="owl-trader" className="group relative h-full scroll-mt-24 rounded-3xl border border-slate-100 bg-slate-50/50 p-10 hover:border-teal-500/30 hover:shadow-2xl hover:shadow-teal-500/5 transition-all duration-300">
               <div className="absolute top-8 right-8 rounded-full bg-teal-500/10 px-3 py-1 text-[10px] font-black uppercase tracking-widest text-teal-600">
                 All-in-One
               </div>
@@ -169,7 +169,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
             </Reveal>
 
             {/* 부엉이 트레이더 라이트 */}
-            <Reveal delay={150} className="group relative h-full rounded-3xl border border-slate-100 bg-slate-50/50 p-10 hover:border-navy-500/30 hover:shadow-2xl hover:shadow-navy-500/5 transition-all duration-300">
+            <Reveal id="owl-trader-lite" delay={150} className="group relative h-full scroll-mt-24 rounded-3xl border border-slate-100 bg-slate-50/50 p-10 hover:border-navy-500/30 hover:shadow-2xl hover:shadow-navy-500/5 transition-all duration-300">
               <div className="absolute top-8 right-8 rounded-full bg-navy-500/10 px-3 py-1 text-[10px] font-black uppercase tracking-widest text-navy-600">
                 Light &amp; Fast
               </div>

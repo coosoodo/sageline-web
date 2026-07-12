@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: '개인정보처리방침 | SAGE LINE',
+  title: '개인정보처리방침',
   description: 'SAGE LINE 개인정보처리방침',
 };
 
