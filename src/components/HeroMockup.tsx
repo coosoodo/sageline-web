@@ -27,7 +27,7 @@ export default function HeroMockup() {
           <span className="ml-3 text-[11px] font-bold tracking-wide text-slate-400">
             부엉이 트레이더 — 자동매매 대시보드
           </span>
-          <span className="ml-auto hidden sm:inline-flex items-center gap-1.5 rounded-full bg-teal-500/10 px-3 py-1 text-[10px] font-black text-teal-600">
+          <span className="ml-auto hidden sm:inline-flex items-center gap-1.5 rounded-full bg-teal-500/10 px-3 py-1 text-[10px] font-bold text-teal-600">
             <span className="h-1.5 w-1.5 rounded-full bg-teal-500 animate-pulse" />
             자동매매 실행 중
           </span>
@@ -36,7 +36,7 @@ export default function HeroMockup() {
         <div className="grid grid-cols-1 md:grid-cols-[190px_1fr]">
           {/* 사이드바: 전략 목록 */}
           <div className="hidden md:block border-r border-slate-100 bg-slate-50/40 p-4">
-            <p className="mb-3 text-[9px] font-black uppercase tracking-[0.2em] text-slate-400">내 전략</p>
+            <p className="mb-3 text-[9px] font-bold uppercase tracking-[0.2em] text-slate-400">내 전략</p>
             <div className="space-y-2">
               {STRATEGIES.map((s) => (
                 <div key={s.name} className="flex items-center justify-between rounded-lg bg-white border border-slate-100 px-3 py-2">
@@ -52,15 +52,15 @@ export default function HeroMockup() {
             {/* 스탯 타일 */}
             <div className="mb-4 grid grid-cols-3 gap-3">
               <div className="rounded-xl bg-slate-50 px-4 py-3">
-                <p className="text-[9px] font-black uppercase tracking-widest text-slate-400">오늘 수익률</p>
+                <p className="text-[9px] font-bold uppercase tracking-widest text-slate-400">오늘 수익률</p>
                 <p className="mt-1 text-lg font-black text-teal-600">+2.4%</p>
               </div>
               <div className="rounded-xl bg-slate-50 px-4 py-3">
-                <p className="text-[9px] font-black uppercase tracking-widest text-slate-400">체결</p>
+                <p className="text-[9px] font-bold uppercase tracking-widest text-slate-400">체결</p>
                 <p className="mt-1 text-lg font-black text-slate-800">12건</p>
               </div>
               <div className="rounded-xl bg-slate-50 px-4 py-3">
-                <p className="text-[9px] font-black uppercase tracking-widest text-slate-400">감시 종목</p>
+                <p className="text-[9px] font-bold uppercase tracking-widest text-slate-400">감시 종목</p>
                 <p className="mt-1 text-lg font-black text-slate-800">8개</p>
               </div>
             </div>

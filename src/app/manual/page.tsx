@@ -54,7 +54,7 @@ export default async function ManualIndexPage() {
             </p>
             <Link
               href={firstHref}
-              className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-7 py-3.5 text-sm font-black uppercase tracking-[0.15em] text-white hover:bg-slate-800 transition-all"
+              className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-7 py-3.5 text-sm font-bold uppercase tracking-[0.15em] text-white hover:bg-slate-800 transition-all"
             >
               설명서 시작하기
               <ArrowRight size={16} />
@@ -117,7 +117,7 @@ export default async function ManualIndexPage() {
 
                 <Link
                   href={ch.href}
-                  className="mt-auto inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-[0.15em] text-teal-600 hover:gap-2.5 transition-all"
+                  className="mt-auto inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.15em] text-teal-600 hover:gap-2.5 transition-all"
                 >
                   읽기 <ChevronRight size={14} />
                 </Link>

@@ -58,7 +58,7 @@ body {
 }
 
 ::selection {
-  background-color: rgba(16, 185, 129, 0.25);
+  background-color: rgba(20, 184, 166, 0.25); /* teal-500, 브랜드 포인트 색 */
 }
 
 /* Tiptap Editor Styles */

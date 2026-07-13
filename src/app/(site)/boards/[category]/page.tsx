@@ -71,7 +71,7 @@ export default async function BoardPage({ params, searchParams }: Props) {
             {/* 카테고리 사이드바 */}
             <aside className="lg:w-64 flex-shrink-0">
               <div className="sticky top-32 space-y-1">
-                <p className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 mb-6 ml-4">Categories</p>
+                <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-500 mb-6 ml-4">Categories</p>
                 {BOARD_CATEGORIES.map((board) => {
                   const active = board.id === category;
                   return (
@@ -105,7 +105,7 @@ export default async function BoardPage({ params, searchParams }: Props) {
                 </div>
                 <Link
                   href={`/boards/${category}/write`}
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-900 px-6 py-2.5 text-xs font-black uppercase tracking-[0.15em] text-white hover:bg-slate-800 transition-all duration-300"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-900 px-6 py-2.5 text-xs font-bold uppercase tracking-[0.15em] text-white hover:bg-slate-800 transition-all duration-300"
                 >
                   글쓰기 <ChevronRight size={14} />
                 </Link>

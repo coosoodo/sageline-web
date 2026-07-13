@@ -75,7 +75,7 @@ export default async function ManualChapterPage({
           <main className="flex-grow min-w-0">
             {/* 히어로 */}
             <div className="mb-12 p-8 rounded-3xl border border-slate-100 bg-gradient-to-br from-teal-50 via-navy-50 to-transparent">
-              <div className="text-xs font-black uppercase tracking-[0.2em] text-teal-600 mb-3">
+              <div className="text-xs font-bold uppercase tracking-[0.2em] text-teal-600 mb-3">
                 {current.isSection ? current.chapterTitle : `Chapter ${current.slug} / ${nav.length}`}
               </div>
               <h1 className="text-4xl lg:text-5xl font-black text-slate-900 leading-tight">
@@ -94,7 +94,7 @@ export default async function ManualChapterPage({
                 >
                   <ChevronLeft size={20} className="flex-shrink-0 text-slate-400 group-hover:text-teal-600 transition-colors" />
                   <div className="min-w-0">
-                    <div className="text-[10px] font-black uppercase tracking-widest text-slate-400">이전</div>
+                    <div className="text-[10px] font-bold uppercase tracking-widest text-slate-400">이전</div>
                     <div className="text-sm font-bold text-slate-700 truncate">{prev.title}</div>
                   </div>
                 </Link>
@@ -107,7 +107,7 @@ export default async function ManualChapterPage({
                   className="group flex items-center justify-end gap-3 rounded-2xl border border-slate-200 p-5 text-right hover:border-teal-500/40 hover:bg-teal-50/40 transition-all sm:col-start-2"
                 >
                   <div className="min-w-0">
-                    <div className="text-[10px] font-black uppercase tracking-widest text-slate-400">다음</div>
+                    <div className="text-[10px] font-bold uppercase tracking-widest text-slate-400">다음</div>
                     <div className="text-sm font-bold text-slate-700 truncate">{next.title}</div>
                   </div>
                   <ChevronRight size={20} className="flex-shrink-0 text-slate-400 group-hover:text-teal-600 transition-colors" />

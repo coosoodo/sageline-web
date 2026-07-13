@@ -79,7 +79,7 @@ export default function BoardList({ posts, category, keyword }: BoardListProps) 
             >
               <div className="flex items-start gap-4">
                 {/* 아바타 */}
-                <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-teal-500/15 to-navy-500/15 text-sm font-black text-teal-700">
+                <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-teal-500/15 to-navy-500/15 text-sm font-bold text-teal-700">
                   {initials(post.author_name)}
                 </div>
 
@@ -87,7 +87,7 @@ export default function BoardList({ posts, category, keyword }: BoardListProps) 
                   {/* 제목 */}
                   <div className="flex items-center gap-2 mb-1">
                     {post.is_announcement && (
-                      <span className="inline-flex items-center gap-1 rounded-md bg-teal-100 px-1.5 py-0.5 text-[10px] font-black text-teal-700">
+                      <span className="inline-flex items-center gap-1 rounded-md bg-teal-100 px-1.5 py-0.5 text-[10px] font-bold text-teal-700">
                         <Pin size={10} /> 공지
                       </span>
                     )}

@@ -36,10 +36,10 @@ export default function ManualHeader({
               </>
             )}
           </div>
-          <Link href="/manual" className="text-xs font-black uppercase tracking-[0.2em] text-slate-500 hover:text-teal-600 transition-colors">
+          <Link href="/manual" className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500 hover:text-teal-600 transition-colors">
             목차
           </Link>
-          <Link href="/" className="text-xs font-black uppercase tracking-[0.2em] text-teal-600 hover:text-teal-700 transition-colors">
+          <Link href="/" className="text-xs font-bold uppercase tracking-[0.2em] text-teal-600 hover:text-teal-700 transition-colors">
             Back to Home
           </Link>
         </div>

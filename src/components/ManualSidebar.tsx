@@ -83,7 +83,7 @@ export default function ManualSidebar({ nav, currentSlug, currentChapterSlug, to
     <nav className="py-6">
       <div className="flex items-center gap-2 mb-5 px-4">
         <div className="h-4 w-1 bg-gradient-to-b from-teal-400 to-navy-400 rounded-full"></div>
-        <h3 className="text-sm font-black uppercase tracking-[0.2em] text-slate-900">설명서 목차</h3>
+        <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-slate-900">설명서 목차</h3>
       </div>
 
       <div className="space-y-0.5">

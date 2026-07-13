@@ -32,7 +32,7 @@ export default function LoginPage() {
         <div className="w-full max-w-md">
           {/* 헤더 */}
           <div className="mb-10 text-center">
-            <div className="inline-flex items-center space-x-2 rounded-full border border-teal-500/20 bg-teal-500/5 px-4 py-2 text-[10px] font-black uppercase tracking-[0.3em] text-teal-400 mb-6">
+            <div className="inline-flex items-center space-x-2 rounded-full border border-teal-500/20 bg-teal-500/5 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.3em] text-teal-400 mb-6">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-500" />

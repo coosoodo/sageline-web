@@ -266,7 +266,7 @@ export default function BoardForm({ category, initialData, isEdit = false }: Boa
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <div className="space-y-2">
-        <label htmlFor="title" className="text-xs font-black uppercase tracking-[0.2em] text-slate-500 ml-1">제목</label>
+        <label htmlFor="title" className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500 ml-1">제목</label>
         <input
           id="title"
           type="text"
@@ -279,7 +279,7 @@ export default function BoardForm({ category, initialData, isEdit = false }: Boa
       </div>
 
       <div className="space-y-2">
-        <label className="text-xs font-black uppercase tracking-[0.2em] text-slate-500 ml-1">
+        <label className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500 ml-1">
           내용 (이미지를 붙여넣어 즉시 확인할 수 있습니다)
         </label>
         <div className="w-full rounded-2xl border border-slate-200 bg-white overflow-hidden focus-within:border-teal-500/50 transition-all shadow-sm">
@@ -311,14 +311,14 @@ export default function BoardForm({ category, initialData, isEdit = false }: Boa
           <button
             type="button"
             onClick={() => router.back()}
-            className="px-8 py-3 rounded-full border border-slate-200 text-xs font-black uppercase tracking-[0.2em] text-slate-500 hover:text-slate-900 hover:bg-slate-50 transition-all"
+            className="px-8 py-3 rounded-full border border-slate-200 text-xs font-bold uppercase tracking-[0.2em] text-slate-500 hover:text-slate-900 hover:bg-slate-50 transition-all"
           >
             취소
           </button>
           <button
             type="submit"
             disabled={isLoading}
-            className="px-8 py-3 rounded-full bg-teal-500 text-xs font-black uppercase tracking-[0.2em] text-white hover:bg-teal-400 disabled:opacity-50 transition-all shadow-lg shadow-teal-500/20"
+            className="px-8 py-3 rounded-full bg-teal-500 text-xs font-bold uppercase tracking-[0.2em] text-white hover:bg-teal-400 disabled:opacity-50 transition-all shadow-lg shadow-teal-500/20"
           >
             {isLoading ? '저장 중...' : (isEdit ? '수정하기' : '등록하기')}
           </button>

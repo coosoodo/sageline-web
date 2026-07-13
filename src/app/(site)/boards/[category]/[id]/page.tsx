@@ -44,7 +44,7 @@ export default async function PostDetailPage({ params }: Props) {
           
           <Link
             href={`/boards/${category}`}
-            className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-slate-500 hover:text-teal-600 transition-colors mb-8 group"
+            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-slate-500 hover:text-teal-600 transition-colors mb-8 group"
           >
             <ChevronLeft size={14} className="group-hover:-translate-x-1 transition-transform" /> 목록으로 돌아가기
           </Link>
@@ -54,7 +54,7 @@ export default async function PostDetailPage({ params }: Props) {
             <header className="p-8 md:p-10 border-b border-slate-200 bg-slate-50/30">
               <div className="flex items-center gap-3 mb-5">
                 {post.is_announcement && (
-                  <span className="inline-flex items-center rounded-full bg-teal-100 px-3 py-1 text-[10px] font-black text-teal-700 border border-teal-200 uppercase tracking-widest">
+                  <span className="inline-flex items-center rounded-full bg-teal-100 px-3 py-1 text-[10px] font-bold text-teal-700 border border-teal-200 uppercase tracking-widest">
                     공지사항
                   </span>
                 )}
@@ -64,7 +64,7 @@ export default async function PostDetailPage({ params }: Props) {
 
               <div className="flex items-center justify-between gap-4">
                 <div className="flex items-center gap-3 min-w-0">
-                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-teal-500/15 to-navy-500/15 text-sm font-black text-teal-700">
+                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-teal-500/15 to-navy-500/15 text-sm font-bold text-teal-700">
                     {(post.author_name || '익명').trim().slice(0, 1).toUpperCase()}
                   </div>
                   <div className="min-w-0">

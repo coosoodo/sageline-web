@@ -76,7 +76,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
           <div className="absolute bottom-0 right-0 -z-10 h-[400px] w-[500px] rounded-full bg-navy-500/5 blur-[120px]" />
 
           <div className="container mx-auto max-w-5xl text-center">
-            <div className="inline-flex items-center space-x-2 rounded-full border border-teal-500/20 bg-teal-500/5 px-4 py-2 text-[10px] font-black uppercase tracking-[0.3em] text-teal-500 mb-10">
+            <div className="inline-flex items-center space-x-2 rounded-full border border-teal-500/20 bg-teal-500/5 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.3em] text-teal-500 mb-10">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
@@ -101,14 +101,14 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
             <div className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/#products"
-                className="group inline-flex items-center gap-2 rounded-full bg-slate-900 px-8 py-4 text-sm font-black uppercase tracking-[0.15em] text-white hover:bg-slate-800 transition-all duration-300 shadow-xl shadow-slate-900/10"
+                className="group inline-flex items-center gap-2 rounded-full bg-slate-900 px-8 py-4 text-sm font-bold uppercase tracking-[0.15em] text-white hover:bg-slate-800 transition-all duration-300 shadow-xl shadow-slate-900/10"
               >
                 제품 살펴보기
                 <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
                 href="/boards/free"
-                className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-8 py-4 text-sm font-black uppercase tracking-[0.15em] text-slate-600 hover:border-teal-500/40 hover:text-teal-600 transition-all duration-300"
+                className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-8 py-4 text-sm font-bold uppercase tracking-[0.15em] text-slate-600 hover:border-teal-500/40 hover:text-teal-600 transition-all duration-300"
               >
                 커뮤니티
               </Link>
@@ -123,7 +123,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
         {/* 2. Products 섹션 */}
         <section id="products" className="container mx-auto max-w-7xl px-6 md:px-8 py-24 border-t border-slate-100 scroll-mt-20">
           <Reveal className="text-center mb-20">
-            <div className="inline-flex items-center space-x-2 rounded-full border border-teal-500/20 bg-teal-500/5 px-4 py-2 text-[10px] font-black uppercase tracking-[0.3em] text-teal-600 mb-8">
+            <div className="inline-flex items-center space-x-2 rounded-full border border-teal-500/20 bg-teal-500/5 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.3em] text-teal-600 mb-8">
               <span>Our Products</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-6">
@@ -138,7 +138,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
           <div className="grid md:grid-cols-2 gap-8 mb-20">
             {/* 부엉이 트레이더 (풀) */}
             <Reveal id="owl-trader" className="group relative h-full scroll-mt-24 rounded-3xl border border-slate-100 bg-slate-50/50 p-10 hover:border-teal-500/30 hover:shadow-2xl hover:shadow-teal-500/5 transition-all duration-300">
-              <div className="absolute top-8 right-8 rounded-full bg-teal-500/10 px-3 py-1 text-[10px] font-black uppercase tracking-widest text-teal-600">
+              <div className="absolute top-8 right-8 rounded-full bg-teal-500/10 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-teal-600">
                 All-in-One
               </div>
               <div className="flex items-center gap-4 mb-8">
@@ -162,7 +162,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
               </ul>
               <Link
                 href="/boards/free"
-                className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.15em] text-teal-600 hover:text-teal-700 transition-colors group/link"
+                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.15em] text-teal-600 hover:text-teal-700 transition-colors group/link"
               >
                 커뮤니티에서 알아보기 <ChevronRight size={14} className="group-hover/link:translate-x-1 transition-transform" />
               </Link>
@@ -170,7 +170,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
 
             {/* 부엉이 트레이더 라이트 */}
             <Reveal id="owl-trader-lite" delay={150} className="group relative h-full scroll-mt-24 rounded-3xl border border-slate-100 bg-slate-50/50 p-10 hover:border-navy-500/30 hover:shadow-2xl hover:shadow-navy-500/5 transition-all duration-300">
-              <div className="absolute top-8 right-8 rounded-full bg-navy-500/10 px-3 py-1 text-[10px] font-black uppercase tracking-widest text-navy-600">
+              <div className="absolute top-8 right-8 rounded-full bg-navy-500/10 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-navy-600">
                 Light &amp; Fast
               </div>
               <div className="flex items-center gap-4 mb-8">
@@ -194,7 +194,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
               </ul>
               <Link
                 href="/boards/free"
-                className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.15em] text-navy-600 hover:text-navy-700 transition-colors group/link"
+                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.15em] text-navy-600 hover:text-navy-700 transition-colors group/link"
               >
                 커뮤니티에서 알아보기 <ChevronRight size={14} className="group-hover/link:translate-x-1 transition-transform" />
               </Link>
@@ -207,9 +207,9 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
               <table className="w-full text-left min-w-[560px]">
                 <thead>
                   <tr className="border-b border-slate-100 bg-slate-50/70">
-                    <th className="px-8 py-5 text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">기능 비교</th>
-                    <th className="px-6 py-5 text-center text-sm font-black text-teal-600">부엉이 트레이더</th>
-                    <th className="px-6 py-5 text-center text-sm font-black text-navy-600">라이트</th>
+                    <th className="px-8 py-5 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">기능 비교</th>
+                    <th className="px-6 py-5 text-center text-sm font-bold text-teal-600">부엉이 트레이더</th>
+                    <th className="px-6 py-5 text-center text-sm font-bold text-navy-600">라이트</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -229,7 +229,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
         {/* 3. Technology 섹션 */}
         <section id="technology" className="container mx-auto max-w-7xl px-6 md:px-8 py-24 border-t border-slate-100 scroll-mt-20">
           <Reveal className="text-center mb-20">
-            <div className="inline-flex items-center space-x-2 rounded-full border border-navy-500/20 bg-navy-500/5 px-4 py-2 text-[10px] font-black uppercase tracking-[0.3em] text-navy-600 mb-8">
+            <div className="inline-flex items-center space-x-2 rounded-full border border-navy-500/20 bg-navy-500/5 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.3em] text-navy-600 mb-8">
               <span>Core Technology</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-6">
@@ -255,7 +255,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
               <div className="flex flex-wrap items-center gap-2" aria-hidden="true">
                 {['조건검색 신호', '전략 필터', '자동 주문', '체결 알림'].map((step, i, arr) => (
                   <React.Fragment key={step}>
-                    <span className="rounded-full border border-teal-500/20 bg-teal-500/5 px-4 py-2 text-xs font-black text-teal-700">
+                    <span className="rounded-full border border-teal-500/20 bg-teal-500/5 px-4 py-2 text-xs font-bold text-teal-700">
                       {step}
                     </span>
                     {i < arr.length - 1 && <ChevronRight size={14} className="text-slate-300" />}
@@ -344,7 +344,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
               <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-teal-500/10 text-teal-600">
                 <LineChart size={22} />
               </div>
-              <p className="text-[10px] font-black uppercase tracking-[0.3em] text-teal-600 mb-4">Sage — 지혜</p>
+              <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-teal-600 mb-4">Sage — 지혜</p>
               <h2 className="text-3xl font-black text-slate-900 mb-5 tracking-tight">지혜로운 데이터 분석</h2>
               <p className="text-base leading-relaxed text-slate-500 font-light">
                 정보의 홍수 속에서 현상을 꿰뚫어 보는 통찰력을 제공합니다.
@@ -355,7 +355,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
               <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-navy-500/10 text-navy-600">
                 <Zap size={22} />
               </div>
-              <p className="text-[10px] font-black uppercase tracking-[0.3em] text-navy-600 mb-4">Line — 원칙</p>
+              <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-navy-600 mb-4">Line — 원칙</p>
               <h2 className="text-3xl font-black text-slate-900 mb-5 tracking-tight">흔들리지 않는 매매 원칙</h2>
               <p className="text-base leading-relaxed text-slate-500 font-light">
                 공포와 탐욕 대신 미리 정한 원칙이 매매합니다.
@@ -384,13 +384,13 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
                     href="https://cafe.naver.com/sageline"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full bg-[#03C75A] px-8 py-4 text-sm font-black tracking-wide text-white hover:bg-[#02b152] transition-all duration-300"
+                    className="inline-flex items-center gap-2 rounded-full bg-[#03C75A] px-8 py-4 text-sm font-bold tracking-wide text-white hover:bg-[#02b152] transition-all duration-300"
                   >
                     네이버 카페 바로가기
                   </a>
                   <Link
                     href="/boards/free"
-                    className="inline-flex items-center gap-2 rounded-full border border-white/20 px-8 py-4 text-sm font-black uppercase tracking-[0.15em] text-white hover:bg-white/10 transition-all duration-300"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/20 px-8 py-4 text-sm font-bold uppercase tracking-[0.15em] text-white hover:bg-white/10 transition-all duration-300"
                   >
                     커뮤니티
                     <ChevronRight size={16} />

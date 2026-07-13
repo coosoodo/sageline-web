@@ -42,8 +42,8 @@ export default async function Header() {
             </>
           ) : (
             <>
-              <Link href="/login" className="px-5 py-2 text-xs font-black uppercase tracking-[0.15em] text-slate-500 hover:text-slate-900 transition-all duration-300">로그인</Link>
-              <Link href="/signup" className="hidden sm:block rounded-full border border-teal-500/30 bg-teal-500/5 px-5 py-2 text-xs font-black uppercase tracking-[0.15em] text-teal-600 hover:bg-teal-500/10 transition-all duration-300">회원가입</Link>
+              <Link href="/login" className="px-5 py-2 text-xs font-bold uppercase tracking-[0.15em] text-slate-500 hover:text-slate-900 transition-all duration-300">로그인</Link>
+              <Link href="/signup" className="hidden sm:block rounded-full border border-teal-500/30 bg-teal-500/5 px-5 py-2 text-xs font-bold uppercase tracking-[0.15em] text-teal-600 hover:bg-teal-500/10 transition-all duration-300">회원가입</Link>
             </>
           )}
           <MobileNav />
