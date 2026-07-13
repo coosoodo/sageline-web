@@ -106,12 +106,14 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
                 제품 살펴보기
                 <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </Link>
-              <Link
-                href="/boards/free"
+              <a
+                href="https://cafe.naver.com/sageline"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-8 py-4 text-sm font-black uppercase tracking-[0.15em] text-slate-600 hover:border-teal-500/40 hover:text-teal-600 transition-all duration-300"
               >
-                커뮤니티
-              </Link>
+                네이버 카페
+              </a>
             </div>
 
             <Reveal delay={200} className="mt-24">
@@ -160,12 +162,14 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
                   </li>
                 ))}
               </ul>
-              <Link
-                href="/boards/free"
+              <a
+                href="https://cafe.naver.com/sageline"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.15em] text-teal-600 hover:text-teal-700 transition-colors group/link"
               >
-                커뮤니티에서 알아보기 <ChevronRight size={14} className="group-hover/link:translate-x-1 transition-transform" />
-              </Link>
+                네이버 카페에서 문의하기 <ChevronRight size={14} className="group-hover/link:translate-x-1 transition-transform" />
+              </a>
             </Reveal>
 
             {/* 부엉이 트레이더 라이트 */}
@@ -192,12 +196,14 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
                   </li>
                 ))}
               </ul>
-              <Link
-                href="/boards/free"
+              <a
+                href="https://cafe.naver.com/sageline"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.15em] text-navy-600 hover:text-navy-700 transition-colors group/link"
               >
-                커뮤니티에서 알아보기 <ChevronRight size={14} className="group-hover/link:translate-x-1 transition-transform" />
-              </Link>
+                네이버 카페에서 문의하기 <ChevronRight size={14} className="group-hover/link:translate-x-1 transition-transform" />
+              </a>
             </Reveal>
           </div>
 
@@ -377,7 +383,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
                 </h2>
                 <p className="text-base md:text-lg text-slate-400 max-w-xl mx-auto font-light mb-12">
                   네이버 카페에서 최신 소식과 다운로드 안내를 확인하고, <br className="hidden md:block" />
-                  커뮤니티에서 사용자들과 전략을 나눠보세요.
+                  다른 사용자들과 전략을 나눠보세요.
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                   <a
@@ -387,14 +393,8 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
                     className="inline-flex items-center gap-2 rounded-full bg-[#03C75A] px-8 py-4 text-sm font-black tracking-wide text-white hover:bg-[#02b152] transition-all duration-300"
                   >
                     네이버 카페 바로가기
-                  </a>
-                  <Link
-                    href="/boards/free"
-                    className="inline-flex items-center gap-2 rounded-full border border-white/20 px-8 py-4 text-sm font-black uppercase tracking-[0.15em] text-white hover:bg-white/10 transition-all duration-300"
-                  >
-                    커뮤니티
                     <ChevronRight size={16} />
-                  </Link>
+                  </a>
                 </div>
               </div>
             </Reveal>

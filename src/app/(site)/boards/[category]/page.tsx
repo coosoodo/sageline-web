@@ -21,6 +21,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: cat ? cat.title : '게시판',
     description: cat ? cat.description : 'SAGE LINE 커뮤니티 게시판입니다.',
+    // 커뮤니티는 현재 비공개 — 검색 노출 제외
+    robots: { index: false, follow: false },
   };
 }
 

@@ -1,11 +1,17 @@
 import React from 'react';
 import Link from 'next/link';
 import { notFound, redirect } from 'next/navigation';
+import type { Metadata } from 'next';
 import { createSupabaseServerClient } from '@/lib/supabase-server';
 import BoardHeader from '@/components/BoardHeader';
 import MarkdownRenderer from '@/components/MarkdownRenderer';
 import BoardActions from '@/components/BoardActions';
 import { ChevronLeft, Edit2, Trash2 } from 'lucide-react';
+
+// 커뮤니티는 현재 비공개 — 검색 노출 제외
+export const metadata: Metadata = {
+  robots: { index: false, follow: false },
+};
 
 interface Props {
   params: Promise<{ category: string; id: string }>;
