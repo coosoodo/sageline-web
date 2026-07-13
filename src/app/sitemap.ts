@@ -1,14 +1,15 @@
 import type { MetadataRoute } from 'next';
+import { BOARD_CATEGORY_IDS } from '@/lib/boards';
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sageline.co.kr';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  // 커뮤니티(게시판)는 현재 비공개 — 공개 라우트만 사이트맵에 포함
-  const routes = ['', '/privacy', '/terms'];
+  const staticRoutes = ['', '/privacy', '/terms'];
+  const boardRoutes = BOARD_CATEGORY_IDS.map((id) => `/boards/${id}`);
 
-  return routes.map((route) => ({
+  return [...staticRoutes, ...boardRoutes].map((route) => ({
     url: `${baseUrl}${route}`,
-    changeFrequency: 'monthly',
+    changeFrequency: route.startsWith('/boards') ? 'daily' : 'monthly',
     priority: route === '' ? 1 : 0.7,
   }));
 }
