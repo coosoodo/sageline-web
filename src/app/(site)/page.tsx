@@ -9,7 +9,7 @@ import Reveal from '@/components/Reveal';
 import HeroMockup from '@/components/HeroMockup';
 import {
   ChevronRight,
-  Bot,
+  CandlestickChart,
   ShieldCheck,
   BellRing,
   Workflow,
@@ -28,9 +28,9 @@ export const metadata: Metadata = {
 const FULL_FEATURES = [
   '조건검색식 · 사용자 정의 · 단일종목 자동매매',
   '조건식 라이브러리와 베팅 · 주문 전략 편집기',
-  'AI 실시간 뉴스 분석 및 AI 종목 추천 (Gemini)',
   '분봉 · 일봉 · 업종 차트와 기술적 지표',
-  '실시간 순위 · 시간외단일가 · VI 발동종목 조회',
+  '시간외단일가 · VI 발동종목 조회',
+  '자동매매 수익률 조회 · 매매제한 현황',
   'Discord · Telegram 실시간 알림',
 ];
 
@@ -47,7 +47,6 @@ const COMPARISON: { label: string; full: string | boolean; lite: string | boolea
   { label: '조건검색식 자동매매', full: true, lite: true },
   { label: '손절 · 익절 · 트레일링 스탑', full: true, lite: true },
   { label: '사용자 정의 전략 · 수식 편집기', full: true, lite: false },
-  { label: 'AI 뉴스 분석 · 종목 추천', full: true, lite: false },
   { label: '차트 · 기술적 지표', full: true, lite: false },
   { label: '알림', full: 'Discord + Telegram', lite: 'Telegram' },
   { label: '권장 사용자', full: '파워 트레이더', lite: '입문 · 실전 겸용' },
@@ -149,7 +148,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
                 </div>
               </div>
               <p className="text-sm text-slate-500 leading-relaxed font-light mb-8">
-                자동매매부터 AI 분석, 차트, 실시간 시세까지 갖춘 종합 트레이딩 스위트입니다.
+                자동매매부터 차트 · 기술 지표, 실시간 시세, 조건검색까지 갖춘 종합 트레이딩 스위트입니다.
                 코딩 없이 조건식 편집기만으로 나만의 매매 전략을 설계하고 자동으로 실행합니다.
               </p>
               <ul className="space-y-3 mb-8">
@@ -236,7 +235,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
               감정을 배제하고, <span className="text-navy-700">시스템이 매매합니다</span>
             </h2>
             <p className="text-lg text-slate-500 max-w-2xl mx-auto font-light">
-              실시간 시장 데이터와 AI 분석을 결합한 자동매매 시스템의 핵심 기술입니다.
+              실시간 시장 데이터를 기반으로 감정을 배제하고 원칙대로 매매하는 시스템의 핵심 기술입니다.
             </p>
           </Reveal>
 
@@ -294,14 +293,14 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
               </div>
             </Reveal>
 
-            {/* AI 시장 분석 */}
+            {/* 차트 · 기술 지표 */}
             <Reveal delay={200} className="rounded-3xl border border-slate-100 bg-white p-8 hover:border-navy-500/30 hover:shadow-xl hover:shadow-navy-500/5 transition-all duration-300">
               <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-navy-500/10 to-blue-500/10 text-navy-600">
-                <Bot size={22} />
+                <CandlestickChart size={22} />
               </div>
-              <h3 className="text-lg font-black text-slate-900 mb-3">AI 시장 분석</h3>
+              <h3 className="text-lg font-black text-slate-900 mb-3">차트 · 기술 지표</h3>
               <p className="text-sm text-slate-500 leading-relaxed font-light">
-                Google Gemini와 실시간 뉴스 데이터를 결합해 시장의 맥락을 읽고, 데이터에 근거한 종목 인사이트를 제공합니다.
+                분봉 · 일봉 · 업종 차트와 피벗 · 볼린저밴드 · 일목균형표 등 기술적 지표로 시장의 흐름을 읽습니다.
               </p>
             </Reveal>
 
