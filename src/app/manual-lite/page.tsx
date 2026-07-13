@@ -14,7 +14,6 @@ const BASE_PATH = '/manual-lite';
 export const metadata: Metadata = {
   title: { absolute: '부엉이 트레이더 라이트 사용자 설명서 | SAGE LINE' },
   description: '부엉이 트레이더 라이트의 설치부터 조건검색식 자동매매 전략 설정까지 사용법을 안내합니다.',
-  robots: { index: false, follow: false },
 };
 
 export default async function ManualLiteIndexPage() {
@@ -52,13 +51,18 @@ export default async function ManualLiteIndexPage() {
               조건검색식 자동매매에 집중한 경량 버전입니다.
               처음 사용하시는 경우 <span className="text-teal-700 font-medium">1장부터</span> 순서대로 읽어보세요.
             </p>
-            <Link
-              href={firstHref}
-              className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-7 py-3.5 text-sm font-bold uppercase tracking-[0.15em] text-white hover:bg-slate-800 transition-all"
-            >
-              설명서 시작하기
-              <ArrowRight size={16} />
-            </Link>
+            <div className="flex flex-wrap items-center gap-5">
+              <Link
+                href={firstHref}
+                className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-7 py-3.5 text-sm font-bold uppercase tracking-[0.15em] text-white hover:bg-slate-800 transition-all"
+              >
+                설명서 시작하기
+                <ArrowRight size={16} />
+              </Link>
+              <Link href="/manual" className="text-sm font-bold text-teal-600 hover:text-teal-700 transition-colors">
+                부엉이 트레이더(풀 버전) 설명서 보기 →
+              </Link>
+            </div>
           </div>
         </div>
 

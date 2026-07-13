@@ -11,9 +11,7 @@ export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
   title: { absolute: '부엉이 트레이더 사용자 설명서 | SAGE LINE' },
-  description: '부엉이 트레이더(부엉이 ATS)의 설치부터 자동 매매 전략 설정까지 전체 사용법을 안내합니다.',
-  // 아직 공개 전 — 검색 노출 및 내비게이션 링크에서 숨김
-  robots: { index: false, follow: false },
+  description: '부엉이 트레이더의 설치부터 자동 매매 전략 설정까지 전체 사용법을 안내합니다.',
 };
 
 export default async function ManualIndexPage() {
@@ -52,13 +50,18 @@ export default async function ManualIndexPage() {
               부엉이 트레이더의 설치부터 고급 전략 설정까지 모든 과정을 장별로 안내합니다.
               처음 사용하시는 경우 <span className="text-teal-700 font-medium">1장부터</span> 순서대로 읽어보세요.
             </p>
-            <Link
-              href={firstHref}
-              className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-7 py-3.5 text-sm font-bold uppercase tracking-[0.15em] text-white hover:bg-slate-800 transition-all"
-            >
-              설명서 시작하기
-              <ArrowRight size={16} />
-            </Link>
+            <div className="flex flex-wrap items-center gap-5">
+              <Link
+                href={firstHref}
+                className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-7 py-3.5 text-sm font-bold uppercase tracking-[0.15em] text-white hover:bg-slate-800 transition-all"
+              >
+                설명서 시작하기
+                <ArrowRight size={16} />
+              </Link>
+              <Link href="/manual-lite" className="text-sm font-bold text-navy-600 hover:text-navy-700 transition-colors">
+                라이트 버전 설명서 보기 →
+              </Link>
+            </div>
           </div>
         </div>
 

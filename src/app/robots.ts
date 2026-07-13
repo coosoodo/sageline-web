@@ -7,8 +7,8 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      // 아직 공개 전이거나 개인 기능인 경로는 크롤링 제외
-      disallow: ['/manual', '/auth/', '/api/'],
+      // 개인 기능·내부 경로는 크롤링 제외
+      disallow: ['/auth/', '/api/'],
     },
     sitemap: `${baseUrl}/sitemap.xml`,
   };

@@ -33,7 +33,6 @@ export async function generateMetadata({
   return {
     title: { absolute: `${page.title} | 부엉이 트레이더 설명서` },
     description: `부엉이 트레이더 사용자 설명서 — ${page.shortTitle}`,
-    robots: { index: false, follow: false },
   };
 }
 

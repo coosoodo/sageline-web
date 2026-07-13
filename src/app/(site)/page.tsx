@@ -160,10 +160,10 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
                 ))}
               </ul>
               <Link
-                href="/boards/free"
+                href="/manual"
                 className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.15em] text-teal-600 hover:text-teal-700 transition-colors group/link"
               >
-                커뮤니티에서 알아보기 <ChevronRight size={14} className="group-hover/link:translate-x-1 transition-transform" />
+                사용자 설명서 보기 <ChevronRight size={14} className="group-hover/link:translate-x-1 transition-transform" />
               </Link>
             </Reveal>
 
@@ -192,10 +192,10 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
                 ))}
               </ul>
               <Link
-                href="/boards/free"
+                href="/manual-lite"
                 className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.15em] text-navy-600 hover:text-navy-700 transition-colors group/link"
               >
-                커뮤니티에서 알아보기 <ChevronRight size={14} className="group-hover/link:translate-x-1 transition-transform" />
+                사용자 설명서 보기 <ChevronRight size={14} className="group-hover/link:translate-x-1 transition-transform" />
               </Link>
             </Reveal>
           </div>

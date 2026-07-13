@@ -4,7 +4,7 @@ import { BOARD_CATEGORY_IDS } from '@/lib/boards';
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sageline.co.kr';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ['', '/privacy', '/terms'];
+  const staticRoutes = ['', '/privacy', '/terms', '/manual', '/manual-lite'];
   const boardRoutes = BOARD_CATEGORY_IDS.map((id) => `/boards/${id}`);
 
   return [...staticRoutes, ...boardRoutes].map((route) => ({
