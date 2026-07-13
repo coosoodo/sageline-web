@@ -38,6 +38,8 @@ lastUpdated: 2026. 7. 13.
 
 ## 2.2 계좌 등록 (AppKey / SecretKey)
 
+![계좌 AppKey 설정 화면](/images/manual-lite/lite-02.png)
+
 라이트 버전은 별도의 아이디·비밀번호 로그인이 아니라 <strong>계좌별 API 키 등록</strong> 방식으로 인증합니다. <strong>계좌현황</strong> 패널의 API 키 설정에서 등록합니다.
 
 <table><tbody><tr><td><p>입력 항목</p></td><td><p>내용</p></td></tr><tr><td><p><strong>계좌번호</strong></p></td><td><p>8자리 계좌번호</p></td></tr><tr><td><p><strong>계좌명</strong></p></td><td><p>구분하기 쉬운 이름</p></td></tr><tr><td><p><strong>AppKey / SecretKey</strong></p></td><td><p>키움에서 발급받은 REST API 키</p></td></tr><tr><td><p><strong>모의투자 계좌</strong></p></td><td><p>모의투자 환경에서 거래할 경우 체크</p></td></tr><tr><td><p><strong>기본 수동매수 전략</strong></p></td><td><p>HTS 등 외부에서 수동 매수한 종목을 관리할 전략 지정</p></td></tr></tbody></table>
@@ -60,6 +62,8 @@ lastUpdated: 2026. 7. 13.
 
 메인 화면은 상단 메뉴바, 3열 본문, 하단 로그·상태바로 구성됩니다.
 
+![부엉이 트레이더 라이트 메인 화면](/images/manual-lite/lite-01.png)
+
 ## 4.1 계좌현황 패널 (좌측)
 
 총자산(추정 예탁)·주문가능금액·총평가손익·계좌 수익률과 당일 매수/매도 주문 사용량을 보여줍니다. 새로고침 버튼과 API 키 설정 진입 버튼이 있습니다.
@@ -71,6 +75,8 @@ lastUpdated: 2026. 7. 13.
 ## 4.3 실시간 보유 종목 감시 (중앙)
 
 보유 종목을 자동/수동으로 구분해 종목명·평균단가·현재가·수익률·평가손익·분할 진행 단계·상태를 실시간으로 보여줍니다. 우클릭 컨텍스트 메뉴로 선택 종목을 일괄 매도하거나 목록에서 제거할 수 있습니다.
+
+![실시간 보유 종목 감시 및 체결 현황](/images/manual-lite/lite-11.png)
 
 ## 4.4 실시간 체결 현황 (우측)
 
@@ -108,18 +114,26 @@ lastUpdated: 2026. 7. 13.
 
 ## 6.1 매수 &amp; 필수 설정 (탭 1)
 
+![매매 설정 프로필 — 매수 및 필수 설정 탭](/images/manual-lite/lite-03.png)
+
 <table><tbody><tr><td><p>항목</p></td><td><p>내용</p></td></tr><tr><td><p><strong>주문 종류</strong></p></td><td><p>지정가 / 시장가</p></td></tr><tr><td><p><strong>가격 구분</strong></p></td><td><p>상한가·현재가·하한가·시가·고가·저가 중 선택</p></td></tr><tr><td><p><strong>호가 조정</strong></p></td><td><p>기준 가격에서 호가 단위만큼 가감</p></td></tr><tr><td><p><strong>종목당 투자액</strong></p></td><td><p>한 종목에 배정할 금액</p></td></tr><tr><td><p><strong>거래 시간 제한</strong></p></td><td><p>장 운영시간(09:00~15:18) 또는 사용자 지정 시간</p></td></tr></tbody></table>
 
 ## 6.2 매도 &amp; 청산 설정 (탭 2)
+
+![매매 설정 프로필 — 매도 및 청산 설정 탭](/images/manual-lite/lite-04.png)
 
 <table><tbody><tr><td><p>항목</p></td><td><p>내용</p></td></tr><tr><td><p><strong>손실 제한(손절)</strong></p></td><td><p>기본 3%. 지정 손실률 도달 시 매도</p></td></tr><tr><td><p><strong>이익 실현(익절)</strong></p></td><td><p>기본 5%. 지정 수익률 도달 시 매도</p></td></tr><tr><td><p><strong>이익 보존</strong></p></td><td><p>확보한 이익이 일정 수준 이하로 줄면 매도</p></td></tr><tr><td><p><strong>트레일링 스탑</strong></p></td><td><p>발동 기준가 대비 %로 활성화한 뒤, 최고가 대비 % 하락 시 매도</p></td></tr><tr><td><p><strong>매도 조건검색식 감시</strong></p></td><td><p>매도용 조건검색식에 포착되면 매도</p></td></tr></tbody></table>
 
 ## 6.3 분할 매매 (탭 3)
 
+![매매 설정 프로필 — 분할 매매 탭](/images/manual-lite/lite-05.png)
+
 *   <strong>분할 매수</strong>: 배정 방식(금액/비율)과 단계별 등락률·배정비율·매수 조건검색식을 지정합니다. (최초 매수 진입 단계 포함)
 *   <strong>분할 매도</strong>: 단계별 손익률·매도비율·매도 조건검색식을 지정합니다.
 
 ## 6.4 기타 설정 (탭 4)
+
+![매매 설정 프로필 — 기타 설정 탭](/images/manual-lite/lite-06.png)
 
 <table><tbody><tr><td><p>항목</p></td><td><p>내용</p></td></tr><tr><td><p><strong>당일 청산</strong></p></td><td><p>당일 매수한 종목을 당일 중 청산 (시점·주문종류·호가조정 지정)</p></td></tr><tr><td><p><strong>당일 재매수 제한</strong></p></td><td><p>당일 매도한 종목의 재매수 차단</p></td></tr><tr><td><p><strong>미체결 자동 취소</strong></p></td><td><p>매수·매도 미체결 주문을 지정한 초(N초) 후 자동 취소</p></td></tr></tbody></table>
 
@@ -149,6 +163,8 @@ lastUpdated: 2026. 7. 13.
 
 ## 8.2 매매 통계 · 성과 분석
 
+![매매 통계 및 성과 분석 화면](/images/manual-lite/lite-07.png)
+
 계좌·전략·기간으로 필터하여 청산 거래 수·승률·총 실현손익(추정)·평균 수익/손실·손익비(Profit Factor)·MDD·최대 수익/손실을 카드로 보여줍니다. 전략별/종목별/거래 내역 탭을 제공합니다.
 
 ## 8.3 보유종목 일괄 매도
@@ -156,6 +172,8 @@ lastUpdated: 2026. 7. 13.
 주문 종류·가격 구분·호가 조정을 지정하고, 종목을 미리 보고 선택해 한 번에 매도합니다.
 
 ## 8.4 프로그램 실행 스케줄
+
+![프로그램 실행 스케줄 화면](/images/manual-lite/lite-09.png)
 
 자동 실행 시작/종료 시간과 요일을 지정합니다(07:30~23:00 범위). Windows 작업 스케줄러를 사용하므로 등록 시 관리자 권한이 필요하며, 종료 시각에는 프로그램이 스스로 정상 종료합니다.
 
@@ -165,6 +183,8 @@ lastUpdated: 2026. 7. 13.
 
 ## 8.6 로그 파일 관리자
 
+![로그 파일 관리 화면](/images/manual-lite/lite-10.png)
+
 로그 보관 기간을 설정하고, 파일 목록(크기·수정일)을 확인하거나 메모장으로 열고 삭제할 수 있습니다. 문제 진단이 필요할 때 <strong>로그 파일을 서버로 전송</strong>할 수 있습니다.
 
 > 라이트 버전은 매매·시세용 외부 서버와 연동하지 않으며, 이 기능은 진단 목적의 로그 업로드에 한정됩니다.
@@ -173,6 +193,8 @@ lastUpdated: 2026. 7. 13.
 # 9. 텔레그램 알림
 
 라이트 버전은 매매 알림을 <strong>텔레그램</strong>으로 전송합니다. (Discord는 지원하지 않습니다.) <strong>설정 → 텔레그램 알림 설정</strong>에서 구성합니다.
+
+![텔레그램 알림 설정 화면](/images/manual-lite/lite-08.png)
 
 <table><tbody><tr><td><p>항목</p></td><td><p>내용</p></td></tr><tr><td><p><strong>텔레그램 알림 사용</strong></p></td><td><p>알림 전송 On/Off</p></td></tr><tr><td><p><strong>알림 옵션</strong></p></td><td><p><strong>일반</strong>: 주문·체결 전체 / <strong>최소</strong>: 체결·오류·경고만</p></td></tr><tr><td><p><strong>Bot Token</strong></p></td><td><p>@BotFather에서 발급받은 봇 토큰 (예: 123456:ABC-DEF...)</p></td></tr><tr><td><p><strong>기본 Chat ID</strong></p></td><td><p>계좌별 Chat ID가 없을 때 사용하는 기본 수신처</p></td></tr><tr><td><p><strong>계좌별 개별 Chat ID</strong></p></td><td><p>계좌마다 다른 채널로 알림 수신 (실서버/모의투자 구분, 계좌별 테스트 전송)</p></td></tr></tbody></table>
 
