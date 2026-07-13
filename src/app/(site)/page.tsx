@@ -127,7 +127,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
               <span>Our Products</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-6">
-              누구나 쓸 수 있는 <span className="bg-gradient-to-r from-teal-500 to-navy-500 bg-clip-text text-transparent">퀀트 투자</span>
+              누구나 쓸 수 있는 <span className="text-teal-600">퀀트 투자</span>
             </h2>
             <p className="text-lg text-slate-500 max-w-2xl mx-auto font-light">
               키움증권 REST API 기반의 주식 자동매매 프로그램. <br className="hidden md:block" />
@@ -137,7 +137,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
 
           <div className="grid md:grid-cols-2 gap-8 mb-20">
             {/* 부엉이 트레이더 (풀) */}
-            <Reveal id="owl-trader" className="group relative h-full scroll-mt-24 rounded-3xl border border-slate-100 bg-slate-50/50 p-10 hover:border-teal-500/30 hover:shadow-2xl hover:shadow-teal-500/5 transition-all duration-300">
+            <Reveal id="owl-trader" className="group relative h-full scroll-mt-24 rounded-3xl border border-slate-100 bg-slate-50/50 p-10 hover:border-teal-500/30 hover:shadow-lg hover:shadow-teal-500/5 transition-all duration-300">
               <div className="absolute top-8 right-8 rounded-full bg-teal-500/10 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-teal-600">
                 All-in-One
               </div>
@@ -169,7 +169,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
             </Reveal>
 
             {/* 부엉이 트레이더 라이트 */}
-            <Reveal id="owl-trader-lite" delay={150} className="group relative h-full scroll-mt-24 rounded-3xl border border-slate-100 bg-slate-50/50 p-10 hover:border-navy-500/30 hover:shadow-2xl hover:shadow-navy-500/5 transition-all duration-300">
+            <Reveal id="owl-trader-lite" delay={150} className="group relative h-full scroll-mt-24 rounded-3xl border border-slate-100 bg-slate-50/50 p-10 hover:border-navy-500/30 hover:shadow-lg hover:shadow-navy-500/5 transition-all duration-300">
               <div className="absolute top-8 right-8 rounded-full bg-navy-500/10 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-navy-600">
                 Light &amp; Fast
               </div>
@@ -233,7 +233,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
               <span>Core Technology</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-6">
-              감정을 배제하고, <span className="bg-gradient-to-r from-navy-500 to-blue-500 bg-clip-text text-transparent">시스템이 매매합니다</span>
+              감정을 배제하고, <span className="text-navy-700">시스템이 매매합니다</span>
             </h2>
             <p className="text-lg text-slate-500 max-w-2xl mx-auto font-light">
               실시간 시장 데이터와 AI 분석을 결합한 자동매매 시스템의 핵심 기술입니다.
@@ -373,7 +373,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
               <div className="relative z-10">
                 <div className="text-5xl mb-8">🦉</div>
                 <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight mb-6">
-                  부엉이는 밤에도 <span className="bg-gradient-to-r from-teal-300 to-teal-500 bg-clip-text text-transparent">시장을 지켜봅니다</span>
+                  부엉이는 밤에도 <span className="text-teal-300">시장을 지켜봅니다</span>
                 </h2>
                 <p className="text-base md:text-lg text-slate-400 max-w-xl mx-auto font-light mb-12">
                   네이버 카페에서 최신 소식과 다운로드 안내를 확인하고, <br className="hidden md:block" />

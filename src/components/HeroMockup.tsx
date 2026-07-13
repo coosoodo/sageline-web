@@ -18,7 +18,7 @@ export default function HeroMockup() {
     <div className="relative mx-auto max-w-4xl" aria-hidden="true">
       <div className="absolute -inset-6 rounded-[2.5rem] bg-gradient-to-r from-teal-500/15 via-navy-500/10 to-blue-500/15 blur-3xl" />
 
-      <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl shadow-slate-900/10 text-left">
+      <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl shadow-slate-900/10 text-left">
         {/* 윈도우 크롬 */}
         <div className="flex items-center gap-2 border-b border-slate-100 bg-slate-50/80 px-5 py-3">
           <span className="h-3 w-3 rounded-full bg-red-400/70" />
