@@ -33,29 +33,30 @@ export default function BoardActions({ category, postId, isAuthor }: BoardAction
 
       router.push(`/boards/${category}`);
       router.refresh();
-    } catch (error: any) {
-      alert('삭제 중 오류가 발생했습니다: ' + error.message);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : '알 수 없는 오류';
+      alert('삭제 중 오류가 발생했습니다: ' + message);
     } finally {
       setIsDeleting(false);
     }
   };
 
   return (
-    <div className="flex gap-3">
-      <Link 
+    <div className="flex gap-2">
+      <Link
         href={`/boards/${category}/${postId}/edit`}
-        className="p-2.5 rounded-full border border-white/5 bg-white/5 text-slate-400 hover:text-teal-400 hover:border-teal-500/30 transition-all"
+        className="p-2.5 rounded-full border border-slate-200 bg-white text-slate-500 hover:text-teal-600 hover:border-teal-500/40 transition-all"
         title="수정하기"
       >
-        <Edit2 size={18} />
+        <Edit2 size={16} />
       </Link>
-      <button 
+      <button
         onClick={handleDelete}
         disabled={isDeleting}
-        className="p-2.5 rounded-full border border-white/5 bg-white/5 text-slate-400 hover:text-rose-400 hover:border-rose-500/30 transition-all disabled:opacity-50"
+        className="p-2.5 rounded-full border border-slate-200 bg-white text-slate-500 hover:text-rose-500 hover:border-rose-500/40 transition-all disabled:opacity-50"
         title="삭제하기"
       >
-        <Trash2 size={18} />
+        <Trash2 size={16} />
       </button>
     </div>
   );

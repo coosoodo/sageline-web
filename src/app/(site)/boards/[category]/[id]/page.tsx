@@ -6,7 +6,8 @@ import { createSupabaseServerClient } from '@/lib/supabase-server';
 import BoardHeader from '@/components/BoardHeader';
 import MarkdownRenderer from '@/components/MarkdownRenderer';
 import BoardActions from '@/components/BoardActions';
-import { ChevronLeft, Edit2, Trash2 } from 'lucide-react';
+import { getBoardCategory } from '@/lib/boards';
+import { ChevronLeft, Eye } from 'lucide-react';
 
 // 커뮤니티는 현재 비공개 — 검색 노출 제외
 export const metadata: Metadata = {
@@ -47,39 +48,38 @@ export default async function PostDetailPage({ params }: Props) {
       <main className="flex-grow pt-32 pb-24">
         <div className="container mx-auto max-w-4xl px-8">
           
-          <Link 
+          <Link
             href={`/boards/${category}`}
-            className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-slate-500 hover:text-teal-400 transition-colors mb-8 group"
+            className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-slate-500 hover:text-teal-600 transition-colors mb-8 group"
           >
             <ChevronLeft size={14} className="group-hover:-translate-x-1 transition-transform" /> 목록으로 돌아가기
           </Link>
 
-          <div className="rounded-3xl border border-slate-200 bg-white overflow-hidden shadow-sm">
+          <article className="rounded-3xl border border-slate-200 bg-white overflow-hidden shadow-sm">
             {/* 게시글 헤더 */}
-            <div className="p-10 border-b border-slate-200 bg-slate-50/30">
-              <div className="flex items-center gap-3 mb-6">
+            <header className="p-8 md:p-10 border-b border-slate-200 bg-slate-50/30">
+              <div className="flex items-center gap-3 mb-5">
                 {post.is_announcement && (
                   <span className="inline-flex items-center rounded-full bg-teal-100 px-3 py-1 text-[10px] font-black text-teal-700 border border-teal-200 uppercase tracking-widest">
                     공지사항
                   </span>
                 )}
-                <span className="text-xs font-bold text-teal-600 uppercase tracking-[0.2em]">{category}</span>
+                <span className="text-xs font-bold text-teal-600 uppercase tracking-[0.2em]">{getBoardCategory(category)?.shortName ?? category}</span>
               </div>
               <h1 className="text-3xl md:text-4xl font-black text-slate-900 leading-tight mb-8">{post.title}</h1>
-              
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-6 text-sm text-slate-500 font-light">
-                  <div className="flex items-center gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-slate-300" />
-                    <span>작성자: <span className="text-slate-900 font-medium">{post.author_name || '익명'}</span></span>
+
+              <div className="flex items-center justify-between gap-4">
+                <div className="flex items-center gap-3 min-w-0">
+                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-teal-500/15 to-navy-500/15 text-sm font-black text-teal-700">
+                    {(post.author_name || '익명').trim().slice(0, 1).toUpperCase()}
                   </div>
-                  <div className="flex items-center gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-slate-300" />
-                    <span>날짜: <span className="text-slate-900 font-medium">{new Date(post.created_at).toLocaleDateString('ko-KR')}</span></span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-slate-300" />
-                    <span>조회수: <span className="text-slate-900 font-medium">{(post.view_count ?? 0).toLocaleString()}</span></span>
+                  <div className="min-w-0">
+                    <div className="truncate text-sm font-bold text-slate-900">{post.author_name || '익명'}</div>
+                    <div className="flex items-center gap-2 text-xs text-slate-400">
+                      <span>{new Date(post.created_at).toLocaleDateString('ko-KR')}</span>
+                      <span className="h-0.5 w-0.5 rounded-full bg-slate-300" />
+                      <span className="inline-flex items-center gap-1"><Eye size={12} /> {(post.view_count ?? 0).toLocaleString()}</span>
+                    </div>
                   </div>
                 </div>
 
@@ -87,13 +87,13 @@ export default async function PostDetailPage({ params }: Props) {
                   <BoardActions category={category} postId={id} isAuthor={true} />
                 )}
               </div>
-            </div>
+            </header>
 
             {/* 게시글 본문 */}
-            <div className="p-10 md:p-16">
+            <div className="p-8 md:p-14">
               <MarkdownRenderer content={post.content} />
             </div>
-          </div>
+          </article>
 
         </div>
       </main>
