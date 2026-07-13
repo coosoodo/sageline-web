@@ -10,9 +10,10 @@ interface ManualSidebarProps {
   currentSlug: string; // 현재 페이지 슬러그 (장 "2" 또는 절 "5-3")
   currentChapterSlug: string; // 현재 페이지가 속한 장 슬러그
   toc: ToCItem[]; // 현재 페이지의 h2/h3
+  basePath?: string; // 제품별 설명서 경로 (기본 /manual)
 }
 
-export default function ManualSidebar({ nav, currentSlug, currentChapterSlug, toc }: ManualSidebarProps) {
+export default function ManualSidebar({ nav, currentSlug, currentChapterSlug, toc, basePath = '/manual' }: ManualSidebarProps) {
   const [activeId, setActiveId] = useState<string>('');
 
   useEffect(() => {
@@ -115,7 +116,7 @@ export default function ManualSidebar({ nav, currentSlug, currentChapterSlug, to
                     return (
                       <div key={s.slug}>
                         <Link
-                          href={`/manual/${s.slug}`}
+                          href={`${basePath}/${s.slug}`}
                           className={`flex items-center py-1.5 px-3 text-xs rounded-md transition-all duration-200 ${
                             isCurrentSection
                               ? 'font-bold text-teal-700 bg-teal-50'
@@ -134,7 +135,7 @@ export default function ManualSidebar({ nav, currentSlug, currentChapterSlug, to
                               return (
                                 <div key={sub.slug}>
                                   <Link
-                                    href={`/manual/${sub.slug}`}
+                                    href={`${basePath}/${sub.slug}`}
                                     className={`flex items-center py-1.5 px-3 text-[11px] rounded-md transition-all duration-200 ${
                                       isCurrentSub
                                         ? 'font-bold text-teal-700 bg-teal-50'

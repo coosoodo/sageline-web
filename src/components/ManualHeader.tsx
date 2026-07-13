@@ -7,9 +7,13 @@ import logoMark from '@/images/SageLine_Mark.png';
 export default function ManualHeader({
   version,
   lastUpdated,
+  basePath = '/manual',
+  subtitle = 'User Manual',
 }: {
   version: string;
   lastUpdated: string;
+  basePath?: string;
+  subtitle?: string;
 }) {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur-xl">
@@ -22,7 +26,7 @@ export default function ManualHeader({
             <span className="text-[18px] font-black tracking-[0.08em] text-navy-700 group-hover:text-navy-500 transition-colors duration-300">
               SAGE<span className="text-teal-500"> LINE</span>
             </span>
-            <span className="text-[8px] font-bold tracking-[0.25em] text-slate-500 uppercase mt-0.5">User Manual</span>
+            <span className="text-[8px] font-bold tracking-[0.25em] text-slate-500 uppercase mt-0.5">{subtitle}</span>
           </div>
         </Link>
 
@@ -36,7 +40,7 @@ export default function ManualHeader({
               </>
             )}
           </div>
-          <Link href="/manual" className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500 hover:text-teal-600 transition-colors">
+          <Link href={basePath} className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500 hover:text-teal-600 transition-colors">
             목차
           </Link>
           <Link href="/" className="text-xs font-bold uppercase tracking-[0.2em] text-teal-600 hover:text-teal-700 transition-colors">

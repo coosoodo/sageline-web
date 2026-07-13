@@ -224,13 +224,13 @@ export interface ManualNavChapter {
  * 사이드바/개요용 장→절→세부 계층 내비게이션을 만든다.
  * slug의 하이픈 개수로 깊이를 판정한다("5"=장, "5-3"=절, "5-3-2"=세부).
  */
-export const getManualNav = (raw: string): ManualNavChapter[] => {
+export const getManualNav = (raw: string, basePath = '/manual'): ManualNavChapter[] => {
   const order: string[] = [];
   const map = new Map<string, ManualNavChapter>();
 
   for (const p of getPages(raw)) {
     if (!map.has(p.chapterSlug)) {
-      map.set(p.chapterSlug, { slug: p.chapterSlug, title: p.chapterTitle, href: `/manual/${p.slug}`, sections: [] });
+      map.set(p.chapterSlug, { slug: p.chapterSlug, title: p.chapterTitle, href: `${basePath}/${p.slug}`, sections: [] });
       order.push(p.chapterSlug);
     }
     if (!p.isSection) continue;
