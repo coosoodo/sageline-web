@@ -1,12 +1,12 @@
 import React from 'react';
-import { getBoardCategory } from '@/lib/boards';
+import { getBoardView } from '@/lib/boards';
 
 interface BoardHeaderProps {
   category: string;
 }
 
 export default function BoardHeader({ category }: BoardHeaderProps) {
-  const info = getBoardCategory(category) || { title: '게시판', description: '커뮤니티 공간입니다.', icon: '📌' };
+  const info = getBoardView(category) || { title: '게시판', description: '커뮤니티 공간입니다.', icon: '📌' };
 
   return (
     <div className="mb-12">

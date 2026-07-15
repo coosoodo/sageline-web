@@ -7,7 +7,7 @@ import BoardHeader from '@/components/BoardHeader';
 import BoardList from '@/components/BoardList';
 import BoardToolbar from '@/components/BoardToolbar';
 import Pagination from '@/components/Pagination';
-import { BOARD_CATEGORIES, BOARD_CATEGORY_IDS, getBoardCategory } from '@/lib/boards';
+import { ALL_BOARD, BOARDS_WITH_ALL, BOARD_CATEGORY_IDS, getBoardView } from '@/lib/boards';
 import { ChevronRight } from 'lucide-react';
 
 const PAGE_SIZE = 10;
@@ -19,7 +19,7 @@ interface Props {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { category } = await params;
-  const cat = getBoardCategory(category);
+  const cat = getBoardView(category);
   return {
     title: cat ? cat.title : '게시판',
     description: cat ? cat.description : 'SAGE LINE 커뮤니티 게시판입니다.',
@@ -30,8 +30,9 @@ export default async function BoardPage({ params, searchParams }: Props) {
   const { category } = await params;
   const { page: pageParam, sort = 'latest', q = '' } = await searchParams;
 
-  // 정의되지 않은 카테고리는 404
-  if (!BOARD_CATEGORY_IDS.includes(category)) notFound();
+  const isAll = category === ALL_BOARD.id;
+  // 정의되지 않은 카테고리는 404 (전체글은 허용)
+  if (!isAll && !BOARD_CATEGORY_IDS.includes(category)) notFound();
 
   const page = Math.max(1, Number.parseInt(pageParam || '1', 10) || 1);
   const from = (page - 1) * PAGE_SIZE;
@@ -42,8 +43,10 @@ export default async function BoardPage({ params, searchParams }: Props) {
 
   let query = supabase
     .from('posts')
-    .select('*', { count: 'exact' })
-    .eq('category', category);
+    .select('*', { count: 'exact' });
+
+  // 전체글은 카테고리 필터 없이 모든 게시판을 조회
+  if (!isAll) query = query.eq('category', category);
 
   if (keyword) query = query.ilike('title', `%${keyword}%`);
 
@@ -72,7 +75,7 @@ export default async function BoardPage({ params, searchParams }: Props) {
             <aside className="lg:w-64 flex-shrink-0">
               <div className="sticky top-32 space-y-1">
                 <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-500 mb-6 ml-4">Categories</p>
-                {BOARD_CATEGORIES.map((board) => {
+                {BOARDS_WITH_ALL.map((board) => {
                   const active = board.id === category;
                   return (
                     <Link
@@ -103,17 +106,19 @@ export default async function BoardPage({ params, searchParams }: Props) {
                   총 <span className="text-teal-600 font-bold">{total}</span>개의 게시글
                   {keyword && <span className="text-slate-400"> · &lsquo;{keyword}&rsquo; 검색 결과</span>}
                 </div>
-                <Link
-                  href={`/boards/${category}/write`}
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-900 px-6 py-2.5 text-xs font-bold uppercase tracking-[0.15em] text-white hover:bg-slate-800 transition-all duration-300"
-                >
-                  글쓰기 <ChevronRight size={14} />
-                </Link>
+                {!isAll && (
+                  <Link
+                    href={`/boards/${category}/write`}
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-900 px-6 py-2.5 text-xs font-bold uppercase tracking-[0.15em] text-white hover:bg-slate-800 transition-all duration-300"
+                  >
+                    글쓰기 <ChevronRight size={14} />
+                  </Link>
+                )}
               </div>
 
               <BoardToolbar category={category} sort={sort} q={keyword} />
 
-              <BoardList posts={list} category={category} keyword={keyword} />
+              <BoardList posts={list} category={category} keyword={keyword} showCategory={isAll} />
 
               <Pagination category={category} page={page} totalPages={totalPages} sort={sort} q={keyword} />
             </div>

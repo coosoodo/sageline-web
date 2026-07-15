@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Eye, MessageSquareText, Pin } from 'lucide-react';
+import { getBoardCategory } from '@/lib/boards';
 
 interface Post {
   id: string;
@@ -10,12 +11,15 @@ interface Post {
   created_at: string;
   view_count: number | null;
   is_announcement: boolean;
+  category?: string | null;
 }
 
 interface BoardListProps {
   posts: Post[];
   category: string;
   keyword?: string;
+  // 전체글 보기: 각 글에 소속 카테고리 뱃지를 표시하고, 원래 카테고리로 링크한다
+  showCategory?: boolean;
 }
 
 // 마크다운/HTML을 제거해 본문 미리보기 텍스트를 만든다
@@ -48,7 +52,7 @@ function relativeTime(iso: string): string {
   return new Intl.DateTimeFormat('ko-KR', { year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date(iso));
 }
 
-export default function BoardList({ posts, category, keyword }: BoardListProps) {
+export default function BoardList({ posts, category, keyword, showCategory = false }: BoardListProps) {
   if (posts.length === 0) {
     return (
       <div className="rounded-3xl border border-dashed border-slate-200 bg-slate-50/40 py-20 text-center">
@@ -69,10 +73,12 @@ export default function BoardList({ posts, category, keyword }: BoardListProps) 
     <ul className="space-y-3">
       {posts.map((post) => {
         const excerpt = toExcerpt(post.content);
+        const postCategory = post.category ?? category;
+        const catInfo = showCategory ? getBoardCategory(postCategory) : undefined;
         return (
           <li key={post.id}>
             <Link
-              href={`/boards/${category}/${post.id}`}
+              href={`/boards/${postCategory}/${post.id}`}
               className={`group block rounded-2xl border p-5 md:p-6 transition-all duration-300 hover:border-teal-500/30 hover:shadow-lg hover:shadow-teal-500/5 ${
                 post.is_announcement ? 'border-teal-200 bg-teal-50/40' : 'border-slate-200 bg-white'
               }`}
@@ -86,6 +92,11 @@ export default function BoardList({ posts, category, keyword }: BoardListProps) 
                 <div className="min-w-0 flex-grow">
                   {/* 제목 */}
                   <div className="flex items-center gap-2 mb-1">
+                    {catInfo && (
+                      <span className="inline-flex flex-shrink-0 items-center gap-1 rounded-md bg-slate-100 px-1.5 py-0.5 text-[10px] font-bold text-slate-600">
+                        <span aria-hidden>{catInfo.icon}</span> {catInfo.shortName}
+                      </span>
+                    )}
                     {post.is_announcement && (
                       <span className="inline-flex items-center gap-1 rounded-md bg-teal-100 px-1.5 py-0.5 text-[10px] font-bold text-teal-700">
                         <Pin size={10} /> 공지
