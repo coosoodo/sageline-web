@@ -404,8 +404,8 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
                   부엉이는 밤에도 <span className="text-teal-300">시장을 지켜봅니다</span>
                 </h2>
                 <p className="text-base md:text-lg text-slate-400 max-w-xl mx-auto font-light mb-12">
-                  네이버 카페에서 최신 소식과 다운로드 안내를 확인하고, <br className="hidden md:block" />
-                  커뮤니티에서 사용자들과 전략을 나눠보세요.
+                  네이버 카페에서 <span className="font-semibold text-teal-300">무료로 다운로드</span>하고 <span className="font-semibold text-teal-300">모든 기능을 무료로</span> 사용하세요. <br className="hidden md:block" />
+                  커뮤니티에서 최신 소식과 전략을 사용자들과 나눠보세요.
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                   <a
