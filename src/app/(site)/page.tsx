@@ -134,6 +134,35 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
             </p>
           </Reveal>
 
+          {/* 무료 다운로드 하이라이트 */}
+          <Reveal className="mb-16">
+            <div className="relative overflow-hidden rounded-3xl border border-teal-500/20 bg-gradient-to-br from-teal-500/[0.08] via-white to-navy-500/[0.06] px-8 py-10 md:px-12">
+              <div className="flex flex-col md:flex-row md:items-center gap-8">
+                <div className="flex-grow">
+                  <div className="inline-flex items-center gap-2 rounded-full bg-teal-500/10 px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.25em] text-teal-600 mb-5">
+                    100% Free
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight mb-3">
+                    네이버 카페에서 <span className="text-teal-600">무료로 다운로드</span>
+                  </h3>
+                  <p className="text-base text-slate-500 font-light leading-relaxed">
+                    별도의 결제나 구독 없이, <span className="font-semibold text-slate-700">모든 기능을 무료로</span> 사용할 수 있습니다.
+                    지금 바로 내려받아 자동매매를 시작하세요.
+                  </p>
+                </div>
+                <a
+                  href="https://cafe.naver.com/sageline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-shrink-0 inline-flex items-center justify-center gap-2 rounded-full bg-[#03C75A] px-8 py-4 text-sm font-bold tracking-wide text-white hover:bg-[#02b152] transition-all duration-300 shadow-lg shadow-[#03C75A]/20"
+                >
+                  네이버 카페에서 무료 다운로드
+                  <ChevronRight size={16} />
+                </a>
+              </div>
+            </div>
+          </Reveal>
+
           <div className="grid md:grid-cols-2 gap-8 mb-20">
             {/* 부엉이 트레이더 (풀) */}
             <Reveal id="owl-trader" className="group relative h-full scroll-mt-24 rounded-3xl border border-slate-100 bg-slate-50/50 p-10 hover:border-teal-500/30 hover:shadow-lg hover:shadow-teal-500/5 transition-all duration-300">
