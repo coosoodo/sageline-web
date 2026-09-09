@@ -19,6 +19,12 @@ import {
   Minus,
   Sparkles,
   Webhook,
+  Plug,
+  CodeXml,
+  Database,
+  Clock,
+  MessagesSquare,
+  Wrench,
 } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -129,6 +135,50 @@ const UPDATES: UpdateGroup[] = [
       },
     ],
   },
+];
+
+type SupportTarget = {
+  icon: React.ComponentType<{ size?: number; className?: string }>;
+  title: string;
+  desc: string;
+};
+
+const SUPPORT_TARGETS: SupportTarget[] = [
+  {
+    icon: Plug,
+    title: '증권사 API 자동화',
+    desc: '직접 세운 매매 원칙을 증권사 API 연동 프로그램으로 자동화하려는 분',
+  },
+  {
+    icon: CodeXml,
+    title: '수식 → 실거래 코드',
+    desc: '백테스팅으로 검증한 매매 수식을 실거래 코드로 이식하는 데 어려움이 있는 분',
+  },
+  {
+    icon: Database,
+    title: '데이터 · 주문 설계',
+    desc: '조건 검색, 호가 · 체결 데이터 수집, 자동 주문 실행 로직 설계에 조언이 필요한 분',
+  },
+  {
+    icon: Clock,
+    title: '시간과 진입장벽',
+    desc: '시간이 부족하거나 프로그래밍 진입장벽으로 전략을 직접 코딩하기 어려운 분',
+  },
+];
+
+const QNA_TOPICS = [
+  '구상 중인 로직의 구조 설계',
+  '증권사 API 연동 방식',
+  '데이터 처리 흐름과 저장 구조',
+  '조건 검색 · 신호 판별 설계',
+  '자동 주문 실행과 예외 처리',
+];
+
+const BUILD_STEPS = [
+  { step: '01', title: '요구사항 협의', desc: '매매 원칙과 필요한 기능, 사용 환경을 먼저 정리합니다.' },
+  { step: '02', title: '구조 설계', desc: '데이터 수집부터 주문 실행까지의 흐름과 예외 처리를 설계합니다.' },
+  { step: '03', title: '개발 · 검증', desc: '전략을 코드로 옮기고 모의투자 · 소액 실거래로 동작을 확인합니다.' },
+  { step: '04', title: '인수인계', desc: '실행 방법과 설정 값을 정리해 전달하고 사용 중 문의에 대응합니다.' },
 ];
 
 function ComparisonCell({ value }: { value: string | boolean }) {
@@ -561,7 +611,125 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
           </div>
         </section>
 
-        {/* 6. CTA 섹션 */}
+        {/* 6. Development Support 섹션 */}
+        <section id="support" className="container mx-auto max-w-7xl px-6 md:px-8 py-24 border-t border-slate-100 scroll-mt-20">
+          <Reveal className="text-center mb-20">
+            <div className="inline-flex items-center space-x-2 rounded-full border border-teal-500/20 bg-teal-500/5 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.3em] text-teal-600 mb-8">
+              <span>Development Support</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-6">
+              전략은 있는데, <span className="text-teal-600">코드가 없다면</span>
+            </h2>
+            <p className="text-lg text-slate-500 max-w-2xl mx-auto font-light">
+              매매 원칙은 세웠지만 시스템 구현 단계에서 막히는 분들을 위해 <br className="hidden md:block" />
+              기술 질의응답과 시스템 제작 대행을 지원합니다.
+            </p>
+          </Reveal>
+
+          {/* 지원 대상 */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            {SUPPORT_TARGETS.map((t, i) => (
+              <Reveal
+                key={t.title}
+                delay={i * 100}
+                className="h-full rounded-3xl border border-slate-100 bg-white p-8 hover:border-teal-500/30 hover:shadow-xl hover:shadow-teal-500/5 transition-all duration-300"
+              >
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-500/10 to-navy-500/10 text-teal-600">
+                  <t.icon size={22} />
+                </div>
+                <h3 className="text-base font-black text-slate-900 mb-3">{t.title}</h3>
+                <p className="text-sm text-slate-500 leading-relaxed font-light">{t.desc}</p>
+              </Reveal>
+            ))}
+          </div>
+
+          {/* 두 가지 지원 방식 */}
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* 기술 질의응답 */}
+            <Reveal className="h-full rounded-3xl border border-slate-100 bg-slate-50/50 p-10">
+              <div className="mb-8 flex items-center gap-4">
+                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl bg-teal-500/10 text-teal-600">
+                  <MessagesSquare size={22} />
+                </div>
+                <div>
+                  <h3 className="text-xl font-black text-slate-900">기술 질의응답</h3>
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-teal-600 mt-1">Q &amp; A</p>
+                </div>
+              </div>
+              <p className="text-sm text-slate-500 leading-relaxed font-light mb-8">
+                개발 중에 생긴 기술적 의문점을 함께 풀어드립니다.
+                카페 댓글이나 쪽지로 남겨주시면 확인 후 답변드립니다.
+              </p>
+              <ul className="space-y-3">
+                {QNA_TOPICS.map((topic) => (
+                  <li key={topic} className="flex items-start gap-3 text-sm text-slate-600">
+                    <Check size={15} className="mt-0.5 flex-shrink-0 text-teal-500" />
+                    <span>{topic}</span>
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+
+            {/* 시스템 제작 대행 */}
+            <Reveal delay={150} className="h-full rounded-3xl border border-slate-100 bg-slate-50/50 p-10">
+              <div className="mb-8 flex items-center gap-4">
+                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl bg-navy-500/10 text-navy-600">
+                  <Wrench size={22} />
+                </div>
+                <div>
+                  <h3 className="text-xl font-black text-slate-900">시스템 제작 대행</h3>
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-navy-600 mt-1">Custom Build</p>
+                </div>
+              </div>
+              <p className="text-sm text-slate-500 leading-relaxed font-light mb-8">
+                직접 개발하기 어려운 환경이거나 단기간에 완성된 시스템이 필요하다면,
+                요구사항 협의를 거쳐 제작을 대행해 드립니다.
+              </p>
+              <ol className="relative space-y-6 border-l border-slate-200 pl-6">
+                {BUILD_STEPS.map((s) => (
+                  <li key={s.step} className="relative">
+                    <span className="absolute -left-[1.9rem] top-1.5 h-2 w-2 rounded-full bg-navy-500" />
+                    <p className="text-sm font-bold text-slate-800 mb-1.5">
+                      <span className="text-navy-500 mr-2">{s.step}</span>
+                      {s.title}
+                    </p>
+                    <p className="text-sm text-slate-500 leading-relaxed font-light">{s.desc}</p>
+                  </li>
+                ))}
+              </ol>
+            </Reveal>
+          </div>
+
+          {/* 문의 안내 */}
+          <Reveal className="mt-8 rounded-3xl border border-teal-500/20 bg-gradient-to-br from-teal-500/[0.08] via-white to-navy-500/[0.06] px-8 py-10 md:px-12">
+            <div className="flex flex-col md:flex-row md:items-center gap-8">
+              <div className="flex-grow">
+                <h3 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight mb-3">
+                  편하게 <span className="text-teal-600">문의 남겨주세요</span>
+                </h3>
+                <p className="text-base text-slate-500 font-light leading-relaxed">
+                  네이버 카페 댓글이나 쪽지로 문의하시면 확인 후 답변드립니다.
+                  구상 중인 전략과 현재 막혀 있는 지점을 함께 적어주시면 더 정확하게 안내할 수 있습니다.
+                </p>
+              </div>
+              <a
+                href="https://cafe.naver.com/sageline"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-shrink-0 inline-flex items-center justify-center gap-2 rounded-full bg-[#03C75A] px-8 py-4 text-sm font-bold tracking-wide text-white hover:bg-[#02b152] transition-all duration-300 shadow-lg shadow-[#03C75A]/20"
+              >
+                네이버 카페에서 문의하기
+                <ChevronRight size={16} />
+              </a>
+            </div>
+            <p className="mt-8 text-xs text-slate-400 font-light leading-relaxed">
+              ※ 세이지라인은 구현에 관한 기술 지원만 제공합니다. 매매 전략의 수익성을 보장하거나 투자를 권유하지 않으며,
+              매매 판단과 그 결과에 대한 책임은 이용자 본인에게 있습니다.
+            </p>
+          </Reveal>
+        </section>
+
+        {/* 7. CTA 섹션 */}
         <section className="border-t border-slate-100">
           <div className="container mx-auto max-w-5xl px-6 md:px-8 py-28 text-center">
             <Reveal className="relative overflow-hidden rounded-[2.5rem] bg-slate-900 px-8 py-20">

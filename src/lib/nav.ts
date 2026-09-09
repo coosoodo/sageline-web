@@ -4,6 +4,7 @@ export const MAIN_NAV: [string, string][] = [
   ['Updates', '/#updates'],
   ['Vision', '/#vision'],
   ['Technology', '/#technology'],
+  ['Support', '/#support'],
   ['Manual', '/manual'],
   ['Community', '/boards/all'],
 ];
