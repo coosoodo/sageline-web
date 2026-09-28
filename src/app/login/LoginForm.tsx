@@ -13,8 +13,9 @@ export default function LoginForm() {
       <p className="text-center text-xs leading-relaxed text-slate-500">
         처음이신가요? Google 계정으로 계속하면 <span className="font-semibold text-slate-700">바로 가입</span>됩니다.
         <br />
-        <Link href="/terms" className="text-teal-600 hover:underline">이용약관</Link> ·{' '}
-        <Link href="/privacy" className="text-teal-600 hover:underline">개인정보처리방침</Link>
+        계속하면{' '}
+        <Link href="/terms" className="text-teal-600 hover:underline">이용약관</Link>과{' '}
+        <Link href="/privacy" className="text-teal-600 hover:underline">개인정보처리방침</Link>에 동의하게 됩니다.
       </p>
     </div>
   );

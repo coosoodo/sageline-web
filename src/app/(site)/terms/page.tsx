@@ -10,7 +10,7 @@ export default function TermsPage() {
     <div className="bg-white text-slate-600">
       <main className="container mx-auto max-w-4xl px-8 pt-32 pb-24">
         <h1 className="text-3xl font-bold text-slate-900 mb-2">서비스 이용약관</h1>
-        <p className="text-sm text-slate-500 mb-12">시행일: 2026년 1월 1일 &nbsp;|&nbsp; 최종 수정일: 2026년 3월 28일</p>
+        <p className="text-sm text-slate-500 mb-12">시행일: 2026년 1월 1일 &nbsp;|&nbsp; 최종 수정일: 2026년 9월 29일</p>
 
         <div className="space-y-10 text-sm leading-relaxed text-slate-400">
 
@@ -25,7 +25,7 @@ export default function TermsPage() {
               <li><span className="text-slate-600">&quot;서비스&quot;</span>란 회사가 제공하는 부엉이 ATS 자동매매 플랫폼, AI 전략 컨설팅, 웹사이트 및 관련 제반 서비스를 의미합니다.</li>
               <li><span className="text-slate-600">&quot;이용자&quot;</span>란 이 약관에 따라 회사가 제공하는 서비스를 이용하는 회원 및 비회원을 말합니다.</li>
               <li><span className="text-slate-600">&quot;회원&quot;</span>이란 회사에 개인정보를 제공하여 회원 등록을 한 자로서, 회사의 정보를 지속적으로 제공받으며 서비스를 계속적으로 이용할 수 있는 자를 말합니다.</li>
-              <li><span className="text-slate-600">&quot;아이디(ID)&quot;</span>란 회원의 식별과 서비스 이용을 위하여 회원이 정하고 회사가 승인하는 문자와 숫자의 조합을 의미합니다.</li>
+              <li><span className="text-slate-600">&quot;아이디(ID)&quot;</span>란 회원의 식별과 서비스 이용을 위하여 회원이 로그인에 사용하는 Google 계정의 이메일 주소를 의미합니다.</li>
             </ul>
           </section>
 
@@ -63,14 +63,17 @@ export default function TermsPage() {
           <section>
             <h2 className="text-lg font-semibold text-slate-900 mb-4">제6조 (회원가입)</h2>
             <ol className="space-y-2 list-decimal list-inside">
-              <li>이용자는 회사가 정한 가입 양식에 따라 회원정보를 기입한 후 이 약관에 동의한다는 의사표시를 함으로써 회원가입을 신청합니다.</li>
-              <li>회사는 제1항과 같이 회원으로 가입할 것을 신청한 이용자 중 다음 각 호에 해당하지 않는 한 회원으로 등록합니다.
+              <li>회원가입은 Google 계정 로그인(소셜 로그인)으로만 할 수 있으며, 별도의 가입 양식이나 비밀번호를 두지 않습니다.</li>
+              <li>이용자는 로그인 화면에서 이 약관과 개인정보처리방침을 확인한 후 Google 계정 인증을 완료함으로써 회원가입을 신청합니다. 회사는 이 인증 완료를 이 약관 및 개인정보처리방침에 동의한다는 의사표시로 봅니다.</li>
+              <li>회원가입 시 회사는 Google이 제공하는 범위 내에서 이메일 주소와 프로필 이름을 제공받으며, 그 처리에 관한 사항은 개인정보처리방침에 따릅니다.</li>
+              <li>회사는 제2항에 따라 가입을 신청한 이용자 중 다음 각 호에 해당하지 않는 한 회원으로 등록하며, 등록은 최초 로그인 시점에 이루어집니다.
                 <ul className="mt-2 ml-5 space-y-1 list-disc list-inside">
                   <li>가입신청자가 이 약관에 의하여 이전에 회원자격을 상실한 적이 있는 경우</li>
-                  <li>등록 내용에 허위, 기재누락, 오기가 있는 경우</li>
+                  <li>타인의 Google 계정을 도용하여 가입을 신청한 경우</li>
                   <li>기타 회원으로 등록하는 것이 회사의 기술상 현저히 지장이 있다고 판단되는 경우</li>
                 </ul>
               </li>
+              <li>회원은 자신의 Google 계정을 안전하게 관리할 책임이 있으며, Google 계정의 이용 제한 또는 삭제로 로그인할 수 없게 된 경우 회사에 문의하여 조치를 받을 수 있습니다.</li>
             </ol>
           </section>
 
