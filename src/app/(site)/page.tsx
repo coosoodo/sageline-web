@@ -170,6 +170,26 @@ const BUILD_STEPS = [
   { step: '04', title: '인수인계', desc: '실행 방법과 설정 값을 정리해 전달하고 사용 중 문의에 대응합니다.' },
 ];
 
+const SESSION_TIMELINE = [
+  { time: '08:00', label: '프리마켓', venue: 'NXT' },
+  { time: '09:00', label: '정규장', venue: 'SOR' },
+  { time: '15:40', label: '애프터 1부', venue: 'NXT' },
+  { time: '16:00', label: '애프터 2부', venue: 'SOR' },
+];
+
+/** Technology 카드가 어느 제품에 해당하는지 표시하는 배지 */
+function ScopeBadge({ scope }: { scope: 'both' | 'pro' }) {
+  return scope === 'both' ? (
+    <span className="absolute top-6 right-6 md:top-8 md:right-8 rounded-full bg-gradient-to-r from-teal-500/10 to-navy-500/10 px-2.5 py-1 text-[10px] font-bold tracking-wide text-navy-600">
+      프로 · 라이트
+    </span>
+  ) : (
+    <span className="absolute top-6 right-6 md:top-8 md:right-8 rounded-full bg-teal-500/10 px-2.5 py-1 text-[10px] font-bold tracking-wide text-teal-600">
+      프로
+    </span>
+  );
+}
+
 function ComparisonCell({ value }: { value: string | boolean }) {
   if (value === true) return <Check size={16} className="mx-auto text-teal-500" />;
   if (value === false) return <Minus size={16} className="mx-auto text-slate-300" />;
@@ -473,7 +493,8 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
           {/* 벤토 그리드 */}
           <div className="grid md:grid-cols-3 gap-6">
             {/* 전략 자동화 엔진 — 대형 카드 */}
-            <Reveal className="md:col-span-2 md:row-span-2 rounded-3xl border border-slate-100 bg-white p-7 md:p-10 hover:border-teal-500/30 hover:shadow-xl hover:shadow-teal-500/5 transition-all duration-300">
+            <Reveal className="relative md:col-span-2 md:row-span-2 rounded-3xl border border-slate-100 bg-white p-7 md:p-10 hover:border-teal-500/30 hover:shadow-xl hover:shadow-teal-500/5 transition-all duration-300">
+              <ScopeBadge scope="both" />
               <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-500/10 to-navy-500/10 text-teal-600">
                 <Workflow size={22} />
               </div>
@@ -509,7 +530,8 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
             </Reveal>
 
             {/* 리스크 관리 */}
-            <Reveal delay={100} className="rounded-3xl border border-slate-100 bg-white p-7 md:p-8 hover:border-teal-500/30 hover:shadow-xl hover:shadow-teal-500/5 transition-all duration-300">
+            <Reveal delay={100} className="relative rounded-3xl border border-slate-100 bg-white p-7 md:p-8 hover:border-teal-500/30 hover:shadow-xl hover:shadow-teal-500/5 transition-all duration-300">
+              <ScopeBadge scope="both" />
               <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-500/10 to-navy-500/10 text-teal-600">
                 <ShieldCheck size={22} />
               </div>
@@ -525,7 +547,8 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
             </Reveal>
 
             {/* 차트 · 기술 지표 */}
-            <Reveal delay={200} className="rounded-3xl border border-slate-100 bg-white p-7 md:p-8 hover:border-navy-500/30 hover:shadow-xl hover:shadow-navy-500/5 transition-all duration-300">
+            <Reveal delay={200} className="relative rounded-3xl border border-slate-100 bg-white p-7 md:p-8 hover:border-navy-500/30 hover:shadow-xl hover:shadow-navy-500/5 transition-all duration-300">
+              <ScopeBadge scope="pro" />
               <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-navy-500/10 to-blue-500/10 text-navy-600">
                 <CandlestickChart size={22} />
               </div>
@@ -536,7 +559,8 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
             </Reveal>
 
             {/* AI 매수의견 판정 — 신규 */}
-            <Reveal delay={100} className="md:col-span-2 rounded-3xl border border-slate-100 bg-white p-8 md:p-10 hover:border-teal-500/30 hover:shadow-xl hover:shadow-teal-500/5 transition-all duration-300">
+            <Reveal delay={100} className="relative md:col-span-2 rounded-3xl border border-slate-100 bg-white p-8 md:p-10 hover:border-teal-500/30 hover:shadow-xl hover:shadow-teal-500/5 transition-all duration-300">
+              <ScopeBadge scope="pro" />
               <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-500/10 to-navy-500/10 text-teal-600">
                 <Sparkles size={22} />
               </div>
@@ -554,7 +578,8 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
             </Reveal>
 
             {/* 외부 신호 연동 — 신규 */}
-            <Reveal delay={200} className="rounded-3xl border border-slate-100 bg-white p-7 md:p-8 hover:border-navy-500/30 hover:shadow-xl hover:shadow-navy-500/5 transition-all duration-300">
+            <Reveal delay={200} className="relative rounded-3xl border border-slate-100 bg-white p-7 md:p-8 hover:border-navy-500/30 hover:shadow-xl hover:shadow-navy-500/5 transition-all duration-300">
+              <ScopeBadge scope="pro" />
               <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-navy-500/10 to-blue-500/10 text-navy-600">
                 <Webhook size={22} />
               </div>
@@ -565,20 +590,43 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
               </p>
             </Reveal>
 
-            {/* 실시간 알림 — 와이드 카드 */}
-            <Reveal delay={100} className="md:col-span-3 rounded-3xl border border-slate-100 bg-white p-8 md:p-10 hover:border-teal-500/30 hover:shadow-xl hover:shadow-teal-500/5 transition-all duration-300">
-              <div className="flex flex-col md:flex-row md:items-center gap-8">
-                <div className="md:max-w-sm flex-shrink-0">
+            {/* 거래 시간 — 프로 · 라이트 공통 */}
+            <Reveal delay={100} className="relative rounded-3xl border border-slate-100 bg-white p-7 md:p-8 hover:border-navy-500/30 hover:shadow-xl hover:shadow-navy-500/5 transition-all duration-300">
+              <ScopeBadge scope="both" />
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-navy-500/10 to-teal-500/10 text-navy-600">
+                <Clock size={22} />
+              </div>
+              <h3 className="text-lg font-black text-slate-900 mb-3">프리마켓부터 애프터마켓까지</h3>
+              <p className="text-sm text-slate-500 leading-relaxed font-light mb-5">
+                KRX 애프터마켓이 끝나는 20:00까지 매매합니다. 시간대마다 맞는 거래소로 주문하고,
+                KRX · NXT가 함께 열리면 더 좋은 호가로 체결합니다.
+              </p>
+              <ol className="grid grid-cols-4 gap-1.5" aria-label="시간대별 주문 거래소">
+                {SESSION_TIMELINE.map((t) => (
+                  <li key={t.time} className="rounded-lg bg-slate-50 px-1.5 py-2 text-center">
+                    <p className="text-[11px] font-black text-slate-800">{t.time}</p>
+                    <p className="mt-0.5 text-[10px] text-slate-500">{t.label}</p>
+                    <p className={`mt-1 text-[10px] font-bold ${t.venue === 'SOR' ? 'text-teal-600' : 'text-navy-600'}`}>{t.venue}</p>
+                  </li>
+                ))}
+              </ol>
+            </Reveal>
+
+            {/* 실시간 알림 — 공통 */}
+            <Reveal delay={200} className="relative md:col-span-2 rounded-3xl border border-slate-100 bg-white p-7 md:p-10 hover:border-teal-500/30 hover:shadow-xl hover:shadow-teal-500/5 transition-all duration-300">
+              <ScopeBadge scope="both" />
+              <div className="flex flex-col lg:flex-row lg:items-center gap-8">
+                <div className="lg:max-w-xs flex-shrink-0">
                   <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-500/10 to-navy-500/10 text-teal-600">
                     <BellRing size={22} />
                   </div>
                   <h3 className="text-lg font-black text-slate-900 mb-3">실시간 알림</h3>
                   <p className="text-sm text-slate-500 leading-relaxed font-light">
-                    체결, 신호 포착, 전략 상태 변화를 Discord와 Telegram으로 즉시 전달합니다.
-                    자리를 비워도 매매 현황을 놓치지 않습니다.
+                    체결, 신호 포착, 전략 상태 변화를 즉시 전달합니다. 프로는 Discord와 Telegram,
+                    라이트는 Telegram으로 받습니다.
                   </p>
                 </div>
-                <div className="flex-grow space-y-2" aria-hidden="true">
+                <div className="flex-grow space-y-2 lg:pt-8" aria-hidden="true">
                   <div className="flex items-center gap-3 rounded-xl bg-slate-50 px-4 py-3 text-xs">
                     <span className="rounded-md bg-[#5865F2]/10 px-2 py-1 font-black text-[#5865F2]">Discord</span>
                     <span className="font-bold text-slate-600">[체결] 매수 주문 체결 — 10주 · 09:32:05</span>
