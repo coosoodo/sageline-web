@@ -2,8 +2,8 @@
 export const MAIN_NAV: [string, string][] = [
   ['Products', '/#products'],
   ['Updates', '/#updates'],
-  ['Vision', '/#vision'],
   ['Technology', '/#technology'],
+  ['Vision', '/#vision'],
   ['Support', '/#support'],
   ['Manual', '/manual'],
   ['Community', '/boards/all'],

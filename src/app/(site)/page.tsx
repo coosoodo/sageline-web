@@ -37,10 +37,10 @@ const FULL_FEATURES = [
   'AI 매수의견 판정 — 매수 직전 ChatGPT · Gemini 재검증',
   '조건검색식 · 사용자 정의 · 단일종목 자동매매',
   '조건식 라이브러리와 베팅 · 주문 전략 편집기',
+  '일봉 · 주봉 보조지표 조건식 — 기간 · 승수 직접 지정',
+  'KRX 애프터마켓(~20:00) 대응 · 미체결 매도 이전',
   '외부 프로그램 매매신호 수신 (REST API)',
-  '분봉 · 일봉 · 업종 차트와 기술적 지표',
-  '지수 이동평균 조건식 · 시간외단일가 · VI 조회',
-  '자동매매 수익률 조회 · 매매제한 현황',
+  '매매통계 · AI 판정 이력 · 자동매매 수익률 조회',
   'Discord · Telegram 실시간 알림',
 ];
 
@@ -48,11 +48,11 @@ const LITE_FEATURES = [
   '키움 조건검색식 기반 자동매매에 집중한 경량 설계',
   '손절 · 익절 · 트레일링 스탑 · 분할 매수/매도',
   '매매 설정별 당일청산 — 단타와 스윙을 한 계좌에서',
-  '대체거래소(NXT) 프리마켓 · 애프터마켓 매수 시간대',
-  '하이브리드 모드 — HTS 매수 종목도 감시 · 자동매매 편입',
+  '프리마켓 · KRX 애프터마켓(~20:00)까지 매매 · 청산',
+  'HTS 매수 종목 감시 · 전략 자동 편입 · 수량 합치기',
+  '체결 내역 — 초 단위 체결 시각과 조건검색 신호 대조',
   '계좌별 주문 폭주 방지 하드리밋 · 이상 시세 가드',
   '권리이벤트 감지 시 해당 종목 자동매매 자동 중지',
-  '국내 업종지수 · 나스닥 · S&P500 · 환율 · WTI 지표',
   'Telegram 실시간 알림 · 매매 통계와 성과 분석',
 ];
 
@@ -63,7 +63,8 @@ const COMPARISON: { label: string; full: string | boolean; lite: string | boolea
   { label: '외부 프로그램 신호 연동 (REST API)', full: true, lite: false },
   { label: '사용자 정의 전략 · 수식 편집기', full: true, lite: false },
   { label: '차트 · 기술적 지표', full: true, lite: false },
-  { label: '하이브리드 모드 (HTS 매수 종목 편입)', full: false, lite: true },
+  { label: 'KRX 애프터마켓 (16:00~20:00)', full: true, lite: true },
+  { label: 'HTS 매수 종목 자동 편입', full: false, lite: true },
   { label: '실시간 감시 종목', full: '190종목', lite: '190종목' },
   { label: '알림', full: 'Discord + Telegram', lite: 'Telegram' },
   { label: '권장 사용자', full: '파워 트레이더', lite: '입문 · 실전 겸용' },
@@ -83,55 +84,55 @@ type UpdateGroup = {
 const UPDATES: UpdateGroup[] = [
   {
     product: '부엉이 트레이더 프로',
-    version: 'v2.3.0',
-    date: '2026. 8. 15.',
+    version: 'v2.5.5',
+    date: '2026. 9. 29.',
     href: '/manual/1',
     badgeClass: 'bg-teal-500/10 text-teal-600',
     dotClass: 'bg-teal-500',
     linkClass: 'text-teal-600 hover:text-teal-700',
     items: [
       {
-        title: 'AI 매수의견 판정',
-        desc: '조건검색식이 편입한 종목을 최초매수 직전에 ChatGPT · Gemini에게 한 번 더 묻습니다. 바로 쓸 수 있는 프롬프트 5종과, 매수는 그대로 두고 판정만 기록하는 Shadow 모드를 제공합니다.',
+        title: 'KRX 애프터마켓 대응',
+        desc: '매매 시간이 20:00까지 늘었습니다. 시간대별로 맞는 거래소로 주문하고, 정규장에서 체결되지 않은 매도 주문을 애프터마켓으로 옮겨 다시 낼 수 있습니다.',
       },
       {
-        title: '외부 매매신호 API — 이제 매도까지',
-        desc: '외부 프로그램이 매수뿐 아니라 매도 시점도 지정할 수 있습니다. 수량과 가격은 외부가 아니라 지정한 주문전략이 그대로 결정합니다.',
+        title: '매매통계 · AI 판정 이력',
+        desc: '청산된 매매의 실현손익 · 승률 · MDD를 계좌 · 전략 · 기간별로 봅니다. AI가 기각한 종목까지 판정 뒤 60분의 등락을 기록해, 그 판단이 맞았는지 확인합니다.',
       },
       {
-        title: '지수 조건식 강화',
-        desc: '코스피지수20MA · 코스닥지수20MA 변수가 추가되었습니다. 지수 값을 받지 못한 동안에는 그 값을 쓰는 조건이 통과하지 않습니다.',
+        title: '보조지표를 내 전략에 맞게',
+        desc: '볼린저 밴드 · ATR · 일목균형표의 기간과 승수를 조건식에서 직접 정하고, 주봉 기준 지표도 쓸 수 있습니다. 값이 없으면 조건이 통과하지 않습니다.',
       },
       {
-        title: '실시간 감시 190종목',
-        desc: '키움 API 한도 확대에 맞춰 계좌당 감시 종목을 90개에서 190개로 늘렸습니다.',
+        title: '조건별 시간 범위 · 요일 제한',
+        desc: '준비 · 실행조건마다 통과 시간대를 따로 걸고, 진입 요일 제한을 추가매수에도 적용할 수 있습니다.',
       },
     ],
   },
   {
     product: '부엉이 트레이더 라이트',
-    version: 'v1.5.6',
-    date: '2026. 8. 15.',
+    version: 'v1.7.4',
+    date: '2026. 9. 26.',
     href: '/manual-lite/1',
     badgeClass: 'bg-navy-500/10 text-navy-600',
     dotClass: 'bg-navy-500',
     linkClass: 'text-navy-600 hover:text-navy-700',
     items: [
       {
-        title: '대체거래소(NXT) 시간대 지원',
-        desc: '프리마켓 · 애프터마켓을 버튼 한 번으로 넣습니다. 매수 시간대를 여러 개 지정할 수 있고, 시간 입력이 24시간제로 바뀌었습니다.',
+        title: '체결 내역 창',
+        desc: '지난 체결을 날짜별로 초 단위까지 보고, 그 체결이 어느 조건검색 신호에서 나왔는지 맞춰 봅니다. CSV로 내보낼 수도 있습니다.',
       },
       {
-        title: '매매 설정별 당일청산',
-        desc: '단타 전략은 항상 청산, 스윙 전략은 청산 안 함. 성격이 다른 전략을 한 계좌에서 함께 굴릴 수 있습니다. 감시 목록에서 종목별 청산 예정 시각도 보입니다.',
+        title: 'KRX 애프터마켓 대응',
+        desc: '16:00 이후 주문은 KRX · NXT 중 더 좋은 호가로 나가고, 당일청산을 애프터마켓까지 미뤄 전 종목을 20:00 전에 정리할 수 있습니다.',
       },
       {
-        title: '하이브리드 모드 기본 적용',
-        desc: 'HTS · MTS에서 직접 산 종목도 감시 목록에 표시됩니다. 자동매매를 맡길지는 편입 버튼으로 직접 정합니다.',
+        title: 'HTS 매수 종목 자동 편입 · 합치기',
+        desc: 'HTS에서 급히 산 종목을 지정한 전략으로 자동 편입합니다. 앱이 꺼진 동안 더 산 수량은 기존 포지션에 합쳐 전량 매도가 새지 않게 합니다.',
       },
       {
-        title: '상단 지표 직접 선택',
-        desc: 'KOSPI200 · 대형주 같은 국내 업종지수에 나스닥 · S&P500 · 원달러 환율 · WTI 유가가 더해졌습니다.',
+        title: '조건검색 신호 모니터 개편',
+        desc: '매수 · 매도 조건식 탭으로 나눠 보고, 지난 신호를 날짜별로 조회하며, 신호가 왔는데 왜 사지 않았는지 사유를 함께 보여 줍니다.',
       },
     ],
   },
@@ -226,7 +227,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
 
             <p className="mt-12 text-lg md:text-2xl text-slate-500 max-w-3xl mx-auto leading-relaxed font-light">
               <span className="text-slate-900 font-semibold italic">SAGELINE</span>은
-              기관의 영역이었던 알고리즘 자동매매를<br className="hidden md:block" />
+              기관의 영역이었던 알고리즘 자동매매를{' '}<br className="hidden md:block" />
               개인 투자자의 책상 위로 가져왔습니다.
               <span className="text-teal-600 font-medium"> 부엉이 트레이더</span>와 함께 시작하세요.
             </p>
@@ -240,7 +241,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
                 <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
-                href="/boards/free"
+                href="/boards/all"
                 className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-8 py-4 text-sm font-bold uppercase tracking-[0.15em] text-slate-600 hover:border-teal-500/40 hover:text-teal-600 transition-all duration-300"
               >
                 커뮤니티
@@ -313,7 +314,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
               <p className="text-sm text-slate-500 leading-relaxed font-light mb-8">
                 자동매매부터 차트 · 기술 지표, 실시간 시세, 조건검색까지 갖춘 종합 트레이딩 스위트입니다.
                 코딩 없이 조건식 편집기만으로 나만의 매매 전략을 설계하고 자동으로 실행합니다.
-                여기에 매수 직전 AI에게 의견을 묻는 판정 단계와, 외부 프로그램의 신호를 받는 REST API가 더해졌습니다.
+                매수 직전 AI에게 의견을 묻는 판정 단계와 외부 신호 연동을 갖췄고, KRX 애프터마켓이 끝나는 20:00까지 매매합니다.
               </p>
               <ul className="space-y-3 mb-8">
                 {FULL_FEATURES.map((f) => (
@@ -346,7 +347,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
               <p className="text-sm text-slate-500 leading-relaxed font-light mb-8">
                 조건검색식 자동매매의 핵심만 담아 가볍고 빠르게 새로 설계한 버전입니다.
                 복잡한 기능은 덜어내고, 계좌를 지키는 매매 전략에 집중했습니다.
-                이제 대체거래소 시간대와 HTS에서 직접 산 종목까지 같은 화면에서 관리합니다.
+                프리마켓부터 애프터마켓까지, HTS에서 직접 산 종목까지 같은 화면에서 관리합니다.
               </p>
               <ul className="space-y-3 mb-8">
                 {LITE_FEATURES.map((f) => (
@@ -366,7 +367,30 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
           </div>
 
           {/* 제품 비교 테이블 */}
-          <Reveal className="rounded-3xl border border-slate-100 overflow-hidden">
+          {/* 모바일: 행마다 프로 · 라이트를 나란히 보여 주는 카드 목록 */}
+          <Reveal className="md:hidden rounded-3xl border border-slate-100 overflow-hidden">
+            <div className="flex items-center justify-between border-b border-slate-100 bg-slate-50/70 px-5 py-4">
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">기능 비교</span>
+              <div className="flex gap-2 text-xs font-bold">
+                <span className="w-16 text-center text-teal-600">프로</span>
+                <span className="w-16 text-center text-navy-600">라이트</span>
+              </div>
+            </div>
+            <ul>
+              {COMPARISON.map((row) => (
+                <li key={row.label} className="flex items-center justify-between gap-3 border-b border-slate-50 px-5 py-3.5 last:border-b-0">
+                  <span className="text-sm font-medium text-slate-700">{row.label}</span>
+                  <div className="flex flex-shrink-0 gap-2">
+                    <span className="w-16 text-center"><ComparisonCell value={row.full} /></span>
+                    <span className="w-16 text-center"><ComparisonCell value={row.lite} /></span>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+
+          {/* 태블릿 이상: 표 */}
+          <Reveal className="hidden md:block rounded-3xl border border-slate-100 overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full text-left min-w-[560px]">
                 <thead>
@@ -480,8 +504,8 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
               </div>
               <div className="mt-10 grid grid-cols-3 gap-3">
                 <div className="rounded-2xl bg-slate-50 px-5 py-4">
-                  <p className="text-2xl font-black text-slate-900">24시간</p>
-                  <p className="mt-1 text-xs text-slate-500">시장 감시</p>
+                  <p className="text-2xl font-black text-slate-900">08~20시</p>
+                  <p className="mt-1 text-xs text-slate-500">프리 · 정규 · 애프터마켓</p>
                 </div>
                 <div className="rounded-2xl bg-slate-50 px-5 py-4">
                   <p className="text-2xl font-black text-slate-900">0줄</p>
@@ -533,7 +557,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
                 <span className="font-semibold text-slate-700"> 판정만 기록하고 매수는 그대로 두는 Shadow 모드</span>로 먼저 관찰해 볼 수 있습니다.
               </p>
               <div className="flex flex-wrap gap-1.5">
-                {['ChatGPT', 'Gemini', '프롬프트 프리셋 5종', '23가지 변수', 'Shadow 모드', '일일 호출 한도'].map((t) => (
+                {['ChatGPT', 'Gemini', '프롬프트 프리셋 5종', 'Shadow 모드', 'AI 판정 이력', '일일 호출 한도'].map((t) => (
                   <span key={t} className="rounded-md bg-slate-100 px-2 py-1 text-[11px] font-bold text-slate-600">{t}</span>
                 ))}
               </div>
@@ -594,7 +618,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
               <h2 className="text-3xl font-black text-slate-900 mb-5 tracking-tight">지혜로운 데이터 분석</h2>
               <p className="text-base leading-relaxed text-slate-500 font-light">
                 정보의 홍수 속에서 현상을 꿰뚫어 보는 통찰력을 제공합니다.
-                뉴스와 시세, 수급의 흐름을 데이터로 읽어 소음이 아닌 신호에 집중합니다.
+                시세와 수급, 지표의 흐름을 데이터로 읽어 소음이 아닌 신호에 집중합니다.
               </p>
             </Reveal>
             <Reveal delay={150} className="rounded-3xl bg-gradient-to-br from-navy-500/[0.07] to-transparent border border-slate-100 p-12">
@@ -753,7 +777,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
                     네이버 카페 바로가기
                   </a>
                   <Link
-                    href="/boards/free"
+                    href="/boards/all"
                     className="inline-flex items-center gap-2 rounded-full border border-white/20 px-8 py-4 text-sm font-bold uppercase tracking-[0.15em] text-white hover:bg-white/10 transition-all duration-300"
                   >
                     커뮤니티

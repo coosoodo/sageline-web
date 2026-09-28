@@ -23,7 +23,7 @@ export default function Footer() {
             <Link href="/#owl-trader" className="text-slate-500 hover:text-teal-600 transition-colors">부엉이 트레이더 프로</Link>
             <Link href="/#owl-trader-lite" className="text-slate-500 hover:text-teal-600 transition-colors">부엉이 트레이더 라이트</Link>
             <Link href="/manual" className="text-slate-500 hover:text-teal-600 transition-colors">사용자 설명서</Link>
-            <Link href="/boards/free" className="text-slate-500 hover:text-teal-600 transition-colors">커뮤니티</Link>
+            <Link href="/boards/all" className="text-slate-500 hover:text-teal-600 transition-colors">커뮤니티</Link>
           </div>
 
           <div className="flex flex-col gap-3 text-sm">
