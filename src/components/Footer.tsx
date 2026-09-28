@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { NAVER_CAFE_URL } from '@/lib/nav';
+import VisitorCounter from '@/components/VisitorCounter';
 
 export default function Footer() {
   return (
@@ -40,6 +41,7 @@ export default function Footer() {
         </div>
         
         <div className="mt-20 pt-8 border-t border-slate-200 flex flex-wrap items-center justify-center gap-6 text-[10px] text-slate-500 font-medium tracking-widest">
+          <VisitorCounter />
           <span>COPYRIGHT © 2026 SAGELINE. ALL RIGHTS RESERVED.</span>
           <div className="flex gap-4">
             <Link href="/terms" className="hover:text-slate-900">이용약관</Link>

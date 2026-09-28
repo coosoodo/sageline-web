@@ -32,6 +32,7 @@ export default function PrivacyPage() {
             <div className="mt-3 space-y-2">
               <p><span className="text-slate-800 font-medium">필수항목:</span> 이메일 주소, 서비스 이용 기록, 접속 로그, 쿠키, 접속 IP 정보</p>
               <p><span className="text-slate-800 font-medium">소셜 로그인(Google):</span> 이메일 주소, 프로필 이름 (Google이 제공하는 범위 내)</p>
+              <p><span className="text-slate-800 font-medium">방문자 수 집계(웹사이트):</span> 같은 방문자를 하루 한 번만 세기 위해 이용자의 브라우저(localStorage)에 마지막 방문 날짜만 저장합니다. 회사 서버에는 날짜별 방문자 수(숫자)만 기록하며, IP 주소 등 개인을 식별할 수 있는 정보는 이 목적으로 수집 · 저장하지 않습니다.</p>
             </div>
           </section>
 
