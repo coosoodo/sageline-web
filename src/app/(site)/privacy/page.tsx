@@ -14,12 +14,12 @@ export default function PrivacyPage() {
         <h1 className="text-3xl font-bold text-slate-900 mb-2">개인정보처리방침</h1>
         <p className="text-sm text-slate-500 mb-12">시행일: 2026년 1월 1일 &nbsp;|&nbsp; 최종 수정일: 2026년 9월 29일</p>
 
-        <div className="space-y-10 text-sm leading-relaxed text-slate-400">
+        <div className="space-y-10 text-sm leading-relaxed text-slate-600">
 
           <section>
             <h2 className="text-lg font-semibold text-slate-900 mb-4">제1조 (개인정보의 처리 목적)</h2>
             <p>세이지라인(이하 &quot;회사&quot;)은 다음의 목적을 위하여 개인정보를 처리합니다. 처리하고 있는 개인정보는 다음의 목적 이외의 용도로는 이용되지 않으며, 이용 목적이 변경되는 경우에는 개인정보 보호법 제18조에 따라 별도의 동의를 받는 등 필요한 조치를 이행할 예정입니다.</p>
-            <ul className="mt-3 list-disc list-inside space-y-1 text-slate-400">
+            <ul className="mt-3 list-disc list-inside space-y-1 text-slate-600">
               <li>회원 가입 및 관리: 회원 가입의사 확인, 회원제 서비스 제공에 따른 본인 식별·인증, 회원자격 유지·관리, 서비스 부정이용 방지</li>
               <li>서비스 제공: 부엉이 트레이더 프로 · 라이트 관련 안내, 자동매매 개발 지원 문의 대응</li>
               <li>고충 처리: 민원인의 신원 확인, 민원사항 확인, 사실조사를 위한 연락·통지, 처리결과 통보</li>
@@ -30,8 +30,8 @@ export default function PrivacyPage() {
             <h2 className="text-lg font-semibold text-slate-900 mb-4">제2조 (처리하는 개인정보 항목)</h2>
             <p>회사는 다음의 개인정보 항목을 처리하고 있습니다.</p>
             <div className="mt-3 space-y-2">
-              <p><span className="text-slate-600 font-medium">필수항목:</span> 이메일 주소, 서비스 이용 기록, 접속 로그, 쿠키, 접속 IP 정보</p>
-              <p><span className="text-slate-600 font-medium">소셜 로그인(Google):</span> 이메일 주소, 프로필 이름 (Google이 제공하는 범위 내)</p>
+              <p><span className="text-slate-800 font-medium">필수항목:</span> 이메일 주소, 서비스 이용 기록, 접속 로그, 쿠키, 접속 IP 정보</p>
+              <p><span className="text-slate-800 font-medium">소셜 로그인(Google):</span> 이메일 주소, 프로필 이름 (Google이 제공하는 범위 내)</p>
             </div>
           </section>
 
@@ -57,13 +57,13 @@ export default function PrivacyPage() {
             <div className="mt-3 overflow-x-auto">
               <table className="w-full text-xs border-collapse">
                 <thead>
-                  <tr className="border-b border-white/10">
-                    <th className="text-left py-2 pr-6 text-slate-600 font-medium">수탁업체</th>
-                    <th className="text-left py-2 pr-6 text-slate-600 font-medium">위탁 업무 내용</th>
-                    <th className="text-left py-2 text-slate-600 font-medium">보유 및 이용기간</th>
+                  <tr className="border-b border-slate-200">
+                    <th className="text-left py-2 pr-6 text-slate-800 font-medium">수탁업체</th>
+                    <th className="text-left py-2 pr-6 text-slate-800 font-medium">위탁 업무 내용</th>
+                    <th className="text-left py-2 text-slate-800 font-medium">보유 및 이용기간</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/5">
+                <tbody className="divide-y divide-slate-100">
                   <tr>
                     <td className="py-2 pr-6">Supabase Inc.</td>
                     <td className="py-2 pr-6">회원 인증 및 데이터베이스 운영</td>
@@ -88,8 +88,8 @@ export default function PrivacyPage() {
             <h2 className="text-lg font-semibold text-slate-900 mb-4">제6조 (개인정보의 파기)</h2>
             <p>회사는 개인정보 보유기간의 경과, 처리목적 달성 등 개인정보가 불필요하게 되었을 때에는 지체없이 해당 개인정보를 파기합니다.</p>
             <ul className="mt-3 list-disc list-inside space-y-1">
-              <li><span className="text-slate-600">전자적 파일 형태:</span> 기록을 재생할 수 없는 기술적 방법으로 영구 삭제</li>
-              <li><span className="text-slate-600">종이 문서:</span> 분쇄기로 분쇄하거나 소각</li>
+              <li><span className="font-medium text-slate-800">전자적 파일 형태:</span> 기록을 재생할 수 없는 기술적 방법으로 영구 삭제</li>
+              <li><span className="font-medium text-slate-800">종이 문서:</span> 분쇄기로 분쇄하거나 소각</li>
             </ul>
           </section>
 
@@ -112,18 +112,18 @@ export default function PrivacyPage() {
               <li>개인정보 취급 직원의 최소화 및 교육 실시</li>
               <li>개인정보에 대한 접근 제한 (HTTPS/TLS 암호화 통신)</li>
               <li>개인정보를 처리하는 데이터베이스 시스템에 대한 접근권한 최소화</li>
-              <li>비밀번호 암호화: 이용자의 비밀번호는 암호화되어 저장·관리되고 있어 본인만 알 수 있으며, 개인정보 확인 및 변경도 본인만 가능</li>
+              <li>인증 정보 관리: 회원 인증은 Google 계정 로그인(OAuth)으로만 이루어지며, 회사는 이용자의 비밀번호를 수집하거나 저장하지 않습니다.</li>
             </ul>
           </section>
 
           <section>
             <h2 className="text-lg font-semibold text-slate-900 mb-4">제9조 (개인정보 보호책임자)</h2>
             <p>회사는 개인정보 처리에 관한 업무를 총괄해서 책임지고, 정보주체의 개인정보 관련 불만처리 및 피해구제 등을 위하여 아래와 같이 개인정보 보호책임자를 지정하고 있습니다.</p>
-            <div className="mt-4 p-4 bg-white/5 rounded-lg border border-white/10 space-y-1">
-              <p><span className="text-slate-600 font-medium">성명:</span> 최재혁</p>
-              <p><span className="text-slate-600 font-medium">직책:</span> 개인정보 보호책임자</p>
-              <p><span className="text-slate-600 font-medium">연락처:</span> <a href="mailto:sageline2024@gmail.com" className="text-teal-600 hover:underline">sageline2024@gmail.com</a></p>
-              <p><span className="text-slate-600 font-medium">전화:</span> 010-8067-4532</p>
+            <div className="mt-4 p-4 bg-slate-50 rounded-lg border border-slate-200 space-y-1">
+              <p><span className="text-slate-800 font-medium">성명:</span> 최재혁</p>
+              <p><span className="text-slate-800 font-medium">직책:</span> 개인정보 보호책임자</p>
+              <p><span className="text-slate-800 font-medium">연락처:</span> <a href="mailto:sageline2024@gmail.com" className="text-teal-600 hover:underline">sageline2024@gmail.com</a></p>
+              <p><span className="text-slate-800 font-medium">전화:</span> 010-8067-4532</p>
             </div>
             <p className="mt-3">정보주체께서는 회사의 서비스를 이용하시면서 발생한 모든 개인정보 보호 관련 문의, 불만처리, 피해구제 등에 관한 사항을 개인정보 보호책임자에게 문의하실 수 있습니다.</p>
           </section>

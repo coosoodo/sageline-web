@@ -14,7 +14,7 @@ export default function TermsPage() {
         <h1 className="text-3xl font-bold text-slate-900 mb-2">서비스 이용약관</h1>
         <p className="text-sm text-slate-500 mb-12">시행일: 2026년 1월 1일 &nbsp;|&nbsp; 최종 수정일: 2026년 9월 29일</p>
 
-        <div className="space-y-10 text-sm leading-relaxed text-slate-400">
+        <div className="space-y-10 text-sm leading-relaxed text-slate-600">
 
           <section>
             <h2 className="text-lg font-semibold text-slate-900 mb-4">제1조 (목적)</h2>
@@ -24,11 +24,11 @@ export default function TermsPage() {
           <section>
             <h2 className="text-lg font-semibold text-slate-900 mb-4">제2조 (정의)</h2>
             <ul className="space-y-2 list-disc list-inside">
-              <li><span className="text-slate-600">&quot;서비스&quot;</span>란 회사가 제공하는 프로그램, 자동매매 개발 지원, 웹사이트(사용자 설명서 · 제품 소식 등) 및 관련 제반 서비스를 의미합니다.</li>
-              <li><span className="text-slate-600">&quot;프로그램&quot;</span>이란 회사가 배포하는 PC용 주식 자동매매 프로그램인 부엉이 트레이더 프로와 부엉이 트레이더 라이트를 말합니다.</li>
-              <li><span className="text-slate-600">&quot;이용자&quot;</span>란 이 약관에 따라 회사가 제공하는 서비스를 이용하는 회원 및 비회원을 말합니다.</li>
-              <li><span className="text-slate-600">&quot;회원&quot;</span>이란 회사에 개인정보를 제공하여 회원 등록을 한 자로서, 회사의 정보를 지속적으로 제공받으며 서비스를 계속적으로 이용할 수 있는 자를 말합니다.</li>
-              <li><span className="text-slate-600">&quot;아이디(ID)&quot;</span>란 회원의 식별과 서비스 이용을 위하여 회원이 로그인에 사용하는 Google 계정의 이메일 주소를 의미합니다.</li>
+              <li><span className="font-medium text-slate-800">&quot;서비스&quot;</span>란 회사가 제공하는 프로그램, 자동매매 개발 지원, 웹사이트(사용자 설명서 · 제품 소식 등) 및 관련 제반 서비스를 의미합니다.</li>
+              <li><span className="font-medium text-slate-800">&quot;프로그램&quot;</span>이란 회사가 배포하는 PC용 주식 자동매매 프로그램인 부엉이 트레이더 프로와 부엉이 트레이더 라이트를 말합니다.</li>
+              <li><span className="font-medium text-slate-800">&quot;이용자&quot;</span>란 이 약관에 따라 회사가 제공하는 서비스를 이용하는 회원 및 비회원을 말합니다.</li>
+              <li><span className="font-medium text-slate-800">&quot;회원&quot;</span>이란 회사에 개인정보를 제공하여 회원 등록을 한 자로서, 회사의 정보를 지속적으로 제공받으며 서비스를 계속적으로 이용할 수 있는 자를 말합니다.</li>
+              <li><span className="font-medium text-slate-800">&quot;아이디(ID)&quot;</span>란 회원의 식별과 서비스 이용을 위하여 회원이 로그인에 사용하는 Google 계정의 이메일 주소를 의미합니다.</li>
             </ul>
           </section>
 
@@ -116,9 +116,9 @@ export default function TermsPage() {
 
           <section>
             <h2 className="text-lg font-semibold text-slate-900 mb-4">제9조 (투자 위험 고지)</h2>
-            <div className="p-4 bg-amber-500/10 border border-amber-500/20 rounded-lg">
-              <p className="text-amber-400 font-medium mb-2">⚠ 중요 투자 위험 고지</p>
-              <ul className="space-y-2 text-slate-400">
+            <div className="p-4 bg-amber-50 border border-amber-200 rounded-lg">
+              <p className="text-amber-800 font-semibold mb-2">⚠ 중요 투자 위험 고지</p>
+              <ul className="space-y-2 text-slate-700">
                 <li>본 서비스는 투자 참고 자료를 제공하는 것이며, 투자 원금의 손실이 발생할 수 있습니다.</li>
                 <li>프로그램의 매매 기능과 AI 판정 결과, 회사가 제공하는 기술 지원 내용은 투자 권유가 아니며, 투자 결과에 대한 책임은 전적으로 이용자 본인에게 있습니다.</li>
                 <li>과거의 수익률이 미래의 수익률을 보장하지 않습니다.</li>
@@ -155,11 +155,11 @@ export default function TermsPage() {
           <section>
             <h2 className="text-lg font-semibold text-slate-900 mb-4">부칙</h2>
             <p>이 약관은 2026년 1월 1일부터 시행합니다.</p>
-            <div className="mt-4 p-4 bg-white/5 rounded-lg border border-white/10 space-y-1">
-              <p><span className="text-slate-600 font-medium">회사명:</span> 세이지라인</p>
-              <p><span className="text-slate-600 font-medium">담당자:</span> 최재혁</p>
-              <p><span className="text-slate-600 font-medium">이메일:</span> <a href="mailto:sageline2024@gmail.com" className="text-teal-600 hover:underline">sageline2024@gmail.com</a></p>
-              <p><span className="text-slate-600 font-medium">전화:</span> 010-8067-4532</p>
+            <div className="mt-4 p-4 bg-slate-50 rounded-lg border border-slate-200 space-y-1">
+              <p><span className="text-slate-800 font-medium">회사명:</span> 세이지라인</p>
+              <p><span className="text-slate-800 font-medium">담당자:</span> 최재혁</p>
+              <p><span className="text-slate-800 font-medium">이메일:</span> <a href="mailto:sageline2024@gmail.com" className="text-teal-600 hover:underline">sageline2024@gmail.com</a></p>
+              <p><span className="text-slate-800 font-medium">전화:</span> 010-8067-4532</p>
             </div>
           </section>
 
