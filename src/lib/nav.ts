@@ -6,7 +6,6 @@ export const MAIN_NAV: [string, string][] = [
   ['Products', '/#products'],
   ['Updates', '/#updates'],
   ['Technology', '/#technology'],
-  ['Vision', '/#vision'],
   ['Support', '/#support'],
   ['Manual', '/manual'],
   ['Community', NAVER_CAFE_URL],

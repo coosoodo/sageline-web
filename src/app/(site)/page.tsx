@@ -37,24 +37,19 @@ export const metadata: Metadata = {
 const FULL_FEATURES = [
   'AI 매수의견 판정 — 매수 직전 ChatGPT · Gemini 재검증',
   '조건검색식 · 사용자 정의 · 단일종목 자동매매',
-  '조건식 라이브러리와 베팅 · 주문 전략 편집기',
   '일봉 · 주봉 보조지표 조건식 — 기간 · 승수 직접 지정',
   'KRX 애프터마켓(~20:00) 대응 · 미체결 매도 이전',
   '외부 프로그램 매매신호 수신 (REST API)',
   '매매통계 · AI 판정 이력 · 자동매매 수익률 조회',
-  'Discord · Telegram 실시간 알림',
 ];
 
 const LITE_FEATURES = [
-  '키움 조건검색식 기반 자동매매에 집중한 경량 설계',
   '손절 · 익절 · 트레일링 스탑 · 분할 매수/매도',
   '매매 설정별 당일청산 — 단타와 스윙을 한 계좌에서',
   '프리마켓 · KRX 애프터마켓(~20:00)까지 매매 · 청산',
   'HTS 매수 종목 감시 · 전략 자동 편입 · 수량 합치기',
   '체결 내역 — 초 단위 체결 시각과 조건검색 신호 대조',
-  '계좌별 주문 폭주 방지 하드리밋 · 이상 시세 가드',
-  '권리이벤트 감지 시 해당 종목 자동매매 자동 중지',
-  'Telegram 실시간 알림 · 매매 통계와 성과 분석',
+  '계좌별 하드리밋 · 이상 시세 가드 · 권리이벤트 자동 중지',
 ];
 
 const COMPARISON: { label: string; full: string | boolean; lite: string | boolean }[] = [
@@ -94,19 +89,15 @@ const UPDATES: UpdateGroup[] = [
     items: [
       {
         title: 'KRX 애프터마켓 대응',
-        desc: '매매 시간이 20:00까지 늘었습니다. 시간대별로 맞는 거래소로 주문하고, 정규장에서 체결되지 않은 매도 주문을 애프터마켓으로 옮겨 다시 낼 수 있습니다.',
+        desc: '20:00까지 매매하고, 정규장 미체결 매도를 애프터마켓으로 옮겨 다시 냅니다.',
       },
       {
         title: '매매통계 · AI 판정 이력',
-        desc: '청산된 매매의 실현손익 · 승률 · MDD를 계좌 · 전략 · 기간별로 봅니다. AI가 기각한 종목까지 판정 뒤 60분의 등락을 기록해, 그 판단이 맞았는지 확인합니다.',
+        desc: '실현손익 · 승률 · MDD를 한눈에 보고, AI가 기각한 종목의 이후 등락까지 기록합니다.',
       },
       {
-        title: '보조지표를 내 전략에 맞게',
-        desc: '볼린저 밴드 · ATR · 일목균형표의 기간과 승수를 조건식에서 직접 정하고, 주봉 기준 지표도 쓸 수 있습니다. 값이 없으면 조건이 통과하지 않습니다.',
-      },
-      {
-        title: '조건별 시간 범위 · 요일 제한',
-        desc: '준비 · 실행조건마다 통과 시간대를 따로 걸고, 진입 요일 제한을 추가매수에도 적용할 수 있습니다.',
+        title: '보조지표 기간 · 승수 지정',
+        desc: '볼린저 밴드 · ATR 등을 전략에 맞게 조정하고 주봉 기준 지표도 씁니다.',
       },
     ],
   },
@@ -121,19 +112,15 @@ const UPDATES: UpdateGroup[] = [
     items: [
       {
         title: '체결 내역 창',
-        desc: '지난 체결을 날짜별로 초 단위까지 보고, 그 체결이 어느 조건검색 신호에서 나왔는지 맞춰 봅니다. CSV로 내보낼 수도 있습니다.',
+        desc: '지난 체결을 초 단위로 보고, 어느 조건검색 신호에서 나왔는지 맞춰 봅니다.',
       },
       {
         title: 'KRX 애프터마켓 대응',
-        desc: '16:00 이후 주문은 KRX · NXT 중 더 좋은 호가로 나가고, 당일청산을 애프터마켓까지 미뤄 전 종목을 20:00 전에 정리할 수 있습니다.',
+        desc: '16:00 이후 더 좋은 호가로 주문하고, 당일청산을 20:00 전까지 미룹니다.',
       },
       {
-        title: 'HTS 매수 종목 자동 편입 · 합치기',
-        desc: 'HTS에서 급히 산 종목을 지정한 전략으로 자동 편입합니다. 앱이 꺼진 동안 더 산 수량은 기존 포지션에 합쳐 전량 매도가 새지 않게 합니다.',
-      },
-      {
-        title: '조건검색 신호 모니터 개편',
-        desc: '매수 · 매도 조건식 탭으로 나눠 보고, 지난 신호를 날짜별로 조회하며, 신호가 왔는데 왜 사지 않았는지 사유를 함께 보여 줍니다.',
+        title: 'HTS 매수 종목 자동 편입',
+        desc: 'HTS에서 산 종목을 지정한 전략으로 넘기고, 앱 밖에서 더 산 수량도 합칩니다.',
       },
     ],
   },
@@ -201,7 +188,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
 
       <main className="flex-grow">
         {/* 1. Hero 섹션 */}
-        <section className="relative flex flex-col items-center justify-center overflow-hidden px-6 pt-40 pb-28 lg:pt-52 lg:pb-36">
+        <section className="relative flex flex-col items-center justify-center overflow-hidden px-6 pt-32 pb-16 md:pt-40 md:pb-28 lg:pt-52 lg:pb-36">
           <div className="absolute top-0 left-1/2 -z-10 h-[600px] w-[800px] -translate-x-1/2 rounded-full bg-teal-600/10 blur-[140px]" />
           <div className="absolute bottom-0 right-0 -z-10 h-[400px] w-[500px] rounded-full bg-navy-500/5 blur-[120px]" />
 
@@ -226,14 +213,14 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
               </span>
             </h1>
 
-            <p className="mt-12 text-lg md:text-2xl text-slate-500 max-w-3xl mx-auto leading-relaxed font-light">
+            <p className="mt-8 md:mt-12 text-lg md:text-2xl text-slate-500 max-w-3xl mx-auto leading-relaxed font-light">
               <span className="text-slate-900 font-semibold italic">SAGELINE</span>은
               기관의 영역이었던 알고리즘 자동매매를{' '}<br className="hidden md:block" />
               개인 투자자의 책상 위로 가져왔습니다.
               <span className="text-teal-600 font-medium"> 부엉이 트레이더</span>와 함께 시작하세요.
             </p>
 
-            <div className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="mt-10 md:mt-14 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/#products"
                 className="group inline-flex items-center gap-2 rounded-full bg-slate-900 px-8 py-4 text-sm font-bold uppercase tracking-[0.15em] text-white hover:bg-slate-800 transition-all duration-300 shadow-xl shadow-slate-900/10"
@@ -251,31 +238,31 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
               </a>
             </div>
 
-            <Reveal delay={200} className="mt-24">
+            <Reveal delay={200} className="mt-16 md:mt-24">
               <HeroMockup />
             </Reveal>
           </div>
         </section>
 
         {/* 2. Products 섹션 */}
-        <section id="products" className="container mx-auto max-w-7xl px-6 md:px-8 py-24 border-t border-slate-100 scroll-mt-20">
-          <Reveal className="text-center mb-20">
+        <section id="products" className="container mx-auto max-w-7xl px-6 md:px-8 py-16 md:py-24 border-t border-slate-100 scroll-mt-20">
+          <Reveal className="text-center mb-12 md:mb-20">
             <div className="inline-flex items-center space-x-2 rounded-full border border-teal-500/20 bg-teal-500/5 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.3em] text-teal-600 mb-8">
               <span>Our Products</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-6">
               누구나 쓸 수 있는 <span className="text-teal-600">퀀트 투자</span>
             </h2>
-            <p className="text-lg text-slate-500 max-w-2xl mx-auto font-light">
+            <p className="text-base md:text-lg text-slate-500 max-w-2xl mx-auto font-light">
               키움증권 REST API 기반의 주식 자동매매 프로그램. <br className="hidden md:block" />
               투자 스타일에 맞는 부엉이를 선택하세요.
             </p>
           </Reveal>
 
           {/* 무료 다운로드 하이라이트 */}
-          <Reveal className="mb-16">
-            <div className="relative overflow-hidden rounded-3xl border border-teal-500/20 bg-gradient-to-br from-teal-500/[0.08] via-white to-navy-500/[0.06] px-8 py-10 md:px-12">
-              <div className="flex flex-col md:flex-row md:items-center gap-8">
+          <Reveal className="mb-10 md:mb-16">
+            <div className="relative overflow-hidden rounded-3xl border border-teal-500/20 bg-gradient-to-br from-teal-500/[0.08] via-white to-navy-500/[0.06] px-7 py-8 md:px-12 md:py-10">
+              <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-8">
                 <div className="flex-grow">
                   <div className="inline-flex items-center gap-2 rounded-full bg-teal-500/10 px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.25em] text-teal-600 mb-5">
                     100% Free
@@ -301,9 +288,9 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
             </div>
           </Reveal>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-20">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-12 md:mb-20">
             {/* 부엉이 트레이더 프로 */}
-            <Reveal id="owl-trader" className="group relative h-full scroll-mt-24 rounded-3xl border border-slate-100 bg-slate-50/50 p-10 hover:border-teal-500/30 hover:shadow-lg hover:shadow-teal-500/5 transition-all duration-300">
+            <Reveal id="owl-trader" className="group relative h-full scroll-mt-24 rounded-3xl border border-slate-100 bg-slate-50/50 p-7 md:p-10 hover:border-teal-500/30 hover:shadow-lg hover:shadow-teal-500/5 transition-all duration-300">
               <div className="absolute top-8 right-8 rounded-full bg-teal-500/10 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-teal-600">
                 All-in-One
               </div>
@@ -319,7 +306,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
                 코딩 없이 조건식 편집기만으로 나만의 매매 전략을 설계하고 자동으로 실행합니다.
                 매수 직전 AI에게 의견을 묻는 판정 단계와 외부 신호 연동을 갖췄고, KRX 애프터마켓이 끝나는 20:00까지 매매합니다.
               </p>
-              <ul className="space-y-3 mb-8">
+              <ul className="space-y-2.5 md:space-y-3 mb-8">
                 {FULL_FEATURES.map((f) => (
                   <li key={f} className="flex items-start gap-3 text-sm text-slate-600">
                     <Check size={15} className="mt-0.5 flex-shrink-0 text-teal-500" />
@@ -336,7 +323,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
             </Reveal>
 
             {/* 부엉이 트레이더 라이트 */}
-            <Reveal id="owl-trader-lite" delay={150} className="group relative h-full scroll-mt-24 rounded-3xl border border-slate-100 bg-slate-50/50 p-10 hover:border-navy-500/30 hover:shadow-lg hover:shadow-navy-500/5 transition-all duration-300">
+            <Reveal id="owl-trader-lite" delay={150} className="group relative h-full scroll-mt-24 rounded-3xl border border-slate-100 bg-slate-50/50 p-7 md:p-10 hover:border-navy-500/30 hover:shadow-lg hover:shadow-navy-500/5 transition-all duration-300">
               <div className="absolute top-8 right-8 rounded-full bg-navy-500/10 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-navy-600">
                 Light &amp; Fast
               </div>
@@ -352,7 +339,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
                 복잡한 기능은 덜어내고, 계좌를 지키는 매매 전략에 집중했습니다.
                 프리마켓부터 애프터마켓까지, HTS에서 직접 산 종목까지 같은 화면에서 관리합니다.
               </p>
-              <ul className="space-y-3 mb-8">
+              <ul className="space-y-2.5 md:space-y-3 mb-8">
                 {LITE_FEATURES.map((f) => (
                   <li key={f} className="flex items-start gap-3 text-sm text-slate-600">
                     <Check size={15} className="mt-0.5 flex-shrink-0 text-navy-500" />
@@ -418,28 +405,28 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
         </section>
 
         {/* 3. 최신 업데이트 섹션 */}
-        <section id="updates" className="container mx-auto max-w-7xl px-6 md:px-8 py-24 border-t border-slate-100 scroll-mt-20">
-          <Reveal className="text-center mb-20">
+        <section id="updates" className="container mx-auto max-w-7xl px-6 md:px-8 py-16 md:py-24 border-t border-slate-100 scroll-mt-20">
+          <Reveal className="text-center mb-12 md:mb-20">
             <div className="inline-flex items-center space-x-2 rounded-full border border-teal-500/20 bg-teal-500/5 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.3em] text-teal-600 mb-8">
               <span>Latest Update</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-6">
               부엉이는 <span className="text-teal-600">계속 자랍니다</span>
             </h2>
-            <p className="text-lg text-slate-500 max-w-2xl mx-auto font-light">
+            <p className="text-base md:text-lg text-slate-500 max-w-2xl mx-auto font-light">
               사용자들이 장중에 겪은 일들을 그대로 반영합니다. <br className="hidden md:block" />
               최근 릴리즈에서 새로 더해진 기능입니다.
             </p>
           </Reveal>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8">
             {UPDATES.map((group, gi) => (
               <Reveal
                 key={group.product}
                 delay={gi * 150}
-                className="h-full rounded-3xl border border-slate-100 bg-white p-8 md:p-10"
+                className="h-full rounded-3xl border border-slate-100 bg-white p-7 md:p-10"
               >
-                <div className="mb-8 flex flex-wrap items-center gap-3">
+                <div className="mb-6 md:mb-8 flex flex-wrap items-center gap-3">
                   <h3 className="text-xl font-black text-slate-900">{group.product}</h3>
                   <span className={`rounded-full px-3 py-1 text-[11px] font-black tracking-wide ${group.badgeClass}`}>
                     {group.version}
@@ -447,7 +434,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
                   <span className="text-xs text-slate-400">{group.date}</span>
                 </div>
 
-                <ol className="relative space-y-6 border-l border-slate-100 pl-6">
+                <ol className="relative space-y-5 md:space-y-6 border-l border-slate-100 pl-6">
                   {group.items.map((item) => (
                     <li key={item.title} className="relative">
                       <span className={`absolute -left-[1.9rem] top-1.5 h-2 w-2 rounded-full ${group.dotClass}`} />
@@ -470,15 +457,15 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
         </section>
 
         {/* 4. Technology 섹션 */}
-        <section id="technology" className="container mx-auto max-w-7xl px-6 md:px-8 py-24 border-t border-slate-100 scroll-mt-20">
-          <Reveal className="text-center mb-20">
+        <section id="technology" className="container mx-auto max-w-7xl px-6 md:px-8 py-16 md:py-24 border-t border-slate-100 scroll-mt-20">
+          <Reveal className="text-center mb-12 md:mb-20">
             <div className="inline-flex items-center space-x-2 rounded-full border border-navy-500/20 bg-navy-500/5 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.3em] text-navy-600 mb-8">
               <span>Core Technology</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-6">
               감정을 배제하고, <span className="text-navy-700">시스템이 매매합니다</span>
             </h2>
-            <p className="text-lg text-slate-500 max-w-2xl mx-auto font-light">
+            <p className="text-base md:text-lg text-slate-500 max-w-2xl mx-auto font-light">
               실시간 시장 데이터를 기반으로 감정을 배제하고 원칙대로 매매하는 시스템의 핵심 기술입니다.
             </p>
           </Reveal>
@@ -486,12 +473,12 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
           {/* 벤토 그리드 */}
           <div className="grid md:grid-cols-3 gap-6">
             {/* 전략 자동화 엔진 — 대형 카드 */}
-            <Reveal className="md:col-span-2 md:row-span-2 rounded-3xl border border-slate-100 bg-white p-10 hover:border-teal-500/30 hover:shadow-xl hover:shadow-teal-500/5 transition-all duration-300">
+            <Reveal className="md:col-span-2 md:row-span-2 rounded-3xl border border-slate-100 bg-white p-7 md:p-10 hover:border-teal-500/30 hover:shadow-xl hover:shadow-teal-500/5 transition-all duration-300">
               <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-500/10 to-navy-500/10 text-teal-600">
                 <Workflow size={22} />
               </div>
               <h3 className="text-2xl font-black text-slate-900 mb-4">전략 자동화 엔진</h3>
-              <p className="text-sm text-slate-500 leading-relaxed font-light mb-10 max-w-lg">
+              <p className="text-sm text-slate-500 leading-relaxed font-light mb-8 md:mb-10 max-w-lg">
                 키움 조건검색식 신호를 실시간으로 받아 매수·매도 주문까지 사람의 개입 없이 실행합니다.
                 코딩 없이 편집기만으로 전략을 완성합니다.
               </p>
@@ -505,7 +492,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
                   </React.Fragment>
                 ))}
               </div>
-              <div className="mt-10 grid grid-cols-3 gap-3">
+              <div className="mt-8 md:mt-10 grid grid-cols-3 gap-3">
                 <div className="rounded-2xl bg-slate-50 px-5 py-4">
                   <p className="text-2xl font-black text-slate-900">08~20시</p>
                   <p className="mt-1 text-xs text-slate-500">프리 · 정규 · 애프터마켓</p>
@@ -522,7 +509,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
             </Reveal>
 
             {/* 리스크 관리 */}
-            <Reveal delay={100} className="rounded-3xl border border-slate-100 bg-white p-8 hover:border-teal-500/30 hover:shadow-xl hover:shadow-teal-500/5 transition-all duration-300">
+            <Reveal delay={100} className="rounded-3xl border border-slate-100 bg-white p-7 md:p-8 hover:border-teal-500/30 hover:shadow-xl hover:shadow-teal-500/5 transition-all duration-300">
               <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-500/10 to-navy-500/10 text-teal-600">
                 <ShieldCheck size={22} />
               </div>
@@ -538,7 +525,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
             </Reveal>
 
             {/* 차트 · 기술 지표 */}
-            <Reveal delay={200} className="rounded-3xl border border-slate-100 bg-white p-8 hover:border-navy-500/30 hover:shadow-xl hover:shadow-navy-500/5 transition-all duration-300">
+            <Reveal delay={200} className="rounded-3xl border border-slate-100 bg-white p-7 md:p-8 hover:border-navy-500/30 hover:shadow-xl hover:shadow-navy-500/5 transition-all duration-300">
               <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-navy-500/10 to-blue-500/10 text-navy-600">
                 <CandlestickChart size={22} />
               </div>
@@ -567,7 +554,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
             </Reveal>
 
             {/* 외부 신호 연동 — 신규 */}
-            <Reveal delay={200} className="rounded-3xl border border-slate-100 bg-white p-8 hover:border-navy-500/30 hover:shadow-xl hover:shadow-navy-500/5 transition-all duration-300">
+            <Reveal delay={200} className="rounded-3xl border border-slate-100 bg-white p-7 md:p-8 hover:border-navy-500/30 hover:shadow-xl hover:shadow-navy-500/5 transition-all duration-300">
               <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-navy-500/10 to-blue-500/10 text-navy-600">
                 <Webhook size={22} />
               </div>
@@ -610,62 +597,62 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
           </div>
         </section>
 
-        {/* 5. Vision 섹션 */}
-        <section id="vision" className="container mx-auto max-w-7xl px-6 md:px-8 py-24 border-t border-slate-100 scroll-mt-20">
-          <div className="grid md:grid-cols-2 gap-8">
-            <Reveal className="rounded-3xl bg-gradient-to-br from-teal-500/[0.07] to-transparent border border-slate-100 p-12">
-              <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-teal-500/10 text-teal-600">
-                <LineChart size={22} />
+        {/* 5. Vision — 브랜드 이름의 뜻을 한 줄 띠로 */}
+        <section id="vision" className="border-t border-slate-100 bg-slate-50/60 scroll-mt-20">
+          <Reveal className="container mx-auto max-w-7xl px-6 md:px-8 py-10 md:py-14 grid md:grid-cols-2 gap-6 md:gap-12">
+            <div className="flex items-start gap-4">
+              <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-teal-500/10 text-teal-600">
+                <LineChart size={18} />
               </div>
-              <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-teal-600 mb-4">Sage — 지혜</p>
-              <h2 className="text-3xl font-black text-slate-900 mb-5 tracking-tight">지혜로운 데이터 분석</h2>
-              <p className="text-base leading-relaxed text-slate-500 font-light">
-                정보의 홍수 속에서 현상을 꿰뚫어 보는 통찰력을 제공합니다.
-                시세와 수급, 지표의 흐름을 데이터로 읽어 소음이 아닌 신호에 집중합니다.
-              </p>
-            </Reveal>
-            <Reveal delay={150} className="rounded-3xl bg-gradient-to-br from-navy-500/[0.07] to-transparent border border-slate-100 p-12">
-              <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-navy-500/10 text-navy-600">
-                <Zap size={22} />
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-teal-600 mb-1.5">Sage — 지혜</p>
+                <p className="text-sm md:text-base text-slate-600 leading-relaxed">
+                  시세와 수급, 지표를 데이터로 읽어 <span className="font-semibold text-slate-800">소음이 아닌 신호</span>에 집중합니다.
+                </p>
               </div>
-              <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-navy-600 mb-4">Line — 원칙</p>
-              <h2 className="text-3xl font-black text-slate-900 mb-5 tracking-tight">흔들리지 않는 매매 원칙</h2>
-              <p className="text-base leading-relaxed text-slate-500 font-light">
-                공포와 탐욕 대신 미리 정한 원칙이 매매합니다.
-                진입부터 청산까지, 전략이 그린 명확한 선을 시스템이 끝까지 지킵니다.
-              </p>
-            </Reveal>
-          </div>
+            </div>
+            <div className="flex items-start gap-4">
+              <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-navy-500/10 text-navy-600">
+                <Zap size={18} />
+              </div>
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-navy-600 mb-1.5">Line — 원칙</p>
+                <p className="text-sm md:text-base text-slate-600 leading-relaxed">
+                  공포와 탐욕 대신 미리 정한 원칙이 <span className="font-semibold text-slate-800">진입부터 청산까지</span> 매매합니다.
+                </p>
+              </div>
+            </div>
+          </Reveal>
         </section>
 
         {/* 6. Development Support 섹션 */}
-        <section id="support" className="container mx-auto max-w-7xl px-6 md:px-8 py-24 border-t border-slate-100 scroll-mt-20">
-          <Reveal className="text-center mb-20">
+        <section id="support" className="container mx-auto max-w-7xl px-6 md:px-8 py-16 md:py-24 border-t border-slate-100 scroll-mt-20">
+          <Reveal className="text-center mb-12 md:mb-20">
             <div className="inline-flex items-center space-x-2 rounded-full border border-teal-500/20 bg-teal-500/5 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.3em] text-teal-600 mb-8">
               <span>Development Support</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-6">
               전략은 있는데, <span className="text-teal-600">코드가 없다면</span>
             </h2>
-            <p className="text-lg text-slate-500 max-w-2xl mx-auto font-light">
+            <p className="text-base md:text-lg text-slate-500 max-w-2xl mx-auto font-light">
               매매 원칙은 세웠지만 시스템 구현 단계에서 막히는 분들을 위해 <br className="hidden md:block" />
               기술 질의응답과 시스템 제작 대행을 지원합니다.
             </p>
           </Reveal>
 
           {/* 지원 대상 */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 mb-6 md:mb-8">
             {SUPPORT_TARGETS.map((t, i) => (
               <Reveal
                 key={t.title}
                 delay={i * 100}
-                className="h-full rounded-3xl border border-slate-100 bg-white p-8 hover:border-teal-500/30 hover:shadow-xl hover:shadow-teal-500/5 transition-all duration-300"
+                className="h-full rounded-2xl md:rounded-3xl border border-slate-100 bg-white p-4 md:p-8 hover:border-teal-500/30 hover:shadow-xl hover:shadow-teal-500/5 transition-all duration-300"
               >
-                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-500/10 to-navy-500/10 text-teal-600">
-                  <t.icon size={22} />
+                <div className="mb-3 md:mb-5 flex h-9 w-9 md:h-12 md:w-12 items-center justify-center rounded-xl md:rounded-2xl bg-gradient-to-br from-teal-500/10 to-navy-500/10 text-teal-600">
+                  <t.icon size={18} />
                 </div>
-                <h3 className="text-base font-black text-slate-900 mb-3">{t.title}</h3>
-                <p className="text-sm text-slate-500 leading-relaxed font-light">{t.desc}</p>
+                <h3 className="text-sm md:text-base font-black text-slate-900 mb-1.5 md:mb-3">{t.title}</h3>
+                <p className="text-xs md:text-sm text-slate-500 leading-relaxed font-light">{t.desc}</p>
               </Reveal>
             ))}
           </div>
@@ -673,7 +660,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
           {/* 두 가지 지원 방식 */}
           <div className="grid md:grid-cols-2 gap-8">
             {/* 기술 질의응답 */}
-            <Reveal className="h-full rounded-3xl border border-slate-100 bg-slate-50/50 p-10">
+            <Reveal className="h-full rounded-3xl border border-slate-100 bg-slate-50/50 p-7 md:p-10">
               <div className="mb-8 flex items-center gap-4">
                 <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl bg-teal-500/10 text-teal-600">
                   <MessagesSquare size={22} />
@@ -698,7 +685,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
             </Reveal>
 
             {/* 시스템 제작 대행 */}
-            <Reveal delay={150} className="h-full rounded-3xl border border-slate-100 bg-slate-50/50 p-10">
+            <Reveal delay={150} className="h-full rounded-3xl border border-slate-100 bg-slate-50/50 p-7 md:p-10">
               <div className="mb-8 flex items-center gap-4">
                 <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl bg-navy-500/10 text-navy-600">
                   <Wrench size={22} />
@@ -758,8 +745,8 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
 
         {/* 7. CTA 섹션 */}
         <section className="border-t border-slate-100">
-          <div className="container mx-auto max-w-5xl px-6 md:px-8 py-28 text-center">
-            <Reveal className="relative overflow-hidden rounded-[2.5rem] bg-slate-900 px-8 py-20">
+          <div className="container mx-auto max-w-5xl px-6 md:px-8 py-16 md:py-28 text-center">
+            <Reveal className="relative overflow-hidden rounded-[2.5rem] bg-slate-900 px-6 py-14 md:px-8 md:py-20">
               <div className="absolute top-0 left-1/2 -z-0 h-[300px] w-[600px] -translate-x-1/2 rounded-full bg-teal-500/20 blur-[100px]" />
               <div className="relative z-10">
                 <div className="text-5xl mb-8">🦉</div>
