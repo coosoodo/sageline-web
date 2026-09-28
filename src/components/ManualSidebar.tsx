@@ -139,7 +139,7 @@ export default function ManualSidebar({ nav, currentSlug, currentChapterSlug, to
                                     className={`flex items-center py-1.5 px-3 text-[11px] rounded-md transition-all duration-200 ${
                                       isCurrentSub
                                         ? 'font-bold text-teal-700 bg-teal-50'
-                                        : 'font-medium text-slate-400 hover:text-slate-900 hover:bg-slate-50'
+                                        : 'font-medium text-slate-500 hover:text-slate-900 hover:bg-slate-50'
                                     }`}
                                   >
                                     <span className="truncate">{sub.title}</span>

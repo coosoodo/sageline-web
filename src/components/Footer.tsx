@@ -33,13 +33,13 @@ export default function Footer() {
               sageline2024@gmail.com
             </a>
             <div className="text-slate-500">010-8067-4532 (고객지원)</div>
-            <a href="https://cafe.naver.com/sageline" target="_blank" rel="noopener noreferrer" className="mt-2 inline-flex items-center gap-2 rounded-full border border-[#03C75A]/40 bg-[#03C75A]/10 px-5 py-2 text-xs font-bold tracking-wide text-[#03C75A] hover:bg-[#03C75A]/25 transition-all">
+            <a href="https://cafe.naver.com/sageline" target="_blank" rel="noopener noreferrer" className="mt-2 inline-flex items-center gap-2 rounded-full border border-[#02803A]/30 bg-[#03C75A]/10 px-5 py-2 text-xs font-bold tracking-wide text-[#026B31] hover:bg-[#03C75A]/20 transition-all">
               네이버 카페 바로가기
             </a>
           </div>
         </div>
         
-        <div className="mt-20 pt-8 border-t border-slate-200 flex flex-wrap items-center justify-center gap-6 text-[10px] text-slate-400 font-medium tracking-widest">
+        <div className="mt-20 pt-8 border-t border-slate-200 flex flex-wrap items-center justify-center gap-6 text-[10px] text-slate-500 font-medium tracking-widest">
           <span>COPYRIGHT © 2026 SAGELINE. ALL RIGHTS RESERVED.</span>
           <div className="flex gap-4">
             <Link href="/terms" className="hover:text-slate-900">이용약관</Link>

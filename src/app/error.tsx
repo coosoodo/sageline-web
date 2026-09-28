@@ -16,7 +16,7 @@ export default function Error({
 
   return (
     <div className="flex min-h-[70vh] flex-col items-center justify-center bg-white px-6 text-center">
-      <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-teal-600 mb-4">Something went wrong</div>
+      <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-teal-700 mb-4">Something went wrong</div>
       <h1 className="text-4xl md:text-5xl font-black tracking-tight text-slate-900 mb-6">
         일시적인 오류가 발생했습니다
       </h1>

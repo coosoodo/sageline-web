@@ -29,7 +29,7 @@ export default function Header() {
             href={NAVER_CAFE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex whitespace-nowrap rounded-full border border-teal-500/30 bg-teal-500/5 px-5 py-2 text-xs font-bold tracking-[0.1em] text-teal-600 hover:bg-teal-500/10 transition-all duration-300"
+            className="hidden sm:inline-flex whitespace-nowrap rounded-full border border-teal-500/30 bg-teal-500/5 px-5 py-2 text-xs font-bold tracking-[0.1em] text-teal-700 hover:bg-teal-500/10 transition-all duration-300"
           >
             무료 다운로드
           </a>

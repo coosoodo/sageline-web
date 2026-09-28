@@ -46,7 +46,7 @@ export default function ManualHeader({
           <Link href={basePath} className="whitespace-nowrap text-xs font-bold uppercase tracking-[0.1em] sm:tracking-[0.2em] text-slate-500 hover:text-teal-600 transition-colors">
             설명서 홈
           </Link>
-          <Link href="/" className="whitespace-nowrap text-xs font-bold uppercase tracking-[0.1em] sm:tracking-[0.2em] text-teal-600 hover:text-teal-700 transition-colors">
+          <Link href="/" className="whitespace-nowrap text-xs font-bold uppercase tracking-[0.1em] sm:tracking-[0.2em] text-teal-700 hover:text-teal-800 transition-colors">
             <span className="sm:hidden">Home</span>
             <span className="hidden sm:inline">Back to Home</span>
           </Link>

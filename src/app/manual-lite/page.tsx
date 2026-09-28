@@ -61,7 +61,7 @@ export default async function ManualLiteIndexPage() {
                 설명서 시작하기
                 <ArrowRight size={16} />
               </Link>
-              <Link href="/manual/1" className="text-sm font-bold text-teal-600 hover:text-teal-700 transition-colors">
+              <Link href="/manual/1" className="text-sm font-bold text-teal-700 hover:text-teal-800 transition-colors">
                 부엉이 트레이더 프로 설명서 보기 →
               </Link>
             </div>
@@ -81,7 +81,7 @@ export default async function ManualLiteIndexPage() {
                 className="group flex flex-col rounded-3xl border border-slate-100 bg-slate-50/50 p-8 hover:border-teal-500/30 hover:shadow-xl hover:shadow-teal-500/5 transition-all duration-300"
               >
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-500/10 to-navy-500/10 text-lg font-black text-teal-600">
+                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-500/10 to-navy-500/10 text-lg font-black text-teal-700">
                     {ch.slug}
                   </div>
                   <Link href={ch.href} className="pt-1.5">
@@ -97,7 +97,7 @@ export default async function ManualLiteIndexPage() {
                       <li key={s.slug}>
                         <Link
                           href={`${BASE_PATH}/${s.slug}`}
-                          className="flex items-center gap-2 rounded-lg px-3 py-1.5 text-sm text-slate-600 font-medium hover:bg-teal-50 hover:text-teal-700 transition-colors"
+                          className="flex items-center gap-2 rounded-lg px-3 py-1.5 text-sm text-slate-600 font-medium hover:bg-teal-50 hover:text-teal-800 transition-colors"
                         >
                           <ChevronRight size={13} className="flex-shrink-0 text-teal-400" />
                           <span className="truncate">{s.title}</span>
@@ -115,7 +115,7 @@ export default async function ManualLiteIndexPage() {
                         </li>
                       ))}
                       {preview.length > 4 && (
-                        <li className="text-xs text-slate-400 pl-3">외 {preview.length - 4}개 항목</li>
+                        <li className="text-xs text-slate-500 pl-3">외 {preview.length - 4}개 항목</li>
                       )}
                     </ul>
                   )
@@ -123,7 +123,7 @@ export default async function ManualLiteIndexPage() {
 
                 <Link
                   href={ch.href}
-                  className="mt-auto inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.15em] text-teal-600 hover:gap-2.5 transition-all"
+                  className="mt-auto inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.15em] text-teal-700 hover:gap-2.5 transition-all"
                 >
                   읽기 <ChevronRight size={14} />
                 </Link>

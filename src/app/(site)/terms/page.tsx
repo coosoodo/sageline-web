@@ -158,7 +158,7 @@ export default function TermsPage() {
             <div className="mt-4 p-4 bg-slate-50 rounded-lg border border-slate-200 space-y-1">
               <p><span className="text-slate-800 font-medium">회사명:</span> 세이지라인</p>
               <p><span className="text-slate-800 font-medium">담당자:</span> 최재혁</p>
-              <p><span className="text-slate-800 font-medium">이메일:</span> <a href="mailto:sageline2024@gmail.com" className="text-teal-600 hover:underline">sageline2024@gmail.com</a></p>
+              <p><span className="text-slate-800 font-medium">이메일:</span> <a href="mailto:sageline2024@gmail.com" className="text-teal-700 hover:underline">sageline2024@gmail.com</a></p>
               <p><span className="text-slate-800 font-medium">전화:</span> 010-8067-4532</p>
             </div>
           </section>

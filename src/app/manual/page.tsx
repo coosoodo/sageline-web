@@ -101,7 +101,7 @@ export default async function ManualIndexPage() {
               >
                 <div
                   className={`self-start rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest mb-8 ${
-                    isPro ? 'bg-teal-500/10 text-teal-600' : 'bg-navy-500/10 text-navy-600'
+                    isPro ? 'bg-teal-500/10 text-teal-700' : 'bg-navy-500/10 text-navy-600'
                   }`}
                 >
                   {p.badge}
@@ -119,7 +119,7 @@ export default async function ManualIndexPage() {
                     <h2 className="text-2xl font-black text-slate-900">{p.name}</h2>
                     <p
                       className={`text-xs font-bold uppercase tracking-widest mt-1 ${
-                        isPro ? 'text-teal-600' : 'text-navy-600'
+                        isPro ? 'text-teal-700' : 'text-navy-600'
                       }`}
                     >
                       {p.englishName}
@@ -168,7 +168,7 @@ export default async function ManualIndexPage() {
           })}
         </div>
 
-        <p className="mt-10 text-center text-sm text-slate-400 font-light">
+        <p className="mt-10 text-center text-sm text-slate-500 font-light">
           어느 제품을 쓰고 계신지 모르겠다면, 프로그램 제목 표시줄이나{' '}
           <strong className="font-medium text-slate-500">[도움말 → 프로그램 정보]</strong> 에서 제품명을 확인할 수 있습니다.
         </p>

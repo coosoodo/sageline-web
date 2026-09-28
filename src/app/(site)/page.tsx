@@ -84,9 +84,9 @@ const UPDATES: UpdateGroup[] = [
     version: 'v2.5.5',
     date: '2026. 9. 29.',
     href: '/manual/1',
-    badgeClass: 'bg-teal-500/10 text-teal-600',
+    badgeClass: 'bg-teal-500/10 text-teal-700',
     dotClass: 'bg-teal-500',
-    linkClass: 'text-teal-600 hover:text-teal-700',
+    linkClass: 'text-teal-700 hover:text-teal-800',
     items: [
       {
         title: 'KRX 애프터마켓 대응',
@@ -185,7 +185,7 @@ function ScopeBadge({ scope }: { scope: 'both' | 'pro' }) {
       프로 · 라이트
     </span>
   ) : (
-    <span className="absolute top-6 right-6 md:top-8 md:right-8 rounded-full bg-teal-500/10 px-2.5 py-1 text-[10px] font-bold tracking-wide text-teal-600">
+    <span className="absolute top-6 right-6 md:top-8 md:right-8 rounded-full bg-teal-500/10 px-2.5 py-1 text-[10px] font-bold tracking-wide text-teal-700">
       프로
     </span>
   );
@@ -209,14 +209,14 @@ export default function HomePage() {
 
           <div className="container mx-auto max-w-5xl text-center">
             <div className="mb-10 flex flex-wrap items-center justify-center gap-3">
-              <div className="inline-flex items-center space-x-2 rounded-full border border-teal-500/20 bg-teal-500/5 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.3em] text-teal-500">
+              <div className="inline-flex items-center space-x-2 rounded-full border border-teal-500/20 bg-teal-500/5 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.3em] text-teal-700">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
                 </span>
                 <span>Data-Driven Strategy Partner</span>
               </div>
-              <span className="inline-flex items-center rounded-full bg-teal-500 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.3em] text-white shadow-sm shadow-teal-500/30">
+              <span className="inline-flex items-center rounded-full bg-teal-700 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.3em] text-white shadow-sm shadow-teal-700/30">
                 100% 무료
               </span>
             </div>
@@ -232,7 +232,7 @@ export default function HomePage() {
               <span className="text-slate-900 font-semibold italic">SAGELINE</span>은
               기관의 영역이었던 알고리즘 자동매매를{' '}<br className="hidden md:block" />
               개인 투자자의 책상 위로 가져왔습니다.
-              <span className="text-teal-600 font-medium"> 부엉이 트레이더</span>와 함께 시작하세요.
+              <span className="text-teal-700 font-medium"> 부엉이 트레이더</span>와 함께 시작하세요.
             </p>
 
             <div className="mt-10 md:mt-14 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -262,7 +262,7 @@ export default function HomePage() {
         {/* 2. Products 섹션 */}
         <section id="products" className="container mx-auto max-w-7xl px-6 md:px-8 py-16 md:py-24 border-t border-slate-100 scroll-mt-20">
           <Reveal className="text-center mb-12 md:mb-20">
-            <div className="inline-flex items-center space-x-2 rounded-full border border-teal-500/20 bg-teal-500/5 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.3em] text-teal-600 mb-8">
+            <div className="inline-flex items-center space-x-2 rounded-full border border-teal-500/20 bg-teal-500/5 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.3em] text-teal-700 mb-8">
               <span>Our Products</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-6">
@@ -279,7 +279,7 @@ export default function HomePage() {
             <div className="relative overflow-hidden rounded-3xl border border-teal-500/20 bg-gradient-to-br from-teal-500/[0.08] via-white to-navy-500/[0.06] px-7 py-8 md:px-12 md:py-10">
               <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-8">
                 <div className="flex-grow">
-                  <div className="inline-flex items-center gap-2 rounded-full bg-teal-500/10 px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.25em] text-teal-600 mb-5">
+                  <div className="inline-flex items-center gap-2 rounded-full bg-teal-500/10 px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.25em] text-teal-700 mb-5">
                     100% Free
                   </div>
                   <h3 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight mb-3">
@@ -294,7 +294,7 @@ export default function HomePage() {
                   href={NAVER_CAFE_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-shrink-0 inline-flex items-center justify-center gap-2 rounded-full bg-[#03C75A] px-8 py-4 text-sm font-bold tracking-wide text-white hover:bg-[#02b152] transition-all duration-300 shadow-lg shadow-[#03C75A]/20"
+                  className="flex-shrink-0 inline-flex items-center justify-center gap-2 rounded-full bg-[#02803A] px-8 py-4 text-sm font-bold tracking-wide text-white hover:bg-[#026B31] transition-all duration-300 shadow-lg shadow-[#02803A]/20"
                 >
                   네이버 카페에서 무료 다운로드
                   <ChevronRight size={16} />
@@ -306,14 +306,14 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-12 md:mb-20">
             {/* 부엉이 트레이더 프로 */}
             <Reveal id="owl-trader" className="group relative h-full scroll-mt-24 rounded-3xl border border-slate-100 bg-slate-50/50 p-7 md:p-10 hover:border-teal-500/30 hover:shadow-lg hover:shadow-teal-500/5 transition-all duration-300">
-              <div className="absolute top-8 right-8 rounded-full bg-teal-500/10 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-teal-600">
+              <div className="absolute top-8 right-8 rounded-full bg-teal-500/10 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-teal-700">
                 All-in-One
               </div>
               <div className="flex items-center gap-4 mb-8">
                 <div className="h-14 w-14 rounded-2xl bg-teal-500/10 flex items-center justify-center text-3xl">🦉</div>
                 <div>
                   <h3 className="text-2xl font-black text-slate-900">부엉이 트레이더 프로</h3>
-                  <p className="text-xs text-teal-600 font-bold uppercase tracking-widest mt-1">Owl Trader Pro</p>
+                  <p className="text-xs text-teal-700 font-bold uppercase tracking-widest mt-1">Owl Trader Pro</p>
                 </div>
               </div>
               <p className="text-sm text-slate-500 leading-relaxed font-light mb-8">
@@ -331,7 +331,7 @@ export default function HomePage() {
               </ul>
               <Link
                 href="/manual/1"
-                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.15em] text-teal-600 hover:text-teal-700 transition-colors group/link"
+                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.15em] text-teal-700 hover:text-teal-800 transition-colors group/link"
               >
                 사용자 설명서 보기 <ChevronRight size={14} className="group-hover/link:translate-x-1 transition-transform" />
               </Link>
@@ -377,7 +377,7 @@ export default function HomePage() {
             <div className="flex items-center justify-between border-b border-slate-100 bg-slate-50/70 px-5 py-4">
               <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">기능 비교</span>
               <div className="flex gap-2 text-xs font-bold">
-                <span className="w-16 text-center text-teal-600">프로</span>
+                <span className="w-16 text-center text-teal-700">프로</span>
                 <span className="w-16 text-center text-navy-600">라이트</span>
               </div>
             </div>
@@ -401,7 +401,7 @@ export default function HomePage() {
                 <thead>
                   <tr className="border-b border-slate-100 bg-slate-50/70">
                     <th className="px-8 py-5 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">기능 비교</th>
-                    <th className="px-6 py-5 text-center text-sm font-bold text-teal-600">프로</th>
+                    <th className="px-6 py-5 text-center text-sm font-bold text-teal-700">프로</th>
                     <th className="px-6 py-5 text-center text-sm font-bold text-navy-600">라이트</th>
                   </tr>
                 </thead>
@@ -422,7 +422,7 @@ export default function HomePage() {
         {/* 3. 최신 업데이트 섹션 */}
         <section id="updates" className="container mx-auto max-w-7xl px-6 md:px-8 py-16 md:py-24 border-t border-slate-100 scroll-mt-20">
           <Reveal className="text-center mb-12 md:mb-20">
-            <div className="inline-flex items-center space-x-2 rounded-full border border-teal-500/20 bg-teal-500/5 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.3em] text-teal-600 mb-8">
+            <div className="inline-flex items-center space-x-2 rounded-full border border-teal-500/20 bg-teal-500/5 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.3em] text-teal-700 mb-8">
               <span>Latest Update</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-6">
@@ -446,7 +446,7 @@ export default function HomePage() {
                   <span className={`rounded-full px-3 py-1 text-[11px] font-black tracking-wide ${group.badgeClass}`}>
                     {group.version}
                   </span>
-                  <span className="text-xs text-slate-400">{group.date}</span>
+                  <span className="text-xs text-slate-500">{group.date}</span>
                 </div>
 
                 <ol className="relative space-y-5 md:space-y-6 border-l border-slate-100 pl-6">
@@ -601,7 +601,7 @@ export default function HomePage() {
                   <li key={t.time} className="rounded-lg bg-slate-50 px-1.5 py-2 text-center">
                     <p className="text-[11px] font-black text-slate-800">{t.time}</p>
                     <p className="mt-0.5 text-[10px] text-slate-500">{t.label}</p>
-                    <p className={`mt-1 text-[10px] font-bold ${t.venue === 'SOR' ? 'text-teal-600' : 'text-navy-600'}`}>{t.venue}</p>
+                    <p className={`mt-1 text-[10px] font-bold ${t.venue === 'SOR' ? 'text-teal-700' : 'text-navy-600'}`}>{t.venue}</p>
                   </li>
                 ))}
               </ol>
@@ -648,7 +648,7 @@ export default function HomePage() {
                 <LineChart size={18} />
               </div>
               <div>
-                <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-teal-600 mb-1.5">Sage — 지혜</p>
+                <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-teal-700 mb-1.5">Sage — 지혜</p>
                 <p className="text-sm md:text-base text-slate-600 leading-relaxed">
                   시세와 수급, 지표를 데이터로 읽어 <span className="font-semibold text-slate-800">소음이 아닌 신호</span>에 집중합니다.
                 </p>
@@ -671,7 +671,7 @@ export default function HomePage() {
         {/* 6. Development Support 섹션 */}
         <section id="support" className="container mx-auto max-w-7xl px-6 md:px-8 py-16 md:py-24 border-t border-slate-100 scroll-mt-20">
           <Reveal className="text-center mb-12 md:mb-20">
-            <div className="inline-flex items-center space-x-2 rounded-full border border-teal-500/20 bg-teal-500/5 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.3em] text-teal-600 mb-8">
+            <div className="inline-flex items-center space-x-2 rounded-full border border-teal-500/20 bg-teal-500/5 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.3em] text-teal-700 mb-8">
               <span>Development Support</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-6">
@@ -710,7 +710,7 @@ export default function HomePage() {
                 </div>
                 <div>
                   <h3 className="text-xl font-black text-slate-900">기술 질의응답</h3>
-                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-teal-600 mt-1">Q &amp; A</p>
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-teal-700 mt-1">Q &amp; A</p>
                 </div>
               </div>
               <p className="text-sm text-slate-500 leading-relaxed font-light mb-8">
@@ -773,13 +773,13 @@ export default function HomePage() {
                 href={NAVER_CAFE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-shrink-0 inline-flex items-center justify-center gap-2 rounded-full bg-[#03C75A] px-8 py-4 text-sm font-bold tracking-wide text-white hover:bg-[#02b152] transition-all duration-300 shadow-lg shadow-[#03C75A]/20"
+                className="flex-shrink-0 inline-flex items-center justify-center gap-2 rounded-full bg-[#02803A] px-8 py-4 text-sm font-bold tracking-wide text-white hover:bg-[#026B31] transition-all duration-300 shadow-lg shadow-[#02803A]/20"
               >
                 네이버 카페에서 문의하기
                 <ChevronRight size={16} />
               </a>
             </div>
-            <p className="mt-8 text-xs text-slate-400 font-light leading-relaxed">
+            <p className="mt-8 text-xs text-slate-500 font-light leading-relaxed">
               ※ 세이지라인은 구현에 관한 기술 지원만 제공합니다. 매매 전략의 수익성을 보장하거나 투자를 권유하지 않으며,
               매매 판단과 그 결과에 대한 책임은 이용자 본인에게 있습니다.
             </p>
@@ -805,7 +805,7 @@ export default function HomePage() {
                     href={NAVER_CAFE_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full bg-[#03C75A] px-8 py-4 text-sm font-bold tracking-wide text-white hover:bg-[#02b152] transition-all duration-300"
+                    className="inline-flex items-center gap-2 rounded-full bg-[#02803A] px-8 py-4 text-sm font-bold tracking-wide text-white hover:bg-[#026B31] transition-all duration-300"
                   >
                     네이버 카페 바로가기
                   </a>

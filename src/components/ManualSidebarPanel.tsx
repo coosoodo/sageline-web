@@ -34,7 +34,7 @@ export default function ManualSidebarPanel({ currentTitle, ...sidebarProps }: Ma
       >
         <ListTree size={16} className="flex-shrink-0 text-teal-600" />
         <span className="flex-grow min-w-0">
-          <span className="block text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">설명서 목차</span>
+          <span className="block text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">설명서 목차</span>
           <span className="block truncate text-sm font-bold text-slate-800">{currentTitle}</span>
         </span>
         <ChevronDown
