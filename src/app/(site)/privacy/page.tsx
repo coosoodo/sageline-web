@@ -10,7 +10,7 @@ export default function PrivacyPage() {
     <div className="bg-white text-slate-600">
       <main className="container mx-auto max-w-4xl px-8 pt-32 pb-24">
         <h1 className="text-3xl font-bold text-slate-900 mb-2">개인정보처리방침</h1>
-        <p className="text-sm text-slate-500 mb-12">시행일: 2026년 1월 1일 &nbsp;|&nbsp; 최종 수정일: 2026년 3월 28일</p>
+        <p className="text-sm text-slate-500 mb-12">시행일: 2026년 1월 1일 &nbsp;|&nbsp; 최종 수정일: 2026년 9월 29일</p>
 
         <div className="space-y-10 text-sm leading-relaxed text-slate-400">
 
@@ -19,7 +19,7 @@ export default function PrivacyPage() {
             <p>세이지라인(이하 &quot;회사&quot;)은 다음의 목적을 위하여 개인정보를 처리합니다. 처리하고 있는 개인정보는 다음의 목적 이외의 용도로는 이용되지 않으며, 이용 목적이 변경되는 경우에는 개인정보 보호법 제18조에 따라 별도의 동의를 받는 등 필요한 조치를 이행할 예정입니다.</p>
             <ul className="mt-3 list-disc list-inside space-y-1 text-slate-400">
               <li>회원 가입 및 관리: 회원 가입의사 확인, 회원제 서비스 제공에 따른 본인 식별·인증, 회원자격 유지·관리, 서비스 부정이용 방지</li>
-              <li>서비스 제공: 부엉이 ATS 자동매매 서비스, AI 전략 컨설팅 서비스 제공, 맞춤서비스 제공, 본인인증</li>
+              <li>서비스 제공: 커뮤니티 게시판 이용(게시글 작성과 관리), 부엉이 트레이더 프로 · 라이트 관련 안내, 자동매매 개발 지원 문의 대응</li>
               <li>고충 처리: 민원인의 신원 확인, 민원사항 확인, 사실조사를 위한 연락·통지, 처리결과 통보</li>
             </ul>
           </section>
