@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 
 export const SITE_NAME = 'SAGE LINE';
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://sageline.co.kr';
 
 /**
  * 공유 미리보기 이미지. app/opengraph-image.png 파일 규칙으로 제공되지만,
@@ -40,6 +41,7 @@ export function pageMetadata({
   return {
     title: absolute ? { absolute: title } : title,
     description,
+    ...(path ? { alternates: { canonical: path } } : {}),
     openGraph: {
       ...BASE_OPEN_GRAPH,
       title: fullTitle,

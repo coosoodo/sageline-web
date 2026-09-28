@@ -4,7 +4,11 @@ import React, { useEffect, useRef, useState } from 'react';
 
 /**
  * 스크롤로 뷰포트에 들어올 때 페이드+슬라이드로 나타나는 래퍼.
- * prefers-reduced-motion 사용자에게는 애니메이션 없이 즉시 표시한다.
+ *
+ * 숨김 · 등장은 globals.css 의 [data-js] [data-reveal] 규칙이 맡는다. 서버 HTML은
+ * 보이는 상태 그대로이고, JS 가 켜진 경우에만(<html data-js>) 숨겼다가 나타낸다.
+ * 그래서 JS 를 받기 전이나 실행에 실패해도 내용이 가려지지 않는다.
+ * prefers-reduced-motion 사용자에게는 CSS 가 애니메이션 없이 바로 보여 준다.
  */
 export default function Reveal({
   children,
@@ -23,11 +27,6 @@ export default function Reveal({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      const raf = window.requestAnimationFrame(() => setVisible(true));
-      return () => window.cancelAnimationFrame(raf);
-    }
 
     let fired = false;
     const observer = new IntersectionObserver(
@@ -58,10 +57,10 @@ export default function Reveal({
     <div
       ref={ref}
       id={id}
-      style={{ transitionDelay: `${delay}ms` }}
-      className={`transition-all duration-700 ease-out will-change-transform ${
-        visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-      } ${className}`}
+      data-reveal=""
+      data-revealed={visible ? '' : undefined}
+      style={delay ? { transitionDelay: `${delay}ms` } : undefined}
+      className={className}
     >
       {children}
     </div>

@@ -284,3 +284,28 @@ export const getToc = (content: string): ToCItem[] => {
   
   return items;
 };
+
+/**
+ * 검색 결과 · 공유 미리보기용 요약문. 페이지 본문의 첫 일반 문단을 쓴다.
+ * 제목 · 표 · 이미지 · 인용 · 목록 · HTML 줄은 건너뛰고, 마크다운 기호를 걷어 낸다.
+ */
+export const getPageSummary = (page: ManualPage, maxLength = 150): string | undefined => {
+  const paragraph = page.content
+    .split(/\n\s*\n/)
+    .map((block) => block.trim())
+    .find((block) => block && !/^(#|\||!\[|>|<|[-*+]\s|\d+\.\s|```|---)/.test(block));
+  if (!paragraph) return undefined;
+
+  const text = paragraph
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, '')
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+    .replace(/[*_`~]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+  if (text.length <= maxLength) return text;
+
+  // 문장 경계에서 자르되, 너무 짧아지면 글자 수로 자른다
+  const cut = text.slice(0, maxLength);
+  const end = Math.max(cut.lastIndexOf('다. '), cut.lastIndexOf('. '));
+  return end > maxLength * 0.5 ? cut.slice(0, end + 2).trim() : `${cut.trim()}…`;
+};

@@ -8,7 +8,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import ManualHeader from '@/components/ManualHeader';
 import ManualSidebarPanel from '@/components/ManualSidebarPanel';
 import ManualRenderer from '@/components/ManualRenderer';
-import { parseManual, getPages, getManualNav } from '@/lib/manual-utils';
+import { parseManual, getPages, getManualNav, getPageSummary } from '@/lib/manual-utils';
 import { pageMetadata } from '@/lib/metadata';
 
 export const dynamic = 'force-static';
@@ -35,7 +35,7 @@ export async function generateMetadata({
     title: `${page.title} | 부엉이 트레이더 프로 설명서`,
     absolute: true,
     path: `/manual/${page.slug}`,
-    description: `부엉이 트레이더 프로 사용자 설명서 — ${page.shortTitle}`,
+    description: getPageSummary(page) ?? `부엉이 트레이더 프로 사용자 설명서 — ${page.shortTitle}`,
   });
 }
 

@@ -5,7 +5,11 @@ import Link from 'next/link';
 
 import Reveal from '@/components/Reveal';
 import HeroMockup from '@/components/HeroMockup';
+import fs from 'fs';
+import path from 'path';
 import { NAVER_CAFE_URL } from '@/lib/nav';
+import { parseManual } from '@/lib/manual-utils';
+import { SITE_URL } from '@/lib/metadata';
 import {
   ChevronRight,
   CandlestickChart,
@@ -197,9 +201,68 @@ function ComparisonCell({ value }: { value: string | boolean }) {
   return <span className="text-xs font-medium text-slate-600">{value}</span>;
 }
 
+/** 설명서 frontmatter 의 버전을 읽는다. 릴리즈 때 설명서만 올리면 구조화 데이터도 따라온다. */
+function manualVersion(file: string) {
+  const raw = fs.readFileSync(path.join(process.cwd(), 'src/content', file), 'utf8');
+  return parseManual(raw).meta.version;
+}
+
+/** 검색엔진용 구조화 데이터 (schema.org): 회사와 두 프로그램 */
+function buildJsonLd() {
+  const orgId = `${SITE_URL}/#organization`;
+  const app = (name: string, anchor: string, version: string, operatingSystem: string, description: string) => ({
+    '@type': 'SoftwareApplication',
+    name,
+    url: `${SITE_URL}/#${anchor}`,
+    applicationCategory: 'FinanceApplication',
+    operatingSystem,
+    softwareVersion: version,
+    description,
+    downloadUrl: NAVER_CAFE_URL,
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'KRW' },
+    publisher: { '@id': orgId },
+  });
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Organization',
+        '@id': orgId,
+        name: '세이지라인',
+        alternateName: 'SAGE LINE',
+        url: SITE_URL,
+        logo: `${SITE_URL}/icon.png`,
+        email: 'sageline2024@gmail.com',
+        sameAs: [NAVER_CAFE_URL],
+      },
+      app(
+        '부엉이 트레이더 프로',
+        'owl-trader',
+        manualVersion('manual.md'),
+        'Windows 10, Windows 11 (64비트)',
+        '키움증권 REST API 기반 국내 주식 자동매매 프로그램. 조건검색식 · 사용자 정의 전략 자동매매, AI 매수의견 판정, 외부 매매신호 연동.',
+      ),
+      app(
+        '부엉이 트레이더 라이트',
+        'owl-trader-lite',
+        manualVersion('manual-lite.md'),
+        'Windows 10 이상 (64비트)',
+        '키움증권 조건검색식 기반 자동매매와 손절 · 익절 · 트레일링 스탑 등 매도 전략에 집중한 경량 자동매매 프로그램.',
+      ),
+    ],
+  };
+}
+
 export default function HomePage() {
+  const jsonLd = buildJsonLd();
   return (
     <div className="flex flex-col text-slate-600 selection:bg-teal-500/30">
+
+      <script
+        type="application/ld+json"
+        // JSON 안의 '<' 를 이스케이프해 스크립트 태그가 닫히지 않게 한다
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
+      />
 
       <main className="flex-grow">
         {/* 1. Hero 섹션 */}
@@ -253,9 +316,10 @@ export default function HomePage() {
               </a>
             </div>
 
-            <Reveal delay={200} className="mt-16 md:mt-24">
+            {/* 첫 화면에 걸리므로 등장 효과 없이 바로 보인다 */}
+            <div className="mt-16 md:mt-24">
               <HeroMockup />
-            </Reveal>
+            </div>
           </div>
         </section>
 

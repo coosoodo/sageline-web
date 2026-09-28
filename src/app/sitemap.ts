@@ -3,7 +3,7 @@ import path from 'path';
 import type { MetadataRoute } from 'next';
 import { getPages } from '@/lib/manual-utils';
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sageline.co.kr';
+import { SITE_URL as baseUrl } from '@/lib/metadata';
 
 /** 설명서 본문 페이지 목록. /manual 은 제품 선택 페이지라 본문 링크를 담지 않으므로 직접 넣는다. */
 function manualRoutes(file: string, basePath: string) {

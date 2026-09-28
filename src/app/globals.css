@@ -61,52 +61,32 @@ body {
   background-color: rgba(20, 184, 166, 0.25); /* teal-500, 브랜드 포인트 색 */
 }
 
-/* Tiptap Editor Styles */
-.tiptap p.is-editor-empty:first-child::before {
-  color: #94a3b8;
-  content: attr(data-placeholder);
-  float: left;
-  height: 0;
-  pointer-events: none;
+/*
+ * 스크롤 등장 효과 (components/Reveal.tsx)
+ * 서버 HTML은 항상 보이는 상태로 내보낸다. <head> 의 인라인 스크립트가
+ * <html data-js> 를 붙인 경우에만 숨겼다가 뷰포트에 들어오면 나타낸다.
+ * JS 가 없거나 실패해도 내용이 가려지지 않는다.
+ */
+[data-js] [data-reveal] {
+  /* 카드의 hover 전환(테두리 · 그림자)도 이 규칙이 덮으므로 함께 지정한다 */
+  transition:
+    opacity 700ms ease-out,
+    transform 700ms ease-out,
+    border-color 300ms,
+    box-shadow 300ms,
+    background-color 300ms;
 }
 
-.tiptap img {
-  display: block;
-  margin: 1.5rem 0;
-  cursor: pointer;
-  transition: all 0.2s;
+[data-js] [data-reveal]:not([data-revealed]) {
+  opacity: 0;
+  transform: translateY(2rem);
 }
 
-.tiptap img:hover {
-  filter: brightness(1.1);
-}
-
-.tiptap img.ProseMirror-selectednode {
-  outline: 3px solid #14b8a6;
-}
-
-.tiptap blockquote {
-  border-left: 3px solid #14b8a6;
-  padding-left: 1rem;
-  font-style: italic;
-  color: #475569;
-}
-
-.tiptap code {
-  background-color: rgba(0, 0, 0, 0.05);
-  padding: 0.2rem 0.4rem;
-  border-radius: 0.3rem;
-  font-size: 0.875rem;
-}
-
-.tiptap pre {
-  background-color: #f1f5f9;
-  color: #334155;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  margin: 1rem 0;
-}
-
-.tiptap a {
-  cursor: pointer;
+@media (prefers-reduced-motion: reduce) {
+  [data-js] [data-reveal],
+  [data-js] [data-reveal]:not([data-revealed]) {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

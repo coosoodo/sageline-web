@@ -13,10 +13,12 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// 가변 폰트 한 벌로 100~900 전 굵기를 쓴다. 굵기를 나열하면 굵기마다
+// 한글 unicode-range 조각(약 120개)이 반복되어 @font-face 가 600개를 넘는다.
 const notoSansKr = Noto_Sans_KR({
   variable: "--font-noto-sans-kr",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "700", "900"],
+  weight: "variable",
 });
 
 export const metadata: Metadata = {
@@ -44,7 +46,12 @@ export default function RootLayout({
     <html
       lang="ko"
       className={`${geistSans.variable} ${geistMono.variable} ${notoSansKr.variable} h-full antialiased scroll-smooth`}
+      suppressHydrationWarning
     >
+      <head>
+        {/* JS 가 켜진 경우에만 스크롤 등장 효과로 숨긴다 (globals.css [data-js] [data-reveal]) */}
+        <script dangerouslySetInnerHTML={{ __html: 'document.documentElement.dataset.js=""' }} />
+      </head>
       <body className="min-h-full flex flex-col">
         {children}
       </body>
