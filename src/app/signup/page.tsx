@@ -1,59 +1,6 @@
-import type { Metadata } from 'next';
-import Link from 'next/link';
-import SignupForm from './SignupForm';
+import { permanentRedirect } from 'next/navigation';
 
-export const metadata: Metadata = {
-  title: '회원가입',
-  description: 'SAGE LINE 회원가입 페이지입니다.',
-};
-
+// 회원가입은 로그인 화면(Google OAuth)으로 합쳐졌다. 예전 링크·북마크를 위해 남겨 둔다.
 export default function SignupPage() {
-  return (
-    <div className="flex min-h-screen flex-col bg-white text-slate-600">
-      {/* 배경 효과 */}
-      <div className="fixed top-0 left-1/2 -z-10 h-[500px] w-[700px] -translate-x-1/2 rounded-full bg-teal-500/5 blur-[140px] pointer-events-none" />
-
-      {/* 네비게이션 */}
-      <header className="border-b border-slate-100 bg-white/80 backdrop-blur-xl">
-        <nav className="container mx-auto flex h-20 max-w-7xl items-center justify-between px-8">
-          <Link href="/" className="flex items-center space-x-3">
-            <div className="h-10 w-10 rounded-2xl bg-gradient-to-br from-teal-500 to-navy-600 p-[2px]">
-              <div className="flex h-full w-full items-center justify-center rounded-[14px] bg-white">
-                <div className="h-4 w-4 rounded-full bg-teal-500" />
-              </div>
-            </div>
-            <span className="text-2xl font-black tracking-tighter text-slate-900">SAGE LINE</span>
-          </Link>
-        </nav>
-      </header>
-
-      {/* 본문 */}
-      <main className="flex flex-grow items-center justify-center px-6 py-16">
-        <div className="w-full max-w-md">
-          {/* 헤더 */}
-          <div className="mb-10 text-center">
-            <div className="inline-flex items-center space-x-2 rounded-full border border-teal-500/20 bg-teal-500/5 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.3em] text-teal-400 mb-6">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-500" />
-              </span>
-              <span>Join SAGE LINE</span>
-            </div>
-            <h1 className="text-4xl font-black text-slate-900 tracking-tight">회원가입</h1>
-            <p className="mt-3 text-sm text-slate-500">SAGE LINE과 함께 현명한 비즈니스를 시작하세요.</p>
-          </div>
-
-          {/* 폼 카드 */}
-          <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-xl shadow-slate-200/50">
-            <SignupForm />
-          </div>
-        </div>
-      </main>
-
-      {/* 푸터 */}
-      <footer className="py-8 text-center text-[10px] text-slate-400 font-medium tracking-widest border-t border-slate-100">
-        COPYRIGHT © 2026 SAGELINE. ALL RIGHTS RESERVED.
-      </footer>
-    </div>
-  );
+  permanentRedirect('/login');
 }

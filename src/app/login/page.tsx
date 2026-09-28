@@ -1,13 +1,16 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import BrandLogo from '@/components/BrandLogo';
 import LoginForm from './LoginForm';
 
 export const metadata: Metadata = {
-  title: '로그인',
-  description: 'SAGE LINE 로그인 페이지입니다.',
+  title: '로그인 · 회원가입',
+  description: 'Google 계정으로 SAGE LINE에 로그인하거나 가입합니다.',
 };
 
-export default function LoginPage() {
+export default async function LoginPage({ searchParams }: { searchParams: Promise<{ error?: string }> }) {
+  const { error } = await searchParams;
+
   return (
     <div className="flex min-h-screen flex-col bg-white text-slate-600">
       {/* 배경 효과 */}
@@ -15,14 +18,10 @@ export default function LoginPage() {
 
       {/* 네비게이션 */}
       <header className="border-b border-slate-100 bg-white/80 backdrop-blur-xl">
-        <nav className="container mx-auto flex h-20 max-w-7xl items-center justify-between px-8">
-          <Link href="/" className="flex items-center space-x-3">
-            <div className="h-10 w-10 rounded-2xl bg-gradient-to-br from-teal-500 to-navy-600 p-[2px]">
-              <div className="flex h-full w-full items-center justify-center rounded-[14px] bg-white">
-                <div className="h-4 w-4 rounded-full bg-teal-500" />
-              </div>
-            </div>
-            <span className="text-2xl font-black tracking-tighter text-slate-900">SAGE LINE</span>
+        <nav className="container mx-auto flex h-20 max-w-7xl items-center justify-between px-6 sm:px-8">
+          <BrandLogo priority />
+          <Link href="/" className="whitespace-nowrap text-xs font-bold uppercase tracking-[0.15em] text-slate-500 hover:text-teal-600 transition-colors">
+            홈으로
           </Link>
         </nav>
       </header>
@@ -32,7 +31,7 @@ export default function LoginPage() {
         <div className="w-full max-w-md">
           {/* 헤더 */}
           <div className="mb-10 text-center">
-            <div className="inline-flex items-center space-x-2 rounded-full border border-teal-500/20 bg-teal-500/5 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.3em] text-teal-400 mb-6">
+            <div className="inline-flex items-center space-x-2 rounded-full border border-teal-500/20 bg-teal-500/5 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.3em] text-teal-600 mb-6">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-500" />
@@ -45,6 +44,11 @@ export default function LoginPage() {
 
           {/* 폼 카드 */}
           <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-xl shadow-slate-200/50">
+            {error && (
+              <p role="alert" className="mb-6 rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-center text-xs font-medium text-red-600">
+                로그인을 완료하지 못했습니다. 잠시 후 다시 시도해 주세요.
+              </p>
+            )}
             <LoginForm />
           </div>
         </div>
