@@ -6,7 +6,7 @@ import { createSupabaseServerClient } from '@/lib/supabase-server';
 import BoardHeader from '@/components/BoardHeader';
 import MarkdownRenderer from '@/components/MarkdownRenderer';
 import BoardActions from '@/components/BoardActions';
-import { getBoardCategory } from '@/lib/boards';
+import { getBoardCategory, isHiddenPost } from '@/lib/boards';
 import { ChevronLeft, Eye } from 'lucide-react';
 
 interface Props {
@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     .single();
 
   const cat = getBoardCategory(category);
-  if (!post) return { title: cat ? cat.title : '게시판' };
+  if (!post || isHiddenPost(id)) return { title: cat ? cat.title : '게시판' };
 
   // 본문은 마크다운이므로 기호를 걷어 내고 앞부분만 설명으로 쓴다
   const excerpt = String(post.content ?? '')
@@ -40,6 +40,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function PostDetailPage({ params }: Props) {
   const { category, id } = await params;
+  if (isHiddenPost(id)) notFound();
   const supabase = await createSupabaseServerClient();
 
   // 게시글 가져오기

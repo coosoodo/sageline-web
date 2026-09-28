@@ -7,7 +7,7 @@ import BoardHeader from '@/components/BoardHeader';
 import BoardList from '@/components/BoardList';
 import BoardToolbar from '@/components/BoardToolbar';
 import Pagination from '@/components/Pagination';
-import { ALL_BOARD, BOARDS_WITH_ALL, BOARD_CATEGORY_IDS, getBoardView } from '@/lib/boards';
+import { ALL_BOARD, BOARDS_WITH_ALL, BOARD_CATEGORY_IDS, HIDDEN_POST_IDS, getBoardView } from '@/lib/boards';
 import { ChevronRight } from 'lucide-react';
 
 const PAGE_SIZE = 10;
@@ -49,6 +49,8 @@ export default async function BoardPage({ params, searchParams }: Props) {
   if (!isAll) query = query.eq('category', category);
 
   if (keyword) query = query.ilike('title', `%${keyword}%`);
+
+  if (HIDDEN_POST_IDS.length > 0) query = query.not('id', 'in', `(${HIDDEN_POST_IDS.join(',')})`);
 
   // 공지 우선 → 선택한 정렬 기준
   query = query.order('is_announcement', { ascending: false });

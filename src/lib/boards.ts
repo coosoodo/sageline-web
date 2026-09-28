@@ -36,3 +36,11 @@ export const getBoardCategory = (id: string): BoardCategory | undefined =>
 // (글쓰기·라우트 검증에는 실제 카테고리만 있는 BOARD_CATEGORY_IDS 를 사용)
 export const getBoardView = (id: string): BoardCategory | undefined =>
   id === ALL_BOARD.id ? ALL_BOARD : getBoardCategory(id);
+
+// 사이트에서 숨긴 게시글 ID. DB 행은 지우지 않고 목록·상세·수정 화면에서만 뺀다.
+// 되살리려면 여기서 ID 를 지우면 된다.
+export const HIDDEN_POST_IDS: string[] = [
+  'd9328efe-3ac2-49b5-a745-588a2e10e6e5', // 버그신고: 내부 잔고 데이터 새로고침 오류 (스택 트레이스 · 로컬 경로 노출)
+];
+
+export const isHiddenPost = (id: string) => HIDDEN_POST_IDS.includes(id);

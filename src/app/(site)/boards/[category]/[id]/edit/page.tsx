@@ -3,6 +3,7 @@ import { notFound, redirect } from 'next/navigation';
 import { createSupabaseServerClient } from '@/lib/supabase-server';
 import BoardHeader from '@/components/BoardHeader';
 import BoardForm from '@/components/BoardForm';
+import { isHiddenPost } from '@/lib/boards';
 
 interface Props {
   params: Promise<{ category: string; id: string }>;
@@ -11,6 +12,8 @@ interface Props {
 export default async function EditPage({ params }: Props) {
   const { category, id } = await params;
   const supabase = await createSupabaseServerClient();
+
+  if (isHiddenPost(id)) notFound();
 
   // 게시글 데이터 불러오기
   const { data: post, error } = await supabase
