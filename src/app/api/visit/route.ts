@@ -35,13 +35,14 @@ export async function POST(request: NextRequest) {
     // 본문이 없거나 잘못되면 조회만 한다
   }
 
+  // 새 방식 secret 키(sb_secret_...)는 JWT 가 아니라 apikey 헤더로만 보낸다.
+  // 예전 방식 service_role 키(JWT, eyJ...)는 Authorization 에도 실어야 역할이 적용된다.
+  const headers: Record<string, string> = { apikey: key, 'Content-Type': 'application/json' };
+  if (key.startsWith('eyJ')) headers.Authorization = `Bearer ${key}`;
+
   const res = await fetch(`${url}/rest/v1/rpc/record_site_visit`, {
     method: 'POST',
-    headers: {
-      apikey: key,
-      Authorization: `Bearer ${key}`,
-      'Content-Type': 'application/json',
-    },
+    headers,
     body: JSON.stringify({ p_count: count }),
     cache: 'no-store',
   });
