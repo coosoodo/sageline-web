@@ -6,7 +6,7 @@ import type { Metadata } from 'next';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 import ManualHeader from '@/components/ManualHeader';
-import ManualSidebar from '@/components/ManualSidebar';
+import ManualSidebarPanel from '@/components/ManualSidebarPanel';
 import ManualRenderer from '@/components/ManualRenderer';
 import { parseManual, getPages, getManualNav } from '@/lib/manual-utils';
 
@@ -58,17 +58,16 @@ export default async function ManualChapterPage({
     <div className="flex min-h-screen flex-col bg-white text-slate-600">
       <ManualHeader version={meta.version} lastUpdated={meta.lastUpdated} />
 
-      <div className="container mx-auto max-w-7xl px-8 py-12 flex-grow">
-        <div className="flex flex-col lg:flex-row gap-12">
+      <div className="container mx-auto max-w-7xl px-4 sm:px-8 py-8 lg:py-12 flex-grow">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
           <aside className="lg:w-64 flex-shrink-0 lg:sticky lg:top-32 h-fit">
-            <div className="rounded-2xl border border-slate-200 bg-white p-2 shadow-sm">
-              <ManualSidebar
-                nav={nav}
-                currentSlug={current.slug}
-                currentChapterSlug={current.chapterSlug}
-                toc={current.toc}
-              />
-            </div>
+            <ManualSidebarPanel
+              nav={nav}
+              currentSlug={current.slug}
+              currentChapterSlug={current.chapterSlug}
+              toc={current.toc}
+              currentTitle={current.title}
+            />
           </aside>
 
           <main className="flex-grow min-w-0">

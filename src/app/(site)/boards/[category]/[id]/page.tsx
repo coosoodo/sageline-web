@@ -1,4 +1,5 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound, redirect } from 'next/navigation';
 import { createSupabaseServerClient } from '@/lib/supabase-server';
@@ -10,6 +11,31 @@ import { ChevronLeft, Eye } from 'lucide-react';
 
 interface Props {
   params: Promise<{ category: string; id: string }>;
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { category, id } = await params;
+  const supabase = await createSupabaseServerClient();
+  const { data: post } = await supabase
+    .from('posts')
+    .select('title, content')
+    .eq('id', id)
+    .single();
+
+  const cat = getBoardCategory(category);
+  if (!post) return { title: cat ? cat.title : '게시판' };
+
+  // 본문은 마크다운이므로 기호를 걷어 내고 앞부분만 설명으로 쓴다
+  const excerpt = String(post.content ?? '')
+    .replace(/[\\#>*_`~\[\]()!|-]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .slice(0, 120);
+
+  return {
+    title: cat ? `${post.title} - ${cat.title}` : post.title,
+    description: excerpt || undefined,
+  };
 }
 
 export default async function PostDetailPage({ params }: Props) {

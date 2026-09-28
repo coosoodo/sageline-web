@@ -18,20 +18,20 @@ export default function ManualHeader({
 }) {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur-xl">
-      <div className="container mx-auto flex h-20 max-w-7xl items-center justify-between px-8">
-        <Link href="/" className="group flex items-center space-x-3 cursor-pointer">
-          <div className="relative h-10 w-10 flex-shrink-0">
+      <div className="container mx-auto flex h-16 sm:h-20 max-w-7xl items-center justify-between gap-4 px-4 sm:px-8">
+        <Link href="/" className="group flex flex-shrink-0 items-center space-x-3 cursor-pointer">
+          <div className="relative h-9 w-9 sm:h-10 sm:w-10 flex-shrink-0">
             <Image src={logoMark} alt="SAGE LINE 로고" fill sizes="40px" className="object-contain" />
           </div>
           <div className="flex flex-col leading-none">
-            <span className="text-[18px] font-black tracking-[0.08em] text-navy-700 group-hover:text-navy-500 transition-colors duration-300">
+            <span className="whitespace-nowrap text-[16px] sm:text-[18px] font-black tracking-[0.08em] text-navy-700 group-hover:text-navy-500 transition-colors duration-300">
               SAGE<span className="text-teal-500"> LINE</span>
             </span>
-            <span className="text-[8px] font-bold tracking-[0.25em] text-slate-500 uppercase mt-0.5">{subtitle}</span>
+            <span className="whitespace-nowrap text-[8px] font-bold tracking-[0.25em] text-slate-500 uppercase mt-0.5">{subtitle}</span>
           </div>
         </Link>
 
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-4 sm:gap-6">
           {version && (
             <div className="hidden lg:flex items-center gap-4 text-xs font-bold text-slate-500 bg-slate-50 px-4 py-2 rounded-full border border-slate-200">
               <span className="flex items-center gap-1.5"><Tag size={12} className="text-teal-600" /> v{version}</span>
@@ -43,11 +43,12 @@ export default function ManualHeader({
               )}
             </div>
           )}
-          <Link href={basePath} className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500 hover:text-teal-600 transition-colors">
+          <Link href={basePath} className="whitespace-nowrap text-xs font-bold uppercase tracking-[0.1em] sm:tracking-[0.2em] text-slate-500 hover:text-teal-600 transition-colors">
             설명서 홈
           </Link>
-          <Link href="/" className="text-xs font-bold uppercase tracking-[0.2em] text-teal-600 hover:text-teal-700 transition-colors">
-            Back to Home
+          <Link href="/" className="whitespace-nowrap text-xs font-bold uppercase tracking-[0.1em] sm:tracking-[0.2em] text-teal-600 hover:text-teal-700 transition-colors">
+            <span className="sm:hidden">Home</span>
+            <span className="hidden sm:inline">Back to Home</span>
           </Link>
         </div>
       </div>
