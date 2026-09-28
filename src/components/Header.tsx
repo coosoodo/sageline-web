@@ -1,15 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
-import { createSupabaseServerClient } from '@/lib/supabase-server';
-import LogoutButton from '@/components/LogoutButton';
 import MobileNav from '@/components/MobileNav';
-import { MAIN_NAV, isExternalHref } from '@/lib/nav';
+import { MAIN_NAV, NAVER_CAFE_URL, isExternalHref } from '@/lib/nav';
 import BrandLogo from '@/components/BrandLogo';
 
-export default async function Header() {
-  const supabase = await createSupabaseServerClient();
-  const { data: { user } } = await supabase.auth.getUser();
-
+export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur-xl">
       <nav className="container mx-auto flex h-20 max-w-7xl items-center justify-between gap-3 px-4 sm:px-8">
@@ -30,16 +25,14 @@ export default async function Header() {
         </div>
 
         <div className="flex flex-shrink-0 items-center gap-2 sm:gap-3">
-          {user ? (
-            <>
-              <span className="text-xs text-slate-500 hidden md:block">{user.email}</span>
-              <LogoutButton />
-            </>
-          ) : (
-            <>
-              <Link href="/login" className="whitespace-nowrap rounded-full border border-teal-500/30 bg-teal-500/5 px-4 sm:px-5 py-2 text-xs font-bold uppercase tracking-[0.1em] sm:tracking-[0.15em] text-teal-600 hover:bg-teal-500/10 transition-all duration-300">로그인</Link>
-            </>
-          )}
+          <a
+            href={NAVER_CAFE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden sm:inline-flex whitespace-nowrap rounded-full border border-teal-500/30 bg-teal-500/5 px-5 py-2 text-xs font-bold tracking-[0.1em] text-teal-600 hover:bg-teal-500/10 transition-all duration-300"
+          >
+            무료 다운로드
+          </a>
           <MobileNav />
         </div>
       </nav>

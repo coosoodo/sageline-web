@@ -2,9 +2,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { redirect } from 'next/navigation';
 
-import { createSupabaseServerClient } from '@/lib/supabase-server';
 import Reveal from '@/components/Reveal';
 import HeroMockup from '@/components/HeroMockup';
 import { NAVER_CAFE_URL } from '@/lib/nav';
@@ -199,13 +197,7 @@ function ComparisonCell({ value }: { value: string | boolean }) {
   return <span className="text-xs font-medium text-slate-600">{value}</span>;
 }
 
-export default async function HomePage({ searchParams }: { searchParams: Promise<{ code?: string }> }) {
-  const { code } = await searchParams;
-  if (code) redirect(`/auth/callback?code=${code}`);
-
-  const supabase = await createSupabaseServerClient();
-  await supabase.auth.getUser();
-
+export default function HomePage() {
   return (
     <div className="flex flex-col text-slate-600 selection:bg-teal-500/30">
 
