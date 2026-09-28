@@ -7,6 +7,7 @@ import { redirect } from 'next/navigation';
 import { createSupabaseServerClient } from '@/lib/supabase-server';
 import Reveal from '@/components/Reveal';
 import HeroMockup from '@/components/HeroMockup';
+import { NAVER_CAFE_URL } from '@/lib/nav';
 import {
   ChevronRight,
   CandlestickChart,
@@ -240,12 +241,14 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
                 제품 살펴보기
                 <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </Link>
-              <Link
-                href="/boards/all"
+              <a
+                href={NAVER_CAFE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-8 py-4 text-sm font-bold uppercase tracking-[0.15em] text-slate-600 hover:border-teal-500/40 hover:text-teal-600 transition-all duration-300"
               >
                 커뮤니티
-              </Link>
+              </a>
             </div>
 
             <Reveal delay={200} className="mt-24">
@@ -286,7 +289,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
                   </p>
                 </div>
                 <a
-                  href="https://cafe.naver.com/sageline"
+                  href={NAVER_CAFE_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-shrink-0 inline-flex items-center justify-center gap-2 rounded-full bg-[#03C75A] px-8 py-4 text-sm font-bold tracking-wide text-white hover:bg-[#02b152] transition-all duration-300 shadow-lg shadow-[#03C75A]/20"
@@ -737,7 +740,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
                 </p>
               </div>
               <a
-                href="https://cafe.naver.com/sageline"
+                href={NAVER_CAFE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-shrink-0 inline-flex items-center justify-center gap-2 rounded-full bg-[#03C75A] px-8 py-4 text-sm font-bold tracking-wide text-white hover:bg-[#02b152] transition-all duration-300 shadow-lg shadow-[#03C75A]/20"
@@ -769,7 +772,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                   <a
-                    href="https://cafe.naver.com/sageline"
+                    href={NAVER_CAFE_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 rounded-full bg-[#03C75A] px-8 py-4 text-sm font-bold tracking-wide text-white hover:bg-[#02b152] transition-all duration-300"
@@ -777,10 +780,10 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
                     네이버 카페 바로가기
                   </a>
                   <Link
-                    href="/boards/all"
+                    href="/manual"
                     className="inline-flex items-center gap-2 rounded-full border border-white/20 px-8 py-4 text-sm font-bold uppercase tracking-[0.15em] text-white hover:bg-white/10 transition-all duration-300"
                   >
-                    커뮤니티
+                    사용자 설명서
                     <ChevronRight size={16} />
                   </Link>
                 </div>

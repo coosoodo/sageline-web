@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { createSupabaseServerClient } from '@/lib/supabase-server';
 import LogoutButton from '@/components/LogoutButton';
 import MobileNav from '@/components/MobileNav';
-import { MAIN_NAV } from '@/lib/nav';
+import { MAIN_NAV, isExternalHref } from '@/lib/nav';
 import BrandLogo from '@/components/BrandLogo';
 
 export default async function Header() {
@@ -16,11 +16,17 @@ export default async function Header() {
         <BrandLogo priority />
         
         <div className="hidden md:flex items-center space-x-10 text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
-          {MAIN_NAV.map(([item, href]) => (
-            <Link key={item} href={href} className="hover:text-teal-600 transition-all duration-300">
-              {item}
-            </Link>
-          ))}
+          {MAIN_NAV.map(([item, href]) =>
+            isExternalHref(href) ? (
+              <a key={item} href={href} target="_blank" rel="noopener noreferrer" className="hover:text-teal-600 transition-all duration-300">
+                {item}
+              </a>
+            ) : (
+              <Link key={item} href={href} className="hover:text-teal-600 transition-all duration-300">
+                {item}
+              </Link>
+            ),
+          )}
         </div>
 
         <div className="flex items-center gap-3">

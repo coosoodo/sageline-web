@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
-import { MAIN_NAV as NAV_ITEMS } from '@/lib/nav';
+import { MAIN_NAV as NAV_ITEMS, isExternalHref } from '@/lib/nav';
 
 export default function MobileNav() {
   const [open, setOpen] = useState(false);
@@ -23,16 +23,19 @@ export default function MobileNav() {
       {open && (
         <div className="absolute left-0 right-0 top-full border-b border-slate-200 bg-white/95 backdrop-blur-xl shadow-lg shadow-slate-900/5">
           <nav className="container mx-auto flex flex-col px-8 py-4">
-            {NAV_ITEMS.map(([label, href]) => (
-              <Link
-                key={label}
-                href={href}
-                onClick={() => setOpen(false)}
-                className="border-b border-slate-100 py-4 text-sm font-bold uppercase tracking-[0.2em] text-slate-600 last:border-b-0 hover:text-teal-600 transition-colors"
-              >
-                {label}
-              </Link>
-            ))}
+            {NAV_ITEMS.map(([label, href]) => {
+              const className =
+                'border-b border-slate-100 py-4 text-sm font-bold uppercase tracking-[0.2em] text-slate-600 last:border-b-0 hover:text-teal-600 transition-colors';
+              return isExternalHref(href) ? (
+                <a key={label} href={href} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className={className}>
+                  {label}
+                </a>
+              ) : (
+                <Link key={label} href={href} onClick={() => setOpen(false)} className={className}>
+                  {label}
+                </Link>
+              );
+            })}
           </nav>
         </div>
       )}
