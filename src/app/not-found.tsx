@@ -1,5 +1,11 @@
 import Link from 'next/link';
 import { ChevronLeft } from 'lucide-react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: '페이지를 찾을 수 없습니다',
+  description: '요청하신 페이지를 찾을 수 없습니다. 주소가 변경되었거나 삭제되었을 수 있습니다.',
+};
 
 export default function NotFound() {
   return (

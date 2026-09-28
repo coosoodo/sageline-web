@@ -12,7 +12,7 @@ export default async function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur-xl">
-      <nav className="container mx-auto flex h-20 max-w-7xl items-center justify-between px-8">
+      <nav className="container mx-auto flex h-20 max-w-7xl items-center justify-between gap-3 px-4 sm:px-8">
         <BrandLogo priority />
         
         <div className="hidden md:flex items-center space-x-10 text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
@@ -29,7 +29,7 @@ export default async function Header() {
           )}
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex flex-shrink-0 items-center gap-2 sm:gap-3">
           {user ? (
             <>
               <span className="text-xs text-slate-500 hidden md:block">{user.email}</span>
@@ -37,7 +37,7 @@ export default async function Header() {
             </>
           ) : (
             <>
-              <Link href="/login" className="whitespace-nowrap rounded-full border border-teal-500/30 bg-teal-500/5 px-5 py-2 text-xs font-bold uppercase tracking-[0.15em] text-teal-600 hover:bg-teal-500/10 transition-all duration-300">로그인</Link>
+              <Link href="/login" className="whitespace-nowrap rounded-full border border-teal-500/30 bg-teal-500/5 px-4 sm:px-5 py-2 text-xs font-bold uppercase tracking-[0.1em] sm:tracking-[0.15em] text-teal-600 hover:bg-teal-500/10 transition-all duration-300">로그인</Link>
             </>
           )}
           <MobileNav />

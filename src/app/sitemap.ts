@@ -1,7 +1,6 @@
 import fs from 'fs';
 import path from 'path';
 import type { MetadataRoute } from 'next';
-import { BOARD_CATEGORY_IDS } from '@/lib/boards';
 import { getPages } from '@/lib/manual-utils';
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sageline.co.kr';
@@ -14,15 +13,14 @@ function manualRoutes(file: string, basePath: string) {
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = ['', '/privacy', '/terms', '/manual', '/manual-lite'];
-  const boardRoutes = BOARD_CATEGORY_IDS.map((id) => `/boards/${id}`);
   const manualPages = [
     ...manualRoutes('manual.md', '/manual'),
     ...manualRoutes('manual-lite.md', '/manual-lite'),
   ];
 
-  return [...staticRoutes, ...boardRoutes, ...manualPages].map((route) => ({
+  return [...staticRoutes, ...manualPages].map((route) => ({
     url: `${baseUrl}${route}`,
-    changeFrequency: route.startsWith('/boards') ? 'daily' : 'monthly',
+    changeFrequency: 'monthly',
     priority: route === '' ? 1 : 0.7,
   }));
 }

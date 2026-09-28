@@ -22,7 +22,7 @@ export default function MobileNav() {
 
       {open && (
         <div className="absolute left-0 right-0 top-full border-b border-slate-200 bg-white/95 backdrop-blur-xl shadow-lg shadow-slate-900/5">
-          <nav className="container mx-auto flex flex-col px-8 py-4">
+          <nav className="container mx-auto flex flex-col px-4 sm:px-8 py-4">
             {NAV_ITEMS.map(([label, href]) => {
               const className =
                 'border-b border-slate-100 py-4 text-sm font-bold uppercase tracking-[0.2em] text-slate-600 last:border-b-0 hover:text-teal-600 transition-colors';

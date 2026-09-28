@@ -8,6 +8,7 @@ import MarkdownRenderer from '@/components/MarkdownRenderer';
 import BoardActions from '@/components/BoardActions';
 import { getBoardCategory, isHiddenPost } from '@/lib/boards';
 import { ChevronLeft, Eye } from 'lucide-react';
+import { pageMetadata } from '@/lib/metadata';
 
 interface Props {
   params: Promise<{ category: string; id: string }>;
@@ -33,8 +34,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     .slice(0, 120);
 
   return {
-    title: cat ? `${post.title} - ${cat.title}` : post.title,
-    description: excerpt || undefined,
+    ...pageMetadata({
+      title: cat ? `${post.title} - ${cat.title}` : post.title,
+      path: `/boards/${category}/${id}`,
+      description: excerpt || 'SAGE LINE 커뮤니티 게시글입니다.',
+    }),
+    robots: { index: false, follow: true },
   };
 }
 

@@ -2,11 +2,13 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import BrandLogo from '@/components/BrandLogo';
 import LoginForm from './LoginForm';
+import { pageMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: '로그인 · 회원가입',
+  path: '/login',
   description: 'Google 계정으로 SAGE LINE에 로그인하거나 가입합니다.',
-};
+});
 
 export default async function LoginPage({ searchParams }: { searchParams: Promise<{ error?: string }> }) {
   const { error } = await searchParams;

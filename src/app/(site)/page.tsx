@@ -27,12 +27,15 @@ import {
   MessagesSquare,
   Wrench,
 } from 'lucide-react';
+import { pageMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
-  title: { absolute: 'SAGE LINE | 현명한 선택, 명확한 길' },
+export const metadata: Metadata = pageMetadata({
+  title: 'SAGE LINE | 현명한 선택, 명확한 길',
+  absolute: true,
+  path: '/',
   description:
     '키움증권 REST API 기반 주식 자동매매 프로그램 부엉이 트레이더 — AI 매수의견 판정, 외부 매매신호 연동, 손절·익절·트레일링 스탑까지. 데이터 기반의 통찰력과 전략적 기술로 개인 투자자의 성공을 설계하는 파트너, 세이지라인입니다.',
-};
+});
 
 const FULL_FEATURES = [
   'AI 매수의견 판정 — 매수 직전 ChatGPT · Gemini 재검증',

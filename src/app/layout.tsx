@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Noto_Sans_KR } from "next/font/google";
+import { BASE_OPEN_GRAPH } from "@/lib/metadata";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -28,11 +29,9 @@ export const metadata: Metadata = {
     "키움증권 API 기반 주식 자동매매 프로그램 '부엉이 트레이더'를 만듭니다. 데이터 기반의 통찰력과 전략적 기술로 개인 투자자의 성공을 설계하는 파트너, 세이지라인입니다.",
   keywords: ["부엉이 트레이더", "부엉이 트레이더 프로", "부엉이 트레이더 라이트", "자동매매", "주식 자동매매", "키움증권 API", "퀀트 투자", "세이지라인", "SAGELINE"],
   openGraph: {
+    ...BASE_OPEN_GRAPH,
     title: "SAGE LINE | 현명한 선택, 명확한 길",
     description: "키움증권 API 기반 주식 자동매매 프로그램 '부엉이 트레이더' — 개인 투자자를 위한 퀀트 투자 솔루션",
-    locale: "ko_KR",
-    type: "website",
-    siteName: "SAGE LINE",
   },
 };
 

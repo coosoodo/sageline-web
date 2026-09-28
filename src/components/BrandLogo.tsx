@@ -20,7 +20,7 @@ export default function BrandLogo({
         <span className="whitespace-nowrap text-[18px] font-black tracking-[0.08em] text-navy-700 group-hover:text-navy-500 transition-colors duration-300">
           SAGE<span className="text-teal-500"> LINE</span>
         </span>
-        <span className="whitespace-nowrap text-[8px] font-bold tracking-[0.25em] text-slate-500 uppercase mt-0.5">{subtitle}</span>
+        <span className="whitespace-nowrap text-[8px] font-bold tracking-[0.15em] sm:tracking-[0.25em] text-slate-500 uppercase mt-0.5">{subtitle}</span>
       </div>
     </Link>
   );

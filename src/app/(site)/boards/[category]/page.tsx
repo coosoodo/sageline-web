@@ -9,6 +9,7 @@ import BoardToolbar from '@/components/BoardToolbar';
 import Pagination from '@/components/Pagination';
 import { ALL_BOARD, BOARDS_WITH_ALL, BOARD_CATEGORY_IDS, HIDDEN_POST_IDS, getBoardView } from '@/lib/boards';
 import { ChevronRight } from 'lucide-react';
+import { pageMetadata } from '@/lib/metadata';
 
 const PAGE_SIZE = 10;
 
@@ -21,8 +22,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { category } = await params;
   const cat = getBoardView(category);
   return {
-    title: cat ? cat.title : '게시판',
-    description: cat ? cat.description : 'SAGE LINE 커뮤니티 게시판입니다.',
+    ...pageMetadata({
+      title: cat ? cat.title : '게시판',
+      path: `/boards/${category}`,
+      description: cat ? cat.description : 'SAGE LINE 커뮤니티 게시판입니다.',
+    }),
+    // 커뮤니티는 네이버 카페로 옮겼다. 남아 있는 사이트 게시판은 검색에 노출하지 않는다.
+    robots: { index: false, follow: true },
   };
 }
 

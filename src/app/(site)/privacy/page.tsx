@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: '개인정보처리방침',
-  description: 'SAGE LINE 개인정보처리방침',
-};
+  path: '/privacy',
+  description: 'SAGE LINE이 처리하는 개인정보의 항목 · 목적 · 보유기간과 이용자의 권리를 안내합니다.',
+});
 
 export default function PrivacyPage() {
   return (

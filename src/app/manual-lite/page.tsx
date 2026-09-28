@@ -6,15 +6,17 @@ import { BookOpen, ChevronRight, ArrowRight } from 'lucide-react';
 
 import ManualHeader from '@/components/ManualHeader';
 import { parseManual, getPages, getManualNav } from '@/lib/manual-utils';
+import { pageMetadata } from '@/lib/metadata';
 
 export const dynamic = 'force-static';
 
 const BASE_PATH = '/manual-lite';
 
-export const metadata: Metadata = {
-  title: { absolute: '부엉이 트레이더 라이트 사용자 설명서 | SAGE LINE' },
+export const metadata: Metadata = pageMetadata({
+  title: '부엉이 트레이더 라이트 사용자 설명서',
+  path: '/manual-lite',
   description: '부엉이 트레이더 라이트의 설치부터 조건검색식 자동매매 전략 설정까지 사용법을 안내합니다.',
-};
+});
 
 export default async function ManualLiteIndexPage() {
   const manualPath = path.join(process.cwd(), 'src/content/manual-lite.md');

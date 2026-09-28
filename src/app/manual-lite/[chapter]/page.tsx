@@ -9,6 +9,7 @@ import ManualHeader from '@/components/ManualHeader';
 import ManualSidebarPanel from '@/components/ManualSidebarPanel';
 import ManualRenderer from '@/components/ManualRenderer';
 import { parseManual, getPages, getManualNav } from '@/lib/manual-utils';
+import { pageMetadata } from '@/lib/metadata';
 
 export const dynamic = 'force-static';
 export const dynamicParams = false;
@@ -32,10 +33,12 @@ export async function generateMetadata({
   const { chapter } = await params;
   const page = getPages(readManual()).find((p) => p.slug === chapter);
   if (!page) return { title: '라이트 사용자 설명서' };
-  return {
-    title: { absolute: `${page.title} | 부엉이 트레이더 라이트 설명서` },
+  return pageMetadata({
+    title: `${page.title} | 부엉이 트레이더 라이트 설명서`,
+    absolute: true,
+    path: `/manual-lite/${page.slug}`,
     description: `부엉이 트레이더 라이트 사용자 설명서 — ${page.shortTitle}`,
-  };
+  });
 }
 
 export default async function ManualLiteChapterPage({

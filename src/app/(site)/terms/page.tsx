@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: '서비스 이용약관',
-  description: 'SAGE LINE 서비스 이용약관',
-};
+  path: '/terms',
+  description: '부엉이 트레이더 프로 · 라이트와 SAGE LINE 웹사이트 이용에 관한 약관입니다.',
+});
 
 export default function TermsPage() {
   return (

@@ -6,14 +6,16 @@ import { BookOpen, ArrowRight, Tag, Clock, Layers } from 'lucide-react';
 
 import ManualHeader from '@/components/ManualHeader';
 import { parseManual, getPages, getManualNav } from '@/lib/manual-utils';
+import { pageMetadata } from '@/lib/metadata';
 
 export const dynamic = 'force-static';
 
-export const metadata: Metadata = {
-  title: { absolute: '사용자 설명서 | SAGE LINE' },
+export const metadata: Metadata = pageMetadata({
+  title: '사용자 설명서',
+  path: '/manual',
   description:
     '부엉이 트레이더 프로와 부엉이 트레이더 라이트의 공식 사용자 설명서입니다. 사용 중인 제품을 선택해 설치부터 자동매매 전략 설정까지 확인하세요.',
-};
+});
 
 /** 설명서 파일에서 표지 카드에 필요한 정보만 뽑아낸다. */
 function readManualSummary(file: string, basePath: string) {
