@@ -1,4 +1,4 @@
-// 커뮤니티는 네이버 카페에서 운영한다. (사이트 게시판은 주소로만 접근)
+// 커뮤니티는 네이버 카페에서 운영한다. (예전 /boards/* 주소도 여기로 리디렉트)
 export const NAVER_CAFE_URL = 'https://cafe.naver.com/sageline';
 
 // 헤더·모바일 내비게이션 공용 항목 (label, href)

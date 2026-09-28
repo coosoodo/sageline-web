@@ -24,7 +24,7 @@ export default function TermsPage() {
           <section>
             <h2 className="text-lg font-semibold text-slate-900 mb-4">제2조 (정의)</h2>
             <ul className="space-y-2 list-disc list-inside">
-              <li><span className="text-slate-600">&quot;서비스&quot;</span>란 회사가 제공하는 프로그램, 자동매매 개발 지원, 웹사이트(사용자 설명서 · 커뮤니티 게시판 등) 및 관련 제반 서비스를 의미합니다.</li>
+              <li><span className="text-slate-600">&quot;서비스&quot;</span>란 회사가 제공하는 프로그램, 자동매매 개발 지원, 웹사이트(사용자 설명서 · 제품 소식 등) 및 관련 제반 서비스를 의미합니다.</li>
               <li><span className="text-slate-600">&quot;프로그램&quot;</span>이란 회사가 배포하는 PC용 주식 자동매매 프로그램인 부엉이 트레이더 프로와 부엉이 트레이더 라이트를 말합니다.</li>
               <li><span className="text-slate-600">&quot;이용자&quot;</span>란 이 약관에 따라 회사가 제공하는 서비스를 이용하는 회원 및 비회원을 말합니다.</li>
               <li><span className="text-slate-600">&quot;회원&quot;</span>이란 회사에 개인정보를 제공하여 회원 등록을 한 자로서, 회사의 정보를 지속적으로 제공받으며 서비스를 계속적으로 이용할 수 있는 자를 말합니다.</li>
@@ -49,7 +49,8 @@ export default function TermsPage() {
                   <li>부엉이 트레이더 프로: 키움증권 REST API 기반의 국내 주식 자동매매 프로그램 (조건검색식 · 사용자 정의 전략 자동매매, 차트 · 기술적 지표, AI 매수의견 판정, 외부 매매신호 연동, 알림 등)</li>
                   <li>부엉이 트레이더 라이트: 키움증권 조건검색식 기반 자동매매와 손절 · 익절 등 매도 전략에 집중한 경량 자동매매 프로그램</li>
                   <li>자동매매 개발 지원: 자동매매 시스템 구현에 관한 기술 질의응답 및 시스템 제작 대행</li>
-                  <li>웹사이트: 프로그램 사용자 설명서, 커뮤니티 게시판, 제품 소식</li>
+                  <li>웹사이트: 프로그램 사용자 설명서, 제품 소식</li>
+                  <li>커뮤니티: 회사가 운영하는 네이버 카페(제품 배포, 소식, 문의). 카페 이용에는 네이버의 이용약관이 함께 적용됩니다.</li>
                   <li>기타 회사가 추가 개발하거나 제휴를 통해 이용자에게 제공하는 일체의 서비스</li>
                 </ul>
               </li>
